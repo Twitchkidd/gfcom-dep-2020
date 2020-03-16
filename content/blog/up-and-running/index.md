@@ -29,3 +29,13 @@ Ooo, that's one sleek form, Twitter. Also, I am _really_ used to verification by
 Alright beezleys, it's [@barefootgareth](twitter.com/barefootgareth) to y'all!
 
 Oh, so easily distracted ... took off on a js package managers journey because Microsoft just bought NPM (...eep,) and then a little journey on Chakra UI, which looks dope and has a Gatsby plugin! Where were we though, metadata, metadata ... Okay, definitely at a concentration limit, time for a groceries run and another walk for Dawa! // (btw, for whatever reason in my notes, I tend to leave a '//' where I leave off for a while, and a '///' for like a major break, like next day or later usually. Looking forward to getting my paper notes scanned!)
+
+Whooooops, broke production! First of many, most likely, let's dig in!
+
+Eugh, so weird, I rebuilt it and pushed index.html over, and it works, but none of the newer blog content is there and the profile image is super wonky. I also am losing steam a little, and maybe should switch tasks so I stay interested, because honestly ... I really love this stuff because it's so cool writing code and talking with the machine and making something awesome for people, and I really need to work hard at it because there's a lot of surface area, and frankly I'm not that smart, and it's my best shot at not cleaning toilets the rest of my life ... ahhh, I think the back pain is taking over the conversation at this point :(
+
+Okay, let me just see if replacing everything gatsby-related has the site still working, so I know I'm not going crazy at least and can start from relatively fresh, though! I must say, I changed my GitHub password because I had a login from France on a different service and probably don't have the best password security, and then my git stuff broke earlier, and I was reminded very quickly how much I don't really know about git and ssh and credentials.
+
+Or how much I have to learn! Got to stay positive! Got to call it, after this, too, I'm going to get Dawa's dinner going, fetch the laundry, and try and get a good night's sleep, and hopefully I don't have the plague, here (search for the news on this date, lol. I called out tomorrow because I have a bit of a throat/upper respiratory/lower GI thing going on and don't want to risk it-slash-need a mental health day after yesterday's shift, holy moley ...) So!
+
+Best wishes! ~g
