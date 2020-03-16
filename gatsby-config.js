@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `Gareth Field, Dot Com!`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Gareth Field`,
+      summary: `a trailrunner, developer, coffee lover, and dog dad based out of beautiful downtown New London, Connecticut!`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
+    description: `A homepage for all things, running-, coding-, coffee-, Dawa- (my dog :) ) and Gareth-related on the Internet!`,
+    siteUrl: `https://www.garethfield.com/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `barefootgareth`,
     },
   },
   plugins: [
@@ -53,7 +53,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-160627547-1`,
       },
     },
     `gatsby-plugin-feed`,
