@@ -3,7 +3,7 @@ module.exports = {
     title: `Gareth Field, Dot Com!`,
     author: {
       name: `Gareth Field`,
-      summary: `a trailrunner, developer, coffee lover, and dog dad based out of beautiful downtown New London, Connecticut!`,
+      summary: `a trail runner, developer, coffee lover, and dog dad based out of beautiful downtown New London, Connecticut!`,
     },
     description: `A homepage for all things, running-, coding-, coffee-, Dawa- (my dog :) ) and Gareth-related on the Internet!`,
     siteUrl: `https://www.garethfield.com/`,
@@ -60,13 +60,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Gareth Field, Dot Com!`,
+        short_name: `GF.Com!`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#efefef`,
+        theme_color: `#675997`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/gareth-icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
@@ -76,8 +76,9 @@ module.exports = {
         pathToConfigModule: `src/utils/typography`,
       },
     },
+    `gatsby-plugin-styled-components`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-}
+};

@@ -1,7 +1,7 @@
 ---
 title: Up And Running!
 date: "2020-03-16T11:38:03.284Z"
-description: "Up And Running!"
+description: "Gareth gets his blog up and running!"
 ---
 
 Alright, let's do this thing!

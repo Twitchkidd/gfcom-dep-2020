@@ -1,5 +1,5 @@
 // custom typefaces
-import "typeface-montserrat"
-import "typeface-merriweather"
+import "typeface-arvo";
+import "typeface-cabin";
 
-import "prismjs/themes/prism.css"
+import "prismjs/themes/prism.css";
