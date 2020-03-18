@@ -1,60 +1,41 @@
-import React from "react";
-import { Link, graphql } from "gatsby";
-// import styled from "styled-components";
-
-import Bio from "../components/bio";
+import React, { useState } from "react";
+import { graphql } from "gatsby";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import { rhythm } from "../utils/typography";
+import Bio from "../components/bio";
+import Nav from "../components/Nav";
+import BlogList from "../components/BlogList";
 
-// const Button = styled.button`
-//   background: blue;
-//   color: white;
-// `;
-
-const BlogIndex = ({ data, location }) => {
+const SiteIndex = ({ data, location }) => {
+  const [tab, setTab] = useState("running");
   const siteTitle = data.site.siteMetadata.title;
-  const posts = data.allMarkdownRemark.edges;
-
-  // Gareth's code here!
-  // console.log(location)
-
+  console.log(tab);
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />
-      <Bio />
-      {/* <Button>HEYYY!!!</Button> */}
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug;
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        );
-      })}
+      <Bio location={location} />
+      <Nav setTab={setTab} />
+      <div id="main-content">
+        {(() => {
+          switch (tab) {
+            case "running":
+              return <p>Running!</p>;
+            case "coding":
+              return <BlogList data={data} />;
+            case "coffee":
+              return <p>Coffee!</p>;
+            case "dog":
+              return <p>Dog!</p>;
+            default:
+              return <p>Error?</p>;
+          }
+        })()}
+      </div>
     </Layout>
   );
 };
 
-export default BlogIndex;
+export default SiteIndex;
 
 export const pageQuery = graphql`
   query {

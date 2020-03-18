@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Gareth Field, Dot Com!`,
+    title: `Gareth Field ... Dot Com!`,
     author: {
       name: `Gareth Field`,
       summary: `a trail runner, developer, coffee lover, and dog dad based out of beautiful downtown New London, Connecticut!`,

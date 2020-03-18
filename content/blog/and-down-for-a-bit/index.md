@@ -35,3 +35,5 @@ Ohhkay, well I changed the theme and the fonts, and I like that links are underl
 BTW the GitHub mobile app just dropped! Whaaat!! I think I'm done for the night, though, unless I get a magical burst of energy later, still sick and feeling it, lol.
 
 Best wishes! ~g
+
+P.S. Okay, I lied a little, opened everything up after walking Dawa again and feeding him, and the underline color for links is achieved with backgroundImage! Weird! I kinda want to just fork the theme and customize it that way, but that's _definitely_ a morning task.
