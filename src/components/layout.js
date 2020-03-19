@@ -1,10 +1,9 @@
 import React, { Fragment } from "react";
 import Global from "./Global";
 import { Link } from "gatsby";
+import { rhythm, scale } from "../utils";
 
-import { rhythm, scale } from "../utils/typography";
-
-const Layout = ({ location, title, children }) => {
+export const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
 
@@ -15,6 +14,7 @@ const Layout = ({ location, title, children }) => {
           ...scale(1.5),
           marginBottom: rhythm(1.5),
           marginTop: 0,
+          paddingLeft: "-48px",
         }}
       >
         {title}
@@ -44,24 +44,48 @@ const Layout = ({ location, title, children }) => {
   return (
     <Fragment>
       <Global />
-      <div
-        style={{
-          marginLeft: `auto`,
-          marginRight: `auto`,
-          maxWidth: rhythm(32),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        <header>{header}</header>
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      {location.pathname === rootPath ? (
+        <div
+          style={{
+            marginLeft: `auto`,
+            marginRight: `auto`,
+            maxWidth: rhythm(32),
+            padding: `${rhythm(2.5)} ${rhythm(3 / 4)}`,
+          }}
+        >
+          <header
+            style={{
+              position: `relative`,
+              left: `-96px`,
+            }}
+          >
+            {header}
+          </header>
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
+        </div>
+      ) : (
+        <div
+          style={{
+            marginLeft: `auto`,
+            marginRight: `auto`,
+            maxWidth: rhythm(32),
+            padding: `${rhythm(2.5)} ${rhythm(3 / 4)}`,
+          }}
+        >
+          <header>{header}</header>
+          <main>{children}</main>
+          <footer>
+            © {new Date().getFullYear()}, Built with
+            {` `}
+            <a href="https://www.gatsbyjs.org">Gatsby</a>
+          </footer>
+        </div>
+      )}
     </Fragment>
   );
 };
-
-export default Layout;

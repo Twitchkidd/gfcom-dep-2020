@@ -1,10 +1,6 @@
 import React, { useState } from "react";
 import { graphql } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import Bio from "../components/bio";
-import Nav from "../components/Nav";
-import BlogList from "../components/BlogList";
+import { Bio, BlogList, Layout, Nav, SEO } from "../components";
 
 const SiteIndex = ({ data, location }) => {
   const [tab, setTab] = useState("running");

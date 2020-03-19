@@ -1,10 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-
-import Bio from "../components/bio";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import { rhythm, scale } from "../utils/typography";
+import { Bio, Layout, SEO } from "../components";
+import { rhythm, scale } from "../utils";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;

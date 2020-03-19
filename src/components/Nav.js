@@ -1,6 +1,6 @@
 import React from "react";
 
-const Nav = ({ setTab }) => (
+export const Nav = ({ setTab }) => (
   <ul>
     <li
       onClick={() => {
@@ -32,5 +32,3 @@ const Nav = ({ setTab }) => (
     </li>
   </ul>
 );
-
-export default Nav;

@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import { Link } from "gatsby";
-import { rhythm } from "../utils/typography";
+import { rhythm } from "../utils";
 
-const BlogList = ({ data }) => {
+export const BlogList = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
     <Fragment>
@@ -35,5 +35,3 @@ const BlogList = ({ data }) => {
     </Fragment>
   );
 };
-
-export default BlogList;

@@ -23,7 +23,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     margin: 0;
-    padding: 42px 16px 0 20px;
+    padding: 0 16px 0 0;
     color: ${eigengrau};
     background: ${white};
     -webkit-font-smoothing: antialiased;
@@ -40,6 +40,7 @@ const GlobalStyle = createGlobalStyle`
      background: linear-gradient(to bottom, ${pink} 0%, ${pink} 40%, ${purple} 40%, ${purple} 60%, ${blue} 60%, ${blue} 100%)
    }
    ${below.med`
+      padding: 12px 0 0 0;
       &::before {
         position: fixed;
         height: 12px;
