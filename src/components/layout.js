@@ -1,7 +1,70 @@
 import React, { Fragment } from "react";
+import styled from "styled-components";
 import Global from "./Global";
 import { Link } from "gatsby";
-import { rhythm, scale } from "../utils";
+import { rhythm, scale, white } from "../utils";
+
+const LandingMainDiv = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: ${rhythm(32)};
+  padding: ${rhythm(2.5)} ${rhythm(3 / 4)};
+  background: ${white};
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -112px;
+    height: 100vh;
+    width: 112px;
+    background: ${white};
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height: 100vh;
+    width: 112px;
+    background: ${white};
+  }
+`;
+
+const OtherMainDiv = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: ${rhythm(32)};
+  padding: ${rhythm(2.5)} ${rhythm(3 / 4)};
+  background: ${white};
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -112px;
+    height: 100%;
+    width: 112px;
+    background: ${white};
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    width: 112px;
+    background: ${white};
+  }
+`;
+
+const Footer = styled.footer`
+  width: 100%;
+  height: 1.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
@@ -45,14 +108,7 @@ export const Layout = ({ location, title, children }) => {
     <Fragment>
       <Global />
       {location.pathname === rootPath ? (
-        <div
-          style={{
-            marginLeft: `auto`,
-            marginRight: `auto`,
-            maxWidth: rhythm(32),
-            padding: `${rhythm(2.5)} ${rhythm(3 / 4)}`,
-          }}
-        >
+        <LandingMainDiv>
           <header
             style={{
               position: `relative`,
@@ -62,29 +118,26 @@ export const Layout = ({ location, title, children }) => {
             {header}
           </header>
           <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
+          <Footer>
+            <span>
+              © {new Date().getFullYear()}, Built with
+              {` `}
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </span>
+          </Footer>
+        </LandingMainDiv>
       ) : (
-        <div
-          style={{
-            marginLeft: `auto`,
-            marginRight: `auto`,
-            maxWidth: rhythm(32),
-            padding: `${rhythm(2.5)} ${rhythm(3 / 4)}`,
-          }}
-        >
+        <OtherMainDiv>
           <header>{header}</header>
           <main>{children}</main>
-          <footer>
-            © {new Date().getFullYear()}, Built with
-            {` `}
-            <a href="https://www.gatsbyjs.org">Gatsby</a>
-          </footer>
-        </div>
+          <Footer>
+            <span>
+              © {new Date().getFullYear()}, Built with
+              {` `}
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </span>
+          </Footer>
+        </OtherMainDiv>
       )}
     </Fragment>
   );

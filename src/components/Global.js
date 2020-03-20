@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 import { normalize } from "polished";
 import {
   below,
-  white,
+  almostWhite,
   lighter,
   light,
   eigengrau,
@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  *, *:before, *:after {
+  *, *::before, *::after {
     box-sizing: inherit;
   }
 
@@ -25,10 +25,11 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0 16px 0 0;
     color: ${eigengrau};
-    background: ${white};
+    background: ${almostWhite};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     position: relative;
+    overflow: hidden;
     &::before {
      content: '';
      position: fixed;

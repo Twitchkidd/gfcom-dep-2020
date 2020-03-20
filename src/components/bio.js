@@ -8,7 +8,7 @@
 import React, { Fragment } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Image from "gatsby-image";
-import { rhythm } from "../utils";
+import { rhythm, scale } from "../utils";
 
 export const Bio = ({ location }) => {
   const data = useStaticQuery(graphql`
@@ -51,6 +51,7 @@ export const Bio = ({ location }) => {
             marginBottom: rhythm(2.5),
             position: `relative`,
             left: `-96px`,
+            alignItems: `center`,
           }}
         >
           <Image
@@ -66,7 +67,7 @@ export const Bio = ({ location }) => {
               borderRadius: `50%`,
             }}
           />
-          <p>
+          <p style={{ marginBottom: 0 }}>
             Gareth is {author.summary}
             {` `}
             <a href={`https://twitter.com/${social.twitter}`}>
@@ -79,6 +80,7 @@ export const Bio = ({ location }) => {
           style={{
             display: `flex`,
             marginBottom: rhythm(2.5),
+            alignItems: "center",
           }}
         >
           <Image
@@ -94,7 +96,7 @@ export const Bio = ({ location }) => {
               borderRadius: `50%`,
             }}
           />
-          <p>
+          <p style={{ marginBottom: 0 }}>
             Written by <strong>{author.name}</strong>, {author.summary}
             {` `}
             <a href={`https://twitter.com/${social.twitter}`}>
