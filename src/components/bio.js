@@ -50,7 +50,7 @@ export const Bio = ({ location }) => {
             display: `flex`,
             marginBottom: rhythm(2.5),
             position: `relative`,
-            left: `-96px`,
+            left: `-36px`,
             alignItems: `center`,
           }}
         >
@@ -73,6 +73,15 @@ export const Bio = ({ location }) => {
             <a href={`https://twitter.com/${social.twitter}`}>
               Follow him on Twitter!
             </a>
+            {` `}
+            <strong>
+              <a
+                href={`mailto:field.gareth@gmail.com?Subject=Hiring%20For%20Web%20Development`}
+                target={"_top"}
+              >
+                Hire him! 😁
+              </a>
+            </strong>
           </p>
         </div>
       ) : (

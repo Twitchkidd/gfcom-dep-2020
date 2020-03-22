@@ -35,7 +35,7 @@ const SiteIndex = ({ data, location }) => {
       <SEO title="All posts" />
       <Bio location={location} />
       <NavBarMainContentWrapper>
-        <Nav setTab={setTab} />
+        <Nav tab={tab} setTab={setTab} />
         <MainContent>
           {(() => {
             switch (tab) {

@@ -18,7 +18,14 @@ const LandingMainDiv = styled.div`
     left: -112px;
     height: 100vh;
     width: 112px;
-    background: ${white};
+    background: linear-gradient(
+      to left,
+      ${white},
+      ${white},
+      ${white},
+      ${white},
+      transparent
+    );
   }
   &::after {
     content: "";
@@ -27,7 +34,14 @@ const LandingMainDiv = styled.div`
     left: 100%;
     height: 100vh;
     width: 112px;
-    background: ${white};
+    background: linear-gradient(
+      to right,
+      ${white},
+      ${white},
+      ${white},
+      ${white},
+      transparent
+    );
   }
 `;
 
@@ -45,7 +59,14 @@ const OtherMainDiv = styled.div`
     left: -112px;
     height: 100%;
     width: 112px;
-    background: ${white};
+    background: linear-gradient(
+      to left,
+      ${white},
+      ${white},
+      ${white},
+      ${white},
+      transparent
+    );
   }
   &::after {
     content: "";
@@ -54,7 +75,14 @@ const OtherMainDiv = styled.div`
     left: 100%;
     height: 100%;
     width: 112px;
-    background: ${white};
+    background: linear-gradient(
+      to right,
+      ${white},
+      ${white},
+      ${white},
+      ${white},
+      transparent
+    );
   }
 `;
 
@@ -77,7 +105,6 @@ export const Layout = ({ location, title, children }) => {
           ...scale(1.5),
           marginBottom: rhythm(1.5),
           marginTop: 0,
-          paddingLeft: "-48px",
         }}
       >
         {title}
@@ -109,14 +136,7 @@ export const Layout = ({ location, title, children }) => {
       <Global />
       {location.pathname === rootPath ? (
         <LandingMainDiv>
-          <header
-            style={{
-              position: `relative`,
-              left: `-96px`,
-            }}
-          >
-            {header}
-          </header>
+          <header>{header}</header>
           <main>{children}</main>
           <Footer>
             <span>

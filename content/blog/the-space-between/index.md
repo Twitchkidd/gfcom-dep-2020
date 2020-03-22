@@ -35,3 +35,11 @@ Okay, wow, coming along! Wonder how it looks on mobile, lol. Oh, jeez. So the he
 Oooh, todo: credit [Chris Coyier's article](https://css-tricks.com/overriding-default-button-styles/) for the button reset. Oh, I'm doing tabs stupidly, though. I feel like I'm more in CSS mode, so let me get the styling a little better, then I'll take Dawa for another walk and come back to JS-land.
 
 Oof, needs a bit more work, wow though. Can't sit anymore though :) //
+
+Boyo, we got a _long_ one in! I mean, we've had longer ones, even recently, but considering being sick, that was ... how far was that? I use [mapmyrun.com](mapmyrun.com) for this type of thing ...
+
+![Map of 6.85 mile walk with Dawa](walk-with-dawa.png)
+
+Okay, made some slight changes, going to just fix up the buttons and I'm going to look for jobs to apply to! It's go time!
+
+Oh no ... the itis! I knew I shouldn't have had that last spoonful of beans, but it was sooo gooood! Alright, I need to return to this with a fresh mind. ///..
