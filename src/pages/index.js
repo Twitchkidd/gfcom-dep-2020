@@ -27,9 +27,6 @@ const MainContent = styled.div`
 const SiteIndex = ({ data, location }) => {
   const [tab, setTab] = useState("coding");
   const siteTitle = data.site.siteMetadata.title;
-  useEffect(() => {
-    console.log("todo, pass the ref of the buttons back up");
-  });
   return (
     <Layout location={location} title={siteTitle}>
       <SEO title="All posts" />

@@ -8,6 +8,7 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@bumaga/tabs": "^0.2.0",
     "babel-plugin-styled-components": "^1.10.7",
     "gatsby": "^2.19.43",
     "gatsby-cli": "^2.11.0",

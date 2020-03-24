@@ -6,6 +6,7 @@ export const BlogList = ({ data }) => {
   const posts = data.allMarkdownRemark.edges;
   return (
     <Fragment>
+      <a href="https://bit.ly/3dpPHQI">Resume!</a>
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug;
         return (
