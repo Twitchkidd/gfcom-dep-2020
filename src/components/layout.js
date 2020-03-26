@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import styled from "styled-components";
 import Global from "./Global";
+import Hamburger from "hamburger-react";
 import { Link } from "gatsby";
 import { rhythm, scale, white } from "../utils";
 
@@ -8,7 +9,7 @@ const LandingMainDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: ${rhythm(32)};
-  padding: ${rhythm(2.5)} ${rhythm(3 / 4)};
+  padding: ${rhythm(2.5)} ${rhythm(3 / 4)} ${rhythm(1.5)};
   background: ${white};
   position: relative;
   &::before {
@@ -16,7 +17,7 @@ const LandingMainDiv = styled.div`
     position: absolute;
     top: 0;
     left: -112px;
-    height: 100vh;
+    height: 110vh;
     width: 112px;
     background: linear-gradient(
       to left,
@@ -32,7 +33,7 @@ const LandingMainDiv = styled.div`
     position: absolute;
     top: 0;
     left: 100%;
-    height: 100vh;
+    height: 110vh;
     width: 112px;
     background: linear-gradient(
       to right,
@@ -43,6 +44,13 @@ const LandingMainDiv = styled.div`
       transparent
     );
   }
+`;
+
+const LandingHeaderWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
 `;
 
 const OtherMainDiv = styled.div`
@@ -100,21 +108,29 @@ export const Layout = ({ location, title, children }) => {
 
   if (location.pathname === rootPath) {
     header = (
-      <h1
-        style={{
-          ...scale(1.5),
-          marginBottom: rhythm(1.5),
-          marginTop: 0,
-        }}
-      >
-        {title}
-      </h1>
+      <LandingHeaderWrapper>
+        <h1
+          style={{
+            ...scale(1.5),
+            marginBottom: rhythm(1.5),
+            marginTop: 0,
+          }}
+        >
+          {title}
+        </h1>
+        <Hamburger
+          size={25}
+          duration={0.25}
+          onToggle={toggled =>
+            toggled ? console.log("ayy!") : console.log("ooh!")
+          }
+        />
+      </LandingHeaderWrapper>
     );
   } else {
     header = (
       <h3
         style={{
-          fontFamily: `Montserrat, sans-serif`,
           marginTop: 0,
         }}
       >

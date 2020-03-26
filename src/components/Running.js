@@ -1,12 +1,16 @@
 import React from "react";
 
-export const Running = () => (
-  <p>
-    Running! Running! Running! Running! Running! Running! Running! Running!
-    Running! Running! Running! Running! Running! Running! Running! Running!
-    Running! Running! Running! Running! Running! Running! Running! Running!
-    Running! Running! Running! Running! Running! Running! Running! Running!
-    Running! Running! Running! Running! Running! Running! Running! Running!
-    Running! Running! Running! Running! Running! Running! Running! Running!{" "}
-  </p>
-);
+export const Running = () => {
+  return (
+    <>
+      <p>
+        Running! Running! Running! Running! Running! Running! Running! Running!
+        Running! Running! Running! Running! Running! Running! Running! Running!
+        Running! Running! Running! Running! Running! Running! Running! Running!
+        Running! Running! Running! Running! Running! Running! Running! Running!
+        Running! Running! Running! Running! Running! Running! Running! Running!
+        Running! Running! Running! Running! Running! Running! Running! Running!
+      </p>
+    </>
+  );
+};
