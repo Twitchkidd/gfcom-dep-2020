@@ -9,7 +9,7 @@ const LandingMainDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: ${rhythm(32)};
-  padding: ${rhythm(2.5)} ${rhythm(3 / 4)} ${rhythm(1.5)};
+  padding: ${rhythm(2.5)} ${rhythm(0.75)} ${rhythm(0.825)};
   background: ${white};
   position: relative;
   &::before {
@@ -100,12 +100,12 @@ const Footer = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 1rem;
 `;
 
 export const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
-
   if (location.pathname === rootPath) {
     header = (
       <LandingHeaderWrapper>

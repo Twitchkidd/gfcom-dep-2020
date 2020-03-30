@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 import { useTabState } from "@bumaga/tabs";
@@ -27,14 +27,16 @@ const NavWrapper = styled.nav`
   width: 10rem;
 `;
 
-const Tab = ({ children, type }) => {
+const Tab = React.forwardRef((props, ref) => {
   const { onClick } = useTabState();
   return (
-    <Button onClick={onClick} type={type}>
-      <ButtonContentsWrapper type={type}>{children}</ButtonContentsWrapper>
+    <Button ref={ref} onClick={onClick} type={props.type}>
+      <ButtonContentsWrapper type={props.type}>
+        {props.children}
+      </ButtonContentsWrapper>
     </Button>
   );
-};
+});
 
 const Button = styled.button`
   display: block;
@@ -85,12 +87,7 @@ const Button = styled.button`
     }
   }
   &:active {
-    transform: scale(0.9);
-  }
-  &:nth-child(4) {
-    ${ButtonContentsWrapper}::after {
-      display: hidden;
-    }
+    transform: scale(0.95);
   }
 `;
 
@@ -179,13 +176,17 @@ export const Nav = () => {
       }
     }
   `);
+  const codingRef = useRef();
+  useEffect(() => {
+    codingRef.current.focus();
+  }, []);
   return (
     <NavWrapper>
       <Tab type="running">
         <IconSVG src={data.runningIcon.publicURL} alt="" id="running" />
         <ButtonText style={{ ...scale(3 / 4) }}>Running</ButtonText>
       </Tab>
-      <Tab type="coding">
+      <Tab type="coding" ref={codingRef}>
         <IconSVG src={data.codingIcon.publicURL} alt="" id="coding" />
         <ButtonText style={{ ...scale(3 / 4) }}>Coding</ButtonText>
       </Tab>
