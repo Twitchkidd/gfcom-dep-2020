@@ -46,3 +46,5 @@ I'm so glad I started writing about this every day! I'm sorry if anyone is actua
 
 Allonz-y! ... and best wishes, 😄
 ~g
+
+P.S. _Just_ helped someone out in the help-react-native channel on Reactiflux with some of the stuff I learned about screens and hooks in the last couple weeks! NICE!!
