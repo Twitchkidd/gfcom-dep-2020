@@ -51,6 +51,14 @@ const GlobalStyle = createGlobalStyle`
    `}
   }
 
+  /* for image caption */
+  img + br + em {
+      font-style: normal;
+      display: inherit;
+      text-align: center;
+      font-size: 90%;
+  }
+
   /*header {
     width: 90%;
     margin: 0 auto;

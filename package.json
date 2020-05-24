@@ -57,11 +57,12 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "clean": "gatsby clean",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "start": "npm run develop",
+    "new-post": "nodemon ./utils/new-post/index.js",
     "serve": "gatsby serve",
-    "clean": "gatsby clean",
+    "start": "npm run develop",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }
 }
