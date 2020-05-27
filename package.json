@@ -43,6 +43,11 @@
     "typography-theme-doelger": "^0.16.19"
   },
   "devDependencies": {
+    "chalk": "^4.0.0",
+    "date-fns": "^2.14.0",
+    "figlet": "^1.4.0",
+    "inquirer": "^7.1.0",
+    "nodemon": "^2.0.4",
     "prettier": "^1.19.1"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
@@ -60,7 +65,8 @@
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
-    "new-post": "nodemon ./utils/new-post/index.js",
+    "dev-new-post": "nodemon ./utils/new-post/index.js",
+    "new-post": "node ./utils/new-post/index.js",
     "serve": "gatsby serve",
     "start": "npm run develop",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
