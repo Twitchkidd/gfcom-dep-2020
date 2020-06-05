@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import styled from "styled-components";
 import Global from "./Global";
 import Hamburger from "hamburger-react";
@@ -53,6 +53,12 @@ const LandingHeaderWrapper = styled.div`
   align-items: flex-start;
 `;
 
+const Menu = styled.div`
+  position: static;
+  height: 100px;
+  width: 200px;
+`;
+
 const OtherMainDiv = styled.div`
   margin-left: auto;
   margin-right: auto;
@@ -104,6 +110,7 @@ const Footer = styled.footer`
 `;
 
 export const Layout = ({ location, title, children }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const rootPath = `${__PATH_PREFIX__}/`;
   let header;
   if (location.pathname === rootPath) {
@@ -122,9 +129,23 @@ export const Layout = ({ location, title, children }) => {
           size={25}
           duration={0.25}
           onToggle={toggled =>
-            toggled ? console.log("ayy!") : console.log("ooh!")
+            toggled ? setMenuOpen(true) : setMenuOpen(false)
           }
         />
+        {menuOpen ? (
+          <Menu>
+            <Link
+              style={{
+                boxShadow: `none`,
+                textDecoration: `none`,
+                color: `inherit`,
+              }}
+              to={`/polar-pairs`}
+            >
+              Polar Pairs!
+            </Link>
+          </Menu>
+        ) : null}
       </LandingHeaderWrapper>
     );
   } else {
