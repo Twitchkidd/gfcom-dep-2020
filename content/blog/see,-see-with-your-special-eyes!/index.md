@@ -27,3 +27,5 @@ Yay, card for #7 needs to be revisited, the logging is happening though!
 #4, custom loopy-doos! Most of the questions are in a flat list, I've got the more custom thing going on for some inputs, but not all, HENCE!
 
 My back is _killing_ me right now, lol standing here and coding is a no-go right now.
+
+// Okay, so, it's much later, ready to go though, went for a long walk, set up a lot of pillows on the sofa, walked Dawa again, he got dinner, snacks, chewies, he's okay, let's go!
