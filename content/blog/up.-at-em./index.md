@@ -10,6 +10,8 @@ I think most of the loopy-doos are in place, just needs organizing before I can 
 
 // Whooof! It's a little more imperative than I'd like, but it's getting there! I bet this thing will be seven hundred lines of code, I'm going to shoot for that. I really want to do some dishes or something ... put myself together ... // Okay, dishes done, self put together, Dawa got a little time at the park, got some brekkers and a coffee, back at it!
 
+// Dawa has gotten two more walks. My back is killing me. Fml. Must keep coding.
+
 ///
 
 Good morning on the 7th! I haven't been writing, so I figured I'd jump back in! Sooo close to finishing `master-blaster`! It's been non-stop, just trying to do the best I can with Dawa, and take care of myself, and code, and I kid you not this thing is so close to done! Or done enough for a v1!
