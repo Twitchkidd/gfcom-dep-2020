@@ -19,3 +19,8 @@ Good morning on the 7th! I haven't been writing, so I figured I'd jump back in! 
 All I have left to do is enter in what needs to be logged to the logfile, give the user more feedback as that's happening, and when the repos and branch requests are going on, and at the end, though the whole process there can be improved tremendously, but then I'm going to write in some warnings and document how to use the thing and exactly what it does, look further into freezing it and other packaging things, review the copy one more time, and push! GO!
 
 Oh, and handle the patch response.
+
+// Well, on saving changes after test flight 4, I've messed up my git repo for `master-blaster` and need to go through things meticulously. Fuuck.
+
+This has turned into a tomorrow problem! Best wishes!
+~g
