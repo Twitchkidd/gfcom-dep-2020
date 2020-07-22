@@ -19,3 +19,5 @@ Oh, before I go, so I can wrap up quickly later, the title/description thing, I 
 Okay, sofa! I revamped the sofa area so there weren't boxes and now there's a servicable _and charming_ nook and hopefully Dawa is okay with just chilling there for a bit until I cook his dinner, because there's ... like two dozen cases of subprocess.Popen that need processLogger applied ... which is really on me to have been dense enough to repeat that many times, but I was _so_ close to being able to say, "Here! This works! More or less! For the brave, go for it!" ... sooo, now I need a post-it note with DRY taped to the monitor, but also to fix this mess. With the function's definition and applying it once we're at 1179 lines, from 1161, but it could maybe go down to 1080 lines?
 
 Hmm, well I implemented it again, and fixed the function, but I had to comment about a bug and what to do about it after a few more implementations, so we're at 1188 lines. I hope this doesn't turn into spaghetti. Pressing on ...
+
+Oh, indexing to get the nth item of a tuple is awesome. I love Python. 1178 lines. 1159.
