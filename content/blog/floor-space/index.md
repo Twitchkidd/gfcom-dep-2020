@@ -21,3 +21,22 @@ Okay, sofa! I revamped the sofa area so there weren't boxes and now there's a se
 Hmm, well I implemented it again, and fixed the function, but I had to comment about a bug and what to do about it after a few more implementations, so we're at 1188 lines. I hope this doesn't turn into spaghetti. Pressing on ...
 
 Oh, indexing to get the nth item of a tuple is awesome. I love Python. 1178 lines. 1159.
+
+// Okay, so I know how to use it now, that took a bit, but that's going to be easy-peasey in the morning. Dawa got steak tonight, some socialization with a _very_ cute black puppy down at the park, I've eaten as well and am winding down! Good day! Tomorrow's going to be great!
+
+1 bike 1 day
+1 bike 1 run 2 day
+2 bike 1 run 3 day
+3 bike 1 run 4 day
+4 bike 1 run 5 day
+5 bike 1 run 6 day
+5 bike 2 run 7 day
+6 bike 2 run 8 day
+7 bike 2 run 9 day
+
+Yay 9 day streak of running with Dawa, and only twice did I run him around the block instead of biking him to a trail for his little peets. Ahhh. My dog is happy though. ![Dawa dozes soundly](./dawaDozes.jpg)
+
+Best wishes,
+~g
+
+P.S. Huh. Apparently images aren't working in blog posts, so the above will read as "Dawa dozes soundly" instead of being an image, at time of posting. Curious.
