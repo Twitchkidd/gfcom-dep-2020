@@ -11,3 +11,5 @@ Going with the Chakra UI library for a little visual polish, so far so good ...
 Hmm, nevermind. I want to work with just html/css and `styled-components`. `react-template` time.
 
 Oh wow! I hadn't looked at the code I'd written for this Gatsby site since I whipped it up in ... March? March. Lol I looked at the git log rather than the last post on the posts list, which never got paginated or anything lolll just been crankin'! I put so much love into it, at the time, but it just really is not how I'd set things up if I were to do it over right now. Also I think the build broke, lol.
+
+/// Whoops, didn't tie this up! Life happens y'all, best wishes! ~g
