@@ -13,41 +13,46 @@
         <span id="More/Less-Text">More/Less</span>
       </button>
       <div id="SocialsModal">
-        <a id="SocialsModal-Link1">
+        <!-- 
+					Yo but what if you went as high as possible with what the styled-component was,
+					and just had to stop at anywhere the content needed to be dynamic.
+					A reminder to look into this when Reactifying!
+				-->
+        <a id="SocialsModal-Link1" class="SocialsModal-Link">
           <svg id="SocialsModal-Link1-Icon"></svg>
           <span id="SocialsModal-Link1-ContentName">Twitter</span>
         </a>
-        <a id="SocialsModal-Link2">
+        <a id="SocialsModal-Link2" class="SocialsModal-Link">
           <svg id="SocialsModal-Link2-Icon"></svg>
           <span id="SocialsModal-Link2-ContentName">GitHub</span>
         </a>
-        <a id="SocialsModal-Link3">
+        <a id="SocialsModal-Link3" class="SocialsModal-Link">
           <svg id="SocialsModal-Link3-Icon"></svg>
           <span id="SocialsModal-Link3-ContentName">LinkedIn</span>
         </a>
-        <a id="SocialsModal-Link4">
+        <a id="SocialsModal-Link4" class="SocialsModal-Link">
           <svg id="SocialsModal-Link4-Icon"></svg>
           <span id="SocialsModal-Link4-ContentName">Email</span>
         </a>
-        <a id="SocialsModal-Link5">
+        <a id="SocialsModal-Link5" class="SocialsModal-Link">
           <svg id="SocialsModal-Link5-Icon"></svg>
           <span id="SocialsModal-Link5-ContentName">Strava</span>
         </a>
-        <a id="SocialsModal-Link6">
+        <a id="SocialsModal-Link6" class="SocialsModal-Link">
           <svg id="SocialsModal-Link6-Icon"></svg>
           <span id="SocialsModal-Link6-ContentName">Spotify</span>
         </a>
-        <a id="SocialsModal-Link7">
+        <a id="SocialsModal-Link7" class="SocialsModal-Link">
           <svg id="SocialsModal-Link7-Icon"></svg>
           <span id="SocialsModal-Link7-ContentName"
             >App Store Developer Page</span
           >
         </a>
-        <a id="SocialsModal-Link8">
+        <a id="SocialsModal-Link8" class="SocialsModal-Link">
           <svg id="SocialsModal-Link8-Icon"></svg>
           <span id="SocialsModal-Link8-ContentName">RSS Feed</span>
         </a>
-        <a id="SocialsModal-Link9">
+        <a id="SocialsModal-Link9" class="SocialsModal-Link">
           <svg id="SocialsModal-Link9-Icon"></svg>
           <span id="SocialsModal-Link9-ContentName">Resume</span>
         </a>
@@ -123,6 +128,7 @@
       </header>
       <header id="HeaderN">
         <div id="HeaderN-Content"></div>
+        <div id="More/Less-ShadowElement"></div>
       </header>
       <main>
         <div id="NavIndicator-Abs">
@@ -134,6 +140,10 @@
     </div>
     <!-- Desktop -->
     <div id="AppWrap">
+      <button id="More/Less-AbsPos">
+        <svg id="More/Less-Icon"></svg>
+        <span id="More/Less-Text">More/Less</span>
+      </button>
       <div id="NavHeader">
         <header id="Header1">
           <picture id="Image"></picture>
@@ -243,7 +253,19 @@
             <svg id="DelightButton-Icon"></svg>
             <span id="DelightButton-Text">Delight Button</span>
           </button>
+          <div id="More/Less-ShadowElement"></div>
         </header>
+        <header id="HeaderN">
+          <div id="HeaderN-Content"></div>
+          <div id="More/Less-ShadowElement"></div>
+        </header>
+        <main>
+          <div id="NavIndicator-Abs">
+            <svg id="NavIndicator-Icon"></svg>
+            <span id="NavIndicator-Text"></span>
+          </div>
+          <div id="MainContent"></div>
+        </main>
       </div>
     </div>
   </body>
