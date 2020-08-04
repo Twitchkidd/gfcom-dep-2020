@@ -13,3 +13,5 @@ Okay, so the strategy is going to be to set the timer for 15 minutes and switch 
 Oh, shoot, I need to speed up, it's been 15 minutes already? Go go go!
 
 // Well, I got a lot done, having the right amount of pressure is a wonderful thing, guess who's cleaning the bathroom though. 🤣
+
+Dawa and I are at the park now, it's really nice having a backup machine dedicated to working outside and moving either around the apartment or wherever else I might be.
