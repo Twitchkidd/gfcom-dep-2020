@@ -13,3 +13,5 @@ Next up is Reactifying this layout, and since my build broke and I suspect just 
 Gosh, yea, I checked the build files, it seems to just be a versions thing. Images working just fine when I copy my blog content over to the starter, for some reason it just isn't pointing to the file in /static ... oh, /static isn't being populated with any of the remark-images stuff at all. Ooohkay moving on.
 
 Right, so most of the base stuff is copied over, now we're at the part that makes my head explode every time. There's index, which is obviously special, and then there's blog-post, the template, and both take in the Layout component, and then so the Layout component needs to be aware of it's location and split into different parts, so yes, start here, and also remember that if you need any more templates or pages ... oh, and 404 has it's own thing, too. And credits. ... and also, Layout takes in children, as well as location and title, and creates the markup for the header based on location. 🍝
+
+Oh sweeeet, just needed to check gatsby config and make sure everything was valid and -gatsby-plugin-sharp was loaded first!
