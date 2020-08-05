@@ -19,3 +19,8 @@ Dawa and I are at the park now, it's really nice having a backup machine dedicat
 // Alrighty! V4 of the resume! It's got a repo now, too! And I have a PNG of it, and that's definitely going up on the website, I'm sure it's accessible somehow, but now it's like ... ohhh, man, if I loaded it in from GitHub, I could always have the most up-to-date version ... do like, one more change then ... sweet!
 
 Next up is the layout, let's see ... I think I had gotten through the markup for mobile, but wasn't done with the markup for desktop ...
+
+Okay, markup for desktop complete, Reactify, then style.
+
+Until tomorrow, best wishes!
+~g
