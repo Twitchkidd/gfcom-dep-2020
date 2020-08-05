@@ -4,7 +4,7 @@ import { Layout } from "../components";
 const CreditsPage = ({ location }) => (
   <Layout title="Credits!" location={location}>
     <h2>Credits</h2>
-    <p>Thanks to these lovely folk for their work:</p>
+    <p>This site wouldn't be possible without these lovely folk:</p>
     <p>
       The “<a href="https://thenounproject.com/term/run/2975825/">Run</a>” icon
       used on the home page is by dewadesign from{" "}
