@@ -1,23 +1,35 @@
-import Typography from "typography"
-import Wordpress2016 from "typography-theme-wordpress-2016"
+import Typography from "typography";
+import doelgerTheme from "typography-theme-doelger";
+import { MOBILE_MEDIA_QUERY } from "typography-breakpoint-constants";
+import { purple } from "../utils";
 
-Wordpress2016.overrideThemeStyles = () => {
-  return {
-    "a.gatsby-resp-image-link": {
-      boxShadow: `none`,
+doelgerTheme.overrideThemeStyles = ({ rhythm }) => ({
+  "a.gatsby-resp-image-link": {
+    boxShadow: `none`,
+  },
+  a: {
+    color: purple,
+    backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, ${purple} 1px, ${purple} 2px, rgba(0, 0, 0, 0) 2px)`,
+  },
+  blockquote: {
+    borderLeft: `${rhythm(6 / 16)} solid ${purple}`,
+  },
+  [MOBILE_MEDIA_QUERY]: {
+    blockquote: {
+      borderLeft: `${rhythm(3 / 16)} solid ${purple}`,
     },
-  }
-}
+  },
+});
 
-delete Wordpress2016.googleFonts
+delete doelgerTheme.googleFonts;
 
-const typography = new Typography(Wordpress2016)
+const typography = new Typography(doelgerTheme);
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {
-  typography.injectStyles()
+  typography.injectStyles();
 }
 
-export default typography
-export const rhythm = typography.rhythm
-export const scale = typography.scale
+export default typography;
+export const rhythm = typography.rhythm;
+export const scale = typography.scale;
