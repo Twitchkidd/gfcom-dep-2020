@@ -31,7 +31,7 @@ const Panel = ({ children }) => {
   return isActive ? children : null;
 };
 
-const SiteIndex = ({ data, location }) => {
+const Index = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata.title;
   const [index, setIndex] = useState(1);
   return (
@@ -61,7 +61,7 @@ const SiteIndex = ({ data, location }) => {
   );
 };
 
-export default SiteIndex;
+export default Index;
 
 export const pageQuery = graphql`
   query {

@@ -15,3 +15,9 @@ Gosh, yea, I checked the build files, it seems to just be a versions thing. Imag
 Right, so most of the base stuff is copied over, now we're at the part that makes my head explode every time. There's index, which is obviously special, and then there's blog-post, the template, and both take in the Layout component, and then so the Layout component needs to be aware of it's location and split into different parts, so yes, start here, and also remember that if you need any more templates or pages ... oh, and 404 has it's own thing, too. And credits. ... and also, Layout takes in children, as well as location and title, and creates the markup for the header based on location. 🍝
 
 Oh sweeeet, just needed to check gatsby config and make sure everything was valid and -gatsby-plugin-sharp was loaded first!
+
+// Phew, got Dawa on another run around the block, champion of a little guy he is, then I got some groceries, got a chicken in the oven, back at it!
+
+Yaaay thanks Shelly for the re-Tweet! Shelly's the best. Looking forward to showcasing some of her art in a side project!
+
+Okay, let's get this thing done. The hard part really is that the degree of how convoluted the setup is, it's like a black hole sucking my attention in. I need some sort of diagram. Pen and paper time. Now I know at least the build isn't totally pooched.
