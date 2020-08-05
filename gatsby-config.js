@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gareth Field ... Dot Com!`,
+    title: `Gatsby Starter Blog`,
     author: {
-      name: `Gareth Field`,
-      summary: `a trail runner, developer, coffee lover, and dog dad based out of beautiful downtown New London, Connecticut!`,
+      name: `Kyle Mathews`,
+      summary: `who lives and works in San Francisco building useful things.`,
     },
-    description: `A homepage for all things, running-, coding-, coffee-, Dawa- (my dog :) ) and Gareth-related on the Internet!`,
-    siteUrl: `https://www.garethfield.com/`,
+    description: `A starter blog demonstrating what Gatsby can do.`,
+    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
-      twitter: `barefootgareth`,
+      twitter: `kylemathews`,
     },
   },
   plugins: [
@@ -45,19 +45,6 @@ module.exports = {
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
-          {
-            resolve: `gatsby-transformer-remark`,
-            options: {
-              plugins: [
-                {
-                  resolve: `gatsby-remark-vscode`,
-                  options: {
-                    theme: "Monokai Dimmed",
-                  },
-                },
-              ],
-            },
-          },
         ],
       },
     },
@@ -66,32 +53,31 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-160627547-1`,
+        //trackingId: `ADD YOUR TRACKING ID HERE`,
       },
     },
     `gatsby-plugin-feed`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gareth Field, Dot Com!`,
-        short_name: `GF.Com!`,
+        name: `Gatsby Starter Blog`,
+        short_name: `GatsbyJS`,
         start_url: `/`,
-        background_color: `#efefef`,
-        theme_color: `#675997`,
+        background_color: `#ffffff`,
+        theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gareth-icon.png`,
+        icon: `content/assets/gatsby-icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/Typography`,
+        pathToConfigModule: `src/utils/typography`,
       },
     },
-    `gatsby-plugin-styled-components`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
-};
+}
