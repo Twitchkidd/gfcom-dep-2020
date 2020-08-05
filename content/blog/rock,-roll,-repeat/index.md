@@ -21,3 +21,10 @@ Oh sweeeet, just needed to check gatsby config and make sure everything was vali
 Yaaay thanks Shelly for the re-Tweet! Shelly's the best. Looking forward to showcasing some of her art in a side project!
 
 Okay, let's get this thing done. The hard part really is that the degree of how convoluted the setup is, it's like a black hole sucking my attention in. I need some sort of diagram. Pen and paper time. Now I know at least the build isn't totally pooched.
+
+Werd, so now I've looked through it and taken paper notes, and now _I'm_ pooched, and this whole operation is going to have to start tomorrow morning. Hopefully here's a picture of a dog!
+
+![Dawa with hydrangeas](./dawaWithHydrangeas.jpg)
+
+Best wishes!
+~g

@@ -11,6 +11,7 @@ import {
   Running,
   SEO,
 } from "../components";
+import { below } from "../utils";
 
 const NavMainWrapper = styled.div`
   display: flex;
@@ -32,10 +33,10 @@ const Panel = ({ children }) => {
 };
 
 const Index = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title;
+  const title = data.site.siteMetadata.title;
   const [index, setIndex] = useState(1);
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={title}>
       <SEO title="All posts" />
       <Bio location={location} />
       <NavMainWrapper>
