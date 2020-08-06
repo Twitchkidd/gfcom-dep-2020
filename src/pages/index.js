@@ -8,7 +8,6 @@ import {
   Layout,
   MoreLessButton,
   MoreLessButtonShadowElement,
-  Nav,
   Running,
   SEO,
 } from "../components";
@@ -70,7 +69,9 @@ const Index = ({ data, location }) => {
             </p>
             <MoreLessButtonShadowElement header={headerState} />
           </MobileHeader1>
-        </MoreLessButtonShadowElement>
+          <Nav>
+            
+          </Nav>
       ) : (
         <div>Ho</div>
       )}

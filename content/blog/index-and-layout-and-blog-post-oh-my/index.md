@@ -38,3 +38,10 @@ Blog-post should have Bio taken out, and the graphql will have to be added to th
 The last Syntax FM with lobotomized owl CSS, that one might be good to listen to for the next revamp.
 
 Okay so then _Layout_ needs to make it's location check if it's root or not and then we need to add a media query, because at least with the homepage, we're going to be rendering different content that needs to be wrapped accordingly. Layout can contain the wrapper components, as well as global, but the homepage's components should be moved to index.js.
+
+// Ooohh, I just typed so much! And there's more to do! I'm glad I got organized first! I'm going to keep going here for a little bit, a few nights of bad sleep have caught up with me, though, and I can feel the end of my daily productivity approach. My eyes droop, etc. Just back from a walk with Dawa and the juices are flowing, for the moment, so let's go!
+
+My dog is being so distracting. Everything is being so distracting, though. I don't appear to have the energy to filter things out very well and not get emotional about noises. Really tried to continue my productivity, if I don't turn the A/C on and try and reset my brain, here, I'm going to have a conniption, lol.
+
+I'm working on `main` like an absolute fool, so today's post will probably be up tomorrow? Anyway, best wishes!
+~g
