@@ -128,7 +128,7 @@ export const Layout = ({ location, title, children }) => {
         <Hamburger
           size={25}
           duration={0.25}
-          onToggle={toggled =>
+          onToggle={(toggled) =>
             toggled ? setMenuOpen(true) : setMenuOpen(false)
           }
         />
