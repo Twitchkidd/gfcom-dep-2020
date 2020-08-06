@@ -1,8 +1,9 @@
 import React from "react";
+import { graphql } from "gatsby";
 import { Layout } from "../components";
 
-const CreditsPage = ({ location }) => (
-  <Layout title="Credits!" location={location}>
+const CreditsPage = ({ data, location }) => (
+  <Layout title={data.site.siteMetadata.title} location={location}>
     <h2>Credits</h2>
     <p>This site wouldn't be possible without these lovely folk:</p>
     <p>
@@ -29,3 +30,13 @@ const CreditsPage = ({ location }) => (
 );
 
 export default CreditsPage;
+
+export const pageQuery = graphql`
+  query {
+    site {
+      siteMetadata {
+        title
+      }
+    }
+  }
+`;

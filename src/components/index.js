@@ -2,6 +2,8 @@ export * from "./Bio";
 export * from "./BlogList";
 export * from "./Coffee";
 export * from "./Layout";
+export * from "./MoreLessButton";
 export * from "./Nav";
 export * from "./Running";
 export * from "./SEO";
+export * from "./SocialsModal";
