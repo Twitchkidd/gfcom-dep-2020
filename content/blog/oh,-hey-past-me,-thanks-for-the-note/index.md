@@ -36,7 +36,7 @@ Okay, moving on, this one job wanted Pandas, so maybe I'll just learn that real 
 
 WHOA Anaconda is cool! Oh, sick, also the icon overlays the Android Studio logo to give you this:
 
-![./iconMerge.png](Anaconda Navigator and Android Studio logos overlaid)
+![Anaconda Navigator and Android Studio logos overlaid](./iconMerge.png)
 
 Oh, but I forgot images aren't working right now, lol. Wah-wah. Soon. First Pandas, lol. Oof, actually though, first moving my body, I was just sat down for a while and my back said nope :\ / :)
 
