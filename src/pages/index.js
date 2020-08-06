@@ -11,6 +11,7 @@ import {
   Running,
   SEO,
 } from "../components";
+import { below } from "../utils";
 
 const NavMainWrapper = styled.div`
   display: flex;
@@ -31,11 +32,11 @@ const Panel = ({ children }) => {
   return isActive ? children : null;
 };
 
-const SiteIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title;
+const Index = ({ data, location }) => {
+  const title = data.site.siteMetadata.title;
   const [index, setIndex] = useState(1);
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={title}>
       <SEO title="All posts" />
       <Bio location={location} />
       <NavMainWrapper>
@@ -61,7 +62,7 @@ const SiteIndex = ({ data, location }) => {
   );
 };
 
-export default SiteIndex;
+export default Index;
 
 export const pageQuery = graphql`
   query {

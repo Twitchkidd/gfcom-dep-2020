@@ -26,6 +26,8 @@ module.exports = {
         name: `assets`,
       },
     },
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -46,23 +48,14 @@ module.exports = {
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           {
-            resolve: `gatsby-transformer-remark`,
+            resolve: `gatsby-remark-vscode`,
             options: {
-              plugins: [
-                {
-                  resolve: `gatsby-remark-vscode`,
-                  options: {
-                    theme: "Monokai Dimmed",
-                  },
-                },
-              ],
+              theme: "Monokai Dimmed",
             },
           },
         ],
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
