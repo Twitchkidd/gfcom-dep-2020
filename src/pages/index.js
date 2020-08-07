@@ -74,7 +74,27 @@ const Index = ({ data, location }) => {
             <MoreLessButtonShadowElement header={headerState} />
           </MobileHeader1>
           <Sidebar>
-
+              <TabsWrap>
+                {tabs.map((tab, i) => (
+                  <Tabs state={[index, setIndex]}>
+                       <Nav />
+                       <MainWrapper>
+                         <Panel>
+                           <Running />
+                         </Panel>
+                         <Panel>
+                           <BlogList data={data} />
+                         </Panel>
+                         <Panel>
+                           <Coffee />
+                         </Panel>
+                         <Panel>
+                           <p>Dog!</p>
+                         </Panel>
+                       </MainWrapper>
+                     </Tabs>
+                )}
+              </TabsWrap>
           </Sidebar>
       ) : (
         <div>Ho</div>
