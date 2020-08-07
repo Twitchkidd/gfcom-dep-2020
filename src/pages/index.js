@@ -76,23 +76,23 @@ const Index = ({ data, location }) => {
           <Sidebar>
               <TabsWrap>
                 {tabs.map((tab, i) => (
-                  <Tabs state={[index, setIndex]}>
-                       <Nav />
-                       <MainWrapper>
-                         <Panel>
-                           <Running />
-                         </Panel>
-                         <Panel>
-                           <BlogList data={data} />
-                         </Panel>
-                         <Panel>
-                           <Coffee />
-                         </Panel>
-                         <Panel>
-                           <p>Dog!</p>
-                         </Panel>
-                       </MainWrapper>
-                     </Tabs>
+                  // <Tabs state={[index, setIndex]}>
+                  //      <Nav />
+                  //      <MainWrapper>
+                  //        <Panel>
+                  //          <Running />
+                  //        </Panel>
+                  //        <Panel>
+                  //          <BlogList data={data} />
+                  //        </Panel>
+                  //        <Panel>
+                  //          <Coffee />
+                  //        </Panel>
+                  //        <Panel>
+                  //          <p>Dog!</p>
+                  //        </Panel>
+                  //      </MainWrapper>
+                  //    </Tabs>
                 )}
               </TabsWrap>
           </Sidebar>
