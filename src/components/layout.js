@@ -3,11 +3,12 @@ import styled from "styled-components";
 import Global from "./Global";
 
 const AppWrap = styled.div`
-  display: ${props => (props.mobile ? "flex" : "grid")};
+  display: flex;
+  ${(props) => (props.mobile ? "flex-direction: column;" : null)}
 `;
 
 const OtherWrap = styled.div`
-  display: ${props => (props.mobile ? "flex" : "grid")};
+  display: ${(props) => (props.mobile ? "flex" : "grid")};
 `;
 
 export const Layout = ({ location, children }) => {

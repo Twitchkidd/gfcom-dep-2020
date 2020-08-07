@@ -8,28 +8,77 @@ import {
   Layout,
   MoreLessButton,
   MoreLessButtonShadowElement,
+  Pages,
   Running,
   SEO,
+  SidebarTabs,
 } from "../components";
 import Hamburger from "hamburger-react";
 import { rhythm, scale, white } from "../utils";
 
 const MobileHeader1 = styled.header`
+  position: sticky;
   background: green;
 `;
 
-const Sidebar = styled.nav`
-  position: absolute;
+const Title = styled.h1`
+  font-size: 36px;
 `;
+
+const Sidebar = styled.nav`
+  position: ${(props) => (props.mobile ? "absolute" : "static")};
+`;
+
+const StyledSocialsButton = styled.button`
+  background: url('plzWork.jpg');
+`;
+
+const SocialsButton = ({ onClick }) => <StyledSocialsButton onClick={onClick} />
 
 const Panel = ({ children }) => {
   const isActive = usePanelState();
   return isActive ? children : null;
 };
 
+const ContentWrap = styled.main`
+  display: flex;
+`;
+
+const MobileHeader2 = styled.div`
+  display: flex;
+`;
+
+const Blurb = styled.p`
+  margin-bottom: 0;
+`;
+
+const MobileHeader3 = styled.div`
+  display: flex;
+`;
+
+const QotD = styled.blockquote`
+  font-size: 50px;
+`;
+
+const StyledDelightButton = styled.button`
+  width: 50px;
+`;
+
+const DelightButton = ({ onClick }) => <StyledDelightButton onClick={onClick} />
+
 const Index = ({ data, location }) => {
   const { author, title, social } = data.site.siteMetadata;
   const [index, setIndex] = useState(1);
+  const [socialsOpen, setSocialsOpen]
+  const openSocials = () => {
+    setSocialsOpen(true);
+  };
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  }
+  const delight = () => {
+    console.log("Hooray!");
+  };
   const determineMe = 40;
   const howDoWeDetermineThis = "more";
   const handleMoreLess = () => {
@@ -37,68 +86,76 @@ const Index = ({ data, location }) => {
   };
   // Media query!
   // May have to render a fragment if window is undefined, give it a shot.
+  // https://www.gatsbyjs.org/docs/debugging-html-builds/ Oh, this.
   const width = window.innerWidth;
   const mobile = width <= 640;
   return (
-    <Layout location={location} title={title}>
+    <Layout location={location} title={title} mobile={mobile}>
       <SEO title="Home page" />
+        {mobile ? (
+          <Tabs state={[index, setIndex]}>
+            <MobileHeader1>
+              <Image
+                fixed={data.avatar.childImageSharp.fixed}
+                alt={author.name}
+                style={{
+                  marginRight: rhythm(1 / 2),
+                  marginBottom: 0,
+                  minWidth: 50,
+                  borderRadius: `100%`,
+                }}
+                imgStyle={{
+                  borderRadius: `50%`,
+                }}
+              />
+              <Title>{data.pageTitle}</Title>
+              <MoreLessButtonShadowElement header={headerState} />
+          </MobileHeader1>
+          <ContentWrap>
+            <MobileHeader2>
+              <Blurb>
+                Gareth is {author.summary}
+                {` `}
+                <a href={`https://twitter.com/${social.twitter}`}>
+                  Follow him on Twitter!
+                </a>
+              </Blurb>
+              <MoreLessButtonShadowElement />
+            </MobileHeader2>
+            <MobileHeader3>
+              <QotD quote={data.quote} />
+              <DelightButton onClick={delight} />
+              <MoreLessButtonShadowElement />
+            </MobileHeader3>
+            <Panel>
+              <Running />
+            </Panel>
+            <Panel>
+              <BlogList data={data} />
+            </Panel>
+            <Panel>
+              <Coffee />
+            </Panel>
+            <Panel>
+              <Dog />
+            </Panel>
+          </ContentWrap>
+          <Sidebar>
+            <SidebarTabs />
+            <Pages />
+            <SocialsButton onClick={openSocials} />
+            <SidebarToggle onClick={toggleSidebar} />
+          </Sidebar>
+          <SocialsModal hidden={!socialsOpen} socials={[social.twitter]} />
+      </Tabs>
+          ) : (
+            <div>Desktop</div>
+            )}
       <MoreLessButton
         top={determineMe}
         type={howDoWeDetermineThis}
         onMoreLess={handleMoreLess}
       />
-      {mobile ? (
-        <>
-          <SocialsModal hidden={!socialsModalOpen} socials={[social.twitter]} />
-          <MobileHeader1>
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author.name}
-              style={{
-                marginRight: rhythm(1 / 2),
-                marginBottom: 0,
-                minWidth: 50,
-                borderRadius: `100%`,
-              }}
-              imgStyle={{
-                borderRadius: `50%`,
-              }}
-            />
-            <p style={{ marginBottom: 0 }}>
-              Gareth is {author.summary}
-              {` `}
-              <a href={`https://twitter.com/${social.twitter}`}>
-                Follow him on Twitter!
-              </a>
-            </p>
-            <MoreLessButtonShadowElement header={headerState} />
-          </MobileHeader1>
-          <Sidebar>
-              <TabsWrap>
-                {tabs.map((tab, i) => (
-                  // <Tabs state={[index, setIndex]}>
-                  //      <Nav />
-                  //      <MainWrapper>
-                  //        <Panel>
-                  //          <Running />
-                  //        </Panel>
-                  //        <Panel>
-                  //          <BlogList data={data} />
-                  //        </Panel>
-                  //        <Panel>
-                  //          <Coffee />
-                  //        </Panel>
-                  //        <Panel>
-                  //          <p>Dog!</p>
-                  //        </Panel>
-                  //      </MainWrapper>
-                  //    </Tabs>
-                )}
-              </TabsWrap>
-          </Sidebar>
-      ) : (
-        <div>Ho</div>
-      )}
     </Layout>
   );
 };

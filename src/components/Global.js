@@ -58,13 +58,14 @@ const GlobalStyle = createGlobalStyle`
       text-align: center;
       font-size: 90%;
   }
+`;
 
-  /*header {
+/*header {
     width: 90%;
     margin: 0 auto;
   }*/
 
-  /* h1 {
+/* h1 {
     color: ${lighter};
     font-family: 'IBM Plex Mono', courier, monospace;
     letter-spacing: 0.1em;
@@ -76,9 +77,8 @@ const GlobalStyle = createGlobalStyle`
     float: left;
   } */
 
-
-  /* Okay, I think I actually want the *icons* to have color, and the header to be a little lighter, and the li text to be a little darker */
-  /* nav li {
+/* Okay, I think I actually want the *icons* to have color, and the header to be a little lighter, and the li text to be a little darker */
+/* nav li {
     color: ${light};
     font-family: 'Noto Serif TC', serif;
     &:nth-child(1) {
@@ -93,14 +93,14 @@ const GlobalStyle = createGlobalStyle`
     &:nth-child(4) {
       color: ${eigengrau};
     } */
-  }
+// }
 
-  /* Figure out the nav and header first, maybe some sort of fuzzy background thing where the main will be? Maybe quotes? */
-  /* main {
+/* Figure out the nav and header first, maybe some sort of fuzzy background thing where the main will be? Maybe quotes? */
+/* main {
     width: 90%;
     margin: 0 auto;
     padding: 20px;
   } */
-`;
+/* // `; */
 
 export default GlobalStyle;

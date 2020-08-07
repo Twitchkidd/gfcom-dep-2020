@@ -10,4 +10,12 @@ Okay, morning meeting with myself time, what's on the docket ... okay, got my fi
 
 Okay, here's the last commit before main got rewritten `9bf4ca9b9470934b5063c70893bed3968d4fd0bb` ...
 
-Oh, lord, that's what's going on with the tabs. I forgot how crazy that was to set up. Okay, umm ... DepNav, right, I renamed it. This thing needs wiring up a certain way, though.
+Oh, lord, that's what's going on with the tabs. I forgot how crazy that was to set up. Okay, umm ... DepNav, right, I renamed it. This thing needs wiring up a certain way, though. Back inside we get, working out here is too difficult 🤣
+
+Tabs has to encapsulate Tabs and Panels, and is where the state for the index of the panel lives. Tabs are buttons that get useTabState() for an onClick, and need to be wrapped with React.forwardRef. Something funky is going on with useRef there, too, I'm not really sure what. Oh, nevermind, I do, that focuses on the coding tab, I thought `codingRef` was related to something I was testing at some point.
+
+// Alrighty, had a snack I was getting hangry. I need to do some cooking here, there's nothing really prepared and quick, so I made just the crudest cheese sandwich and got it down my gullet, lol. Closer to calorie-even today though. There's some soup for later, and rice and beans to make, and I need to figure something to do with red lentils ... anyway, back to React-land ...
+
+I really don't like how the tabs are right now, component-wise, but I want to get the rest of this design more filled out here first.
+
+Hooof, mobile done, at least Index. I guess now would be the right time to wire up Layout ...
