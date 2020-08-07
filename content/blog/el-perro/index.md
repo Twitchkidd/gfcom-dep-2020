@@ -9,3 +9,5 @@ Good morning! I've been up since 5:30 and moving pretty optimally, Dawa and I go
 Okay, morning meeting with myself time, what's on the docket ... okay, got my files here, bio is partly deconstructed, layout is set up once I'm ready for CSS, working on index, up to Sidebar on mobile.
 
 Okay, here's the last commit before main got rewritten `9bf4ca9b9470934b5063c70893bed3968d4fd0bb` ...
+
+Oh, lord, that's what's going on with the tabs. I forgot how crazy that was to set up. Okay, umm ... DepNav, right, I renamed it. This thing needs wiring up a certain way, though.
