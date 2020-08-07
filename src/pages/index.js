@@ -18,6 +18,10 @@ const MobileHeader1 = styled.header`
   background: green;
 `;
 
+const Sidebar = styled.nav`
+  position: absolute;
+`;
+
 const Panel = ({ children }) => {
   const isActive = usePanelState();
   return isActive ? children : null;
@@ -69,9 +73,9 @@ const Index = ({ data, location }) => {
             </p>
             <MoreLessButtonShadowElement header={headerState} />
           </MobileHeader1>
-          <Nav>
-            
-          </Nav>
+          <Sidebar>
+
+          </Sidebar>
       ) : (
         <div>Ho</div>
       )}
