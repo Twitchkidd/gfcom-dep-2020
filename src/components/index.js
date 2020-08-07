@@ -4,7 +4,6 @@ export * from "./Coffee";
 export * from "./Dog";
 export * from "./Layout";
 export * from "./MoreLessButton";
-export * from "./Nav";
 export * from "./Pages";
 export * from "./Running";
 export * from "./SEO";

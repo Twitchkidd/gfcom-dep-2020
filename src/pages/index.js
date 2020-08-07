@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { graphql } from "gatsby";
+import { graphql, Image } from "gatsby";
 import styled from "styled-components";
 import { Tabs, usePanelState } from "@bumaga/tabs";
 import {
@@ -13,9 +13,9 @@ import {
   Running,
   SEO,
   SidebarTabs,
+  SocialsModal,
 } from "../components";
-import Hamburger from "hamburger-react";
-import { rhythm, scale, white } from "../utils";
+import { rhythm } from "../utils";
 
 const MobileHeader1 = styled.header`
   width: 100vw;
@@ -38,6 +38,17 @@ const StyledSocialsButton = styled.button`
 
 const SocialsButton = ({ onClick }) => (
   <StyledSocialsButton onClick={onClick} />
+);
+
+const StyledSidebarToggle = styled.button`
+  background: red;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+`;
+
+const SidebarToggle = ({ onClick }) => (
+  <StyledSidebarToggle onClick={onClick} />
 );
 
 const Panel = ({ children }) => {
@@ -95,9 +106,18 @@ const EverythingElseWrap = styled.div`
   flex-direction: column;
 `;
 
+const DesktopHeader1 = styled.header`
+  display: flex;
+`;
+
+const DesktopHeader2 = styled.header`
+  display: flex;
+`;
+
 const Index = ({ data, location }) => {
-  const { author, title, social, pages } = data.site.siteMetadata;
+  const { author, title, socials, pages } = data.site.siteMetadata;
   const [index, setIndex] = useState(1);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [socialsOpen, setSocialsOpen] = useState(false);
   const openSocials = () => {
     setSocialsOpen(true);
@@ -149,12 +169,12 @@ const Index = ({ data, location }) => {
                   Follow him on Twitter!
                 </a>
               </Blurb>
-              <MoreLessButtonShadowElement />
+              <MoreLessButtonShadowElement header={headerState} />
             </MobileHeader2>
             <MobileHeader3>
               <QotD>{data.quote}</QotD>
               <DelightButton onClick={delight} />
-              <MoreLessButtonShadowElement />
+              <MoreLessButtonShadowElement header={headerState} />
             </MobileHeader3>
             <Panel>
               <Running />
@@ -175,7 +195,7 @@ const Index = ({ data, location }) => {
             <SocialsButton onClick={openSocials} />
             <SidebarToggle onClick={toggleSidebar} />
           </Sidebar>
-          <SocialsModal hidden={!socialsOpen} socials={[social.twitter]} />
+          <SocialsModal hidden={!socialsOpen} socials={socials} />
         </Tabs>
       ) : (
         <Tabs state={[index, setIndex]}>
@@ -200,9 +220,11 @@ const Index = ({ data, location }) => {
             <Pages pages={pages} />
             <SocialButtonsWrap>
               {socials.map((social) => (
-                <SocialLinkButton key={social.key} href={social.url}>
-                  {social.name}
-                </SocialLinkButton>
+                <SocialLinkButton
+                  key={social.name}
+                  href={social.url}
+                  icon={data.twitterIcon}
+                ></SocialLinkButton>
               ))}
             </SocialButtonsWrap>
           </Sidebar>
@@ -211,18 +233,16 @@ const Index = ({ data, location }) => {
               <Blurb>
                 Gareth is {author.summary}
                 {` `}
-                <a href={`https://twitter.com/${social.twitter}`}>
-                  Follow him on Twitter!
-                </a>
+                <a href={`${socials.twitter.url}`}>Follow him on Twitter!</a>
               </Blurb>
               <QotD>{data.quote}</QotD>
               <DelightButton onClick={delight} />
-              <MoreLessButtonShadowElement />
+              <MoreLessButtonShadowElement header={headerState} />
             </DesktopHeader1>
             <ContentWrap>
               <DesktopHeader2>
                 <p>Flash text.</p>
-                <MoreLessButtonShadowElement />
+                <MoreLessButtonShadowElement header={headerState} />
               </DesktopHeader2>
               <Panel>
                 <Running />
@@ -274,8 +294,12 @@ export const pageQuery = graphql`
           name
           summary
         }
-        social {
-          twitter
+        socials {
+          twitter {
+            handle
+            name
+            url
+          }
         }
       }
     }
@@ -307,6 +331,9 @@ export const pageQuery = graphql`
           ...GatsbyImageSharpFixed
         }
       }
+    }
+    twitterIcon: file(absolutePath: { regex: "/twitter.svg/" }) {
+      publicURL
     }
   }
 `;
@@ -368,8 +395,8 @@ export const pageQuery = graphql`
 //   );
 // }
 
-{
-  /* <LandingMainDiv>
+// {
+/* <LandingMainDiv>
   <header>{header}</header>
   <main>{children}</main>
   <Footer>
@@ -392,7 +419,7 @@ export const pageQuery = graphql`
     </span>
   </Footer>
 </OtherMainDiv> */
-}
+// }
 
 // const LandingMainDiv = styled.div`
 //   margin-left: auto;

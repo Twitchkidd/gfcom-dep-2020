@@ -19,3 +19,12 @@ Tabs has to encapsulate Tabs and Panels, and is where the state for the index of
 I really don't like how the tabs are right now, component-wise, but I want to get the rest of this design more filled out here first.
 
 Hooof, mobile done, at least Index. I guess now would be the right time to wire up Layout ... pheeew, done with the markup, for the moment. Doesn't exactly build yet, though, definitely made up some variables and functions there. Wonder how many errors in the build tool ... 13, NICE! 11! 10! Good enough for now, time to take Dawa out again!
+
+// _I just had to explain to someone that it was not Black people's fault that they were enslaved. What. The. Fuck._
+
+... MOVING ON. 8 errors. 6 errors.
+
+Hooof. It's definitely coming along, pretty stoked, then my resume and personal website are both going to be pretty dope. I'm losing it a little here, though ... maybe because I took a day off with Dawa yesterday, that's why he's so needy today? Okay, next steps here ... branch from the old site so I can post these, and then the next time I'm in the code, I was just figuring out how to handle socials and filling all that info in, and the quote of the day, and then the header state management and invoking localStorage, and then the build should at least succeed, and we can be working with feedback in the browser! 🏎️
+
+Until tomorrow, be well and best wishes!
+~g

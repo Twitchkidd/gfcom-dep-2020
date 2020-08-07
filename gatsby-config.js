@@ -5,10 +5,14 @@ module.exports = {
       name: `Gareth Field`,
       summary: `a trail runner, developer, coffee lover, and dog dad based out of beautiful downtown New London, Connecticut!`,
     },
-    description: `A homepage for all things, running-, coding-, coffee-, Dawa- (my dog :) ) and Gareth-related on the Internet!`,
+    description: `A homepage for all things, running-, coding-, coffee-, Dawa- (my dog 😃) and Gareth-related on the Internet!`,
     siteUrl: `https://www.garethfield.com/`,
-    social: {
-      twitter: `barefootgareth`,
+    socials: {
+      twitter: {
+        handle: `barefootgareth`,
+        name: `Twitter`,
+        url: `https://twitter.com/barefootgareth`,
+      },
     },
   },
   plugins: [
