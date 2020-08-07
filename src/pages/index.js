@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import styled from "styled-components";
 import { Tabs, usePanelState } from "@bumaga/tabs";
 import {
   BlogList,
   Coffee,
+  Dog,
   Layout,
   MoreLessButton,
   MoreLessButtonShadowElement,
@@ -17,7 +18,8 @@ import Hamburger from "hamburger-react";
 import { rhythm, scale, white } from "../utils";
 
 const MobileHeader1 = styled.header`
-  position: sticky;
+  width: 100vw;
+  height: 15vh;
   background: green;
 `;
 
@@ -27,13 +29,16 @@ const Title = styled.h1`
 
 const Sidebar = styled.nav`
   position: ${(props) => (props.mobile ? "absolute" : "static")};
+  height: ${(props) => (props.mobile ? "85vh" : "100vh")};
 `;
 
 const StyledSocialsButton = styled.button`
-  background: url('plzWork.jpg');
+  background: url("plzWork.jpg");
 `;
 
-const SocialsButton = ({ onClick }) => <StyledSocialsButton onClick={onClick} />
+const SocialsButton = ({ onClick }) => (
+  <StyledSocialsButton onClick={onClick} />
+);
 
 const Panel = ({ children }) => {
   const isActive = usePanelState();
@@ -56,7 +61,7 @@ const MobileHeader3 = styled.div`
   display: flex;
 `;
 
-const QotD = styled.blockquote`
+const QotD = styled.q`
   font-size: 50px;
 `;
 
@@ -64,18 +69,42 @@ const StyledDelightButton = styled.button`
   width: 50px;
 `;
 
-const DelightButton = ({ onClick }) => <StyledDelightButton onClick={onClick} />
+const DelightButton = ({ onClick }) => (
+  <StyledDelightButton onClick={onClick} />
+);
+
+const ImageTitleWrap = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+const SocialButtonsWrap = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
+
+const SocialLinkButton = styled.a`
+  /* You can use before for tooltips, right? Then I just need an accessibility thing too. Kevin Powell's vid? */
+  background: url(./plzwork.gif);
+`;
+
+const EverythingElseWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const Index = ({ data, location }) => {
-  const { author, title, social } = data.site.siteMetadata;
+  const { author, title, social, pages } = data.site.siteMetadata;
   const [index, setIndex] = useState(1);
-  const [socialsOpen, setSocialsOpen]
+  const [socialsOpen, setSocialsOpen] = useState(false);
   const openSocials = () => {
     setSocialsOpen(true);
   };
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
-  }
+  };
   const delight = () => {
     console.log("Hooray!");
   };
@@ -92,24 +121,24 @@ const Index = ({ data, location }) => {
   return (
     <Layout location={location} title={title} mobile={mobile}>
       <SEO title="Home page" />
-        {mobile ? (
-          <Tabs state={[index, setIndex]}>
-            <MobileHeader1>
-              <Image
-                fixed={data.avatar.childImageSharp.fixed}
-                alt={author.name}
-                style={{
-                  marginRight: rhythm(1 / 2),
-                  marginBottom: 0,
-                  minWidth: 50,
-                  borderRadius: `100%`,
-                }}
-                imgStyle={{
-                  borderRadius: `50%`,
-                }}
-              />
-              <Title>{data.pageTitle}</Title>
-              <MoreLessButtonShadowElement header={headerState} />
+      {mobile ? (
+        <Tabs state={[index, setIndex]}>
+          <MobileHeader1>
+            <Image
+              fixed={data.avatar.childImageSharp.fixed}
+              alt={author.name}
+              style={{
+                marginRight: rhythm(1 / 2),
+                marginBottom: 0,
+                minWidth: 50,
+                borderRadius: `100%`,
+              }}
+              imgStyle={{
+                borderRadius: `50%`,
+              }}
+            />
+            <Title>{data.pageTitle}</Title>
+            <MoreLessButtonShadowElement header={headerState} />
           </MobileHeader1>
           <ContentWrap>
             <MobileHeader2>
@@ -123,7 +152,7 @@ const Index = ({ data, location }) => {
               <MoreLessButtonShadowElement />
             </MobileHeader2>
             <MobileHeader3>
-              <QotD quote={data.quote} />
+              <QotD>{data.quote}</QotD>
               <DelightButton onClick={delight} />
               <MoreLessButtonShadowElement />
             </MobileHeader3>
@@ -141,16 +170,76 @@ const Index = ({ data, location }) => {
             </Panel>
           </ContentWrap>
           <Sidebar>
-            <SidebarTabs />
-            <Pages />
+            <SidebarTabs mobile={mobile} />
+            <Pages pages={pages} />
             <SocialsButton onClick={openSocials} />
             <SidebarToggle onClick={toggleSidebar} />
           </Sidebar>
           <SocialsModal hidden={!socialsOpen} socials={[social.twitter]} />
-      </Tabs>
-          ) : (
-            <div>Desktop</div>
-            )}
+        </Tabs>
+      ) : (
+        <Tabs state={[index, setIndex]}>
+          <Sidebar mobile={mobile}>
+            <ImageTitleWrap>
+              <Image
+                fixed={data.bigAvatar.childImageSharp.fixed}
+                alt={author.name}
+                style={{
+                  marginRight: rhythm(1 / 2),
+                  marginBottom: 0,
+                  minWidth: 96,
+                  borderRadius: `100%`,
+                }}
+                imgStyle={{
+                  borderRadius: `50%`,
+                }}
+              />
+              <Title>{data.pageTitle}</Title>
+            </ImageTitleWrap>
+            <SidebarTabs mobile={mobile} />
+            <Pages pages={pages} />
+            <SocialButtonsWrap>
+              {socials.map((social) => (
+                <SocialLinkButton key={social.key} href={social.url}>
+                  {social.name}
+                </SocialLinkButton>
+              ))}
+            </SocialButtonsWrap>
+          </Sidebar>
+          <EverythingElseWrap>
+            <DesktopHeader1>
+              <Blurb>
+                Gareth is {author.summary}
+                {` `}
+                <a href={`https://twitter.com/${social.twitter}`}>
+                  Follow him on Twitter!
+                </a>
+              </Blurb>
+              <QotD>{data.quote}</QotD>
+              <DelightButton onClick={delight} />
+              <MoreLessButtonShadowElement />
+            </DesktopHeader1>
+            <ContentWrap>
+              <DesktopHeader2>
+                <p>Flash text.</p>
+                <MoreLessButtonShadowElement />
+              </DesktopHeader2>
+              <Panel>
+                <Running />
+              </Panel>
+              <Panel>
+                <BlogList data={data} />
+              </Panel>
+              <Panel>
+                <Coffee />
+              </Panel>
+              <Panel>
+                <Dog />
+              </Panel>
+            </ContentWrap>
+          </EverythingElseWrap>
+        </Tabs>
+      )}
       <MoreLessButton
         top={determineMe}
         type={howDoWeDetermineThis}
@@ -173,26 +262,6 @@ const Index = ({ data, location }) => {
 //   overflow: scroll;
 //   padding: 1rem 1rem 1rem 2.5rem;
 // `;
-
-// <NavMainWrapper>
-//   <Tabs state={[index, setIndex]}>
-//     <Nav />
-//     <MainWrapper>
-//       <Panel>
-//         <Running />
-//       </Panel>
-//       <Panel>
-//         <BlogList data={data} />
-//       </Panel>
-//       <Panel>
-//         <Coffee />
-//       </Panel>
-//       <Panel>
-//         <p>Dog!</p>
-//       </Panel>
-//     </MainWrapper>
-//   </Tabs>
-// </NavMainWrapper>
 
 export default Index;
 
@@ -428,5 +497,3 @@ export const pageQuery = graphql`
 //   align-items: center;
 //   margin-top: 1rem;
 // `;
-
-// const [menuOpen, setMenuOpen] = useState(false);

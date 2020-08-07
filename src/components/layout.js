@@ -11,7 +11,7 @@ const OtherWrap = styled.div`
   display: ${(props) => (props.mobile ? "flex" : "grid")};
 `;
 
-export const Layout = ({ location, children }) => {
+export const Layout = ({ location, children, mobile }) => {
   const rootPath = `${__PATH_PREFIX__}/`;
   return (
     <>

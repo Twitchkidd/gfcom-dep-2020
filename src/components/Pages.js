@@ -11,7 +11,7 @@ const Page = styled(Link)`
   font-size: 40px;
 `;
 
-export const Pages = () => (
+export const Pages = ({ pages }) => (
   <PagesWrap>
     {pages.map((page) => (
       <Page to={page.url}>{page.name}</Page>

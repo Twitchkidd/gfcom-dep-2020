@@ -18,4 +18,4 @@ Tabs has to encapsulate Tabs and Panels, and is where the state for the index of
 
 I really don't like how the tabs are right now, component-wise, but I want to get the rest of this design more filled out here first.
 
-Hooof, mobile done, at least Index. I guess now would be the right time to wire up Layout ...
+Hooof, mobile done, at least Index. I guess now would be the right time to wire up Layout ... pheeew, done with the markup, for the moment. Doesn't exactly build yet, though, definitely made up some variables and functions there. Wonder how many errors in the build tool ... 13, NICE! 11! 10! Good enough for now, time to take Dawa out again!
