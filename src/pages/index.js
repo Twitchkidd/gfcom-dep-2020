@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { graphql, Image } from "gatsby";
 import styled from "styled-components";
 import { Tabs, usePanelState } from "@bumaga/tabs";
@@ -16,6 +16,34 @@ import {
   SocialsModal,
 } from "../components";
 import { rhythm } from "../utils";
+
+// * localstorage feature detection https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API * //
+function storageAvailable(type) {
+  var storage;
+  try {
+    storage = window[type];
+    var x = "__storage_test__";
+    storage.setItem(x, x);
+    storage.removeItem(x);
+    return true;
+  } catch (e) {
+    return (
+      e instanceof DOMException &&
+      // everything except Firefox
+      (e.code === 22 ||
+        // Firefox
+        e.code === 1014 ||
+        // test name field too, because code might not be present
+        // everything except Firefox
+        e.name === "QuotaExceededError" ||
+        // Firefox
+        e.name === "NS_ERROR_DOM_QUOTA_REACHED") &&
+      // acknowledge QuotaExceededError only if there's something already stored
+      storage &&
+      storage.length !== 0
+    );
+  }
+}
 
 const MobileHeader1 = styled.header`
   width: 100vw;
@@ -116,11 +144,14 @@ const DesktopHeader2 = styled.header`
 
 const Index = ({ data, location }) => {
   const { author, title, socials, pages } = data.site.siteMetadata;
-  const [index, setIndex] = useState(1);
+  const [headerState, setHeaderState] = useState({});
+  // combine these into the above
+  const [mobile, setMobile] = useState(false);
   const [headerCount, setHeaderCount] = useState(1);
+
+  const [index, setIndex] = useState(1);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [socialsOpen, setSocialsOpen] = useState(false);
-
   const openSocials = () => {
     setSocialsOpen(true);
   };
@@ -135,11 +166,48 @@ const Index = ({ data, location }) => {
   const handleMoreLess = () => {
     console.log("More less shruggie");
   };
-  // Media query!
-  // May have to render a fragment if window is undefined, give it a shot.
-  // https://www.gatsbyjs.org/docs/debugging-html-builds/ Oh, this.
   const width = window.innerWidth;
-  const mobile = width <= 640;
+  useEffect(() => {
+    if (typeof window !== `undefined`) {
+      const isMobile = window.innerWidth <= 640;
+      // setMobile(window.innderWidth <= 640)
+      if (storageAvailable("localStorage")) {
+        const hasHeaderState = localStorage.getItem("headerState");
+        if (!hasHeaderState) {
+          if (isMobile) {
+            localStorage.setItem("headerState", {
+              mobile: true,
+              headerCount: 3,
+            });
+            setHeaderState({
+              mobile: true,
+              headerCount: 3,
+            });
+          } else {
+            localStorage.setItem("headerState", {
+              mobile: false,
+              headerCount: 2,
+            });
+            setHeaderState({
+              mobile: false,
+              headerCount: 2,
+            });
+          }
+        } else {
+          setStyles();
+        }
+      } else {
+        // Too bad, no localStorage for us
+        // TODO FINISH!
+        if (isMobile) {
+          setHeaderState({
+            mobile: true,
+            headerCount: 3,
+          });
+        }
+      }
+    }
+  }, []);
   return (
     <Layout location={location} title={title} mobile={mobile}>
       <SEO title="Home page" />
