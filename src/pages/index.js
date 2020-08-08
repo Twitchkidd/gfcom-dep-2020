@@ -189,7 +189,6 @@ const Index = ({ data, location }) => {
             });
           }
         } else {
-          // BELOW, TEST ME PLZ THX
           if (
             typeof storedHeaderState.mobile !== `undefined` &&
             typeof storedHeaderState.headerCount !== `undefined`
@@ -201,11 +200,11 @@ const Index = ({ data, location }) => {
                   headerCount: storedHeaderState.headerCount,
                 });
               } else {
-                setHeaderState(
+                setHeaderState({
                   mobile: false,
                   headerCount: 3,
                 });
-              } // What did I doooo ....
+              }
             }
           }
         }

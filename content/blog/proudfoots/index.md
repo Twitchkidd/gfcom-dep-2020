@@ -18,7 +18,10 @@ Got the header situation handled, I've got some coffee here and just wrote an em
 
 ![Current desk arrangement](./patioDesk.jpg)
 
-Oh, lordie, just went down the FP rabbithole for a while. [Currying and Function Composition by Eric Elliot](https://medium.com/javascript-scene/curry-and-function-composition-2c208d774983)
+Oh, lordie, just went down the FP rabbithole for a while. [Currying and Function Composition by Eric Elliot](https://medium.com/javascript-scene/curry-and-function-composition-2c208d774983) Then my back said no more sitting. I took Dawa to the park for a bit, I'm trying lying prone and seeing if I can do that. I just read a compelling argument for not just combining state and using the functional version of setState with a spread operator, recommended in the docs and all that. I think that refactor is going to have to be for tomorrow, though, I'm zonked. The alarm is set for earlier, let's see if I can get Dawa ran and coding before 8! If there are dogs at the park when we get out from the trail-run, though, it's going to be 8:30.
+
+Tifme to wind down, though, peace and <3, best wishes,
+~g
 
 #### Footer .. heh ..
 
