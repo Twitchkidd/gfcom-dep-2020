@@ -20,6 +20,9 @@ Dawa and I are at the park now, it's really nice having a backup machine dedicat
 
 Next up is the layout, let's see ... I think I had gotten through the markup for mobile, but wasn't done with the markup for desktop ...
 
+Sweet, got that figured out, time to switch to CSS mode! Ehh ... actually, I mean I went to spin up a stylesheet.css, but that's one of the nice things about `styled-components`, I can do the Reactifying first, and then write scoped CSS. The next thing to work on is whether I'm going to nuke this thing or not, so seeing what the latest scaffolding for `gatsby-starter-blog` is ... hmm, okay so just looks like updating to the v2 versions of `gatsby-remark-images` and anything else in the build step will probably do it, though I wonder what the scaffolding looks like now anyway ...
+
+Also, thanks Elsbeth! My sister caught that I hadn't paid any attention to the months field in the resume. She suggested deleting it, I'm on the fence about it based on how nicely it ties the sections together when the consistency issues with caps, and slashes and dashes was fixed.
 Okay, markup for desktop complete, Reactify, then style.
 
 Until tomorrow, best wishes!
