@@ -28,8 +28,8 @@ const Title = styled.h1`
 `;
 
 const Sidebar = styled.nav`
-  position: ${(props) => (props.mobile ? "absolute" : "static")};
-  height: ${(props) => (props.mobile ? "85vh" : "100vh")};
+  position: ${props => (props.mobile ? "absolute" : "static")};
+  height: ${props => (props.mobile ? "85vh" : "100vh")};
 `;
 
 const StyledSocialsButton = styled.button`
@@ -117,8 +117,10 @@ const DesktopHeader2 = styled.header`
 const Index = ({ data, location }) => {
   const { author, title, socials, pages } = data.site.siteMetadata;
   const [index, setIndex] = useState(1);
+  const [headerCount, setHeaderCount] = useState(1);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [socialsOpen, setSocialsOpen] = useState(false);
+
   const openSocials = () => {
     setSocialsOpen(true);
   };
@@ -219,7 +221,7 @@ const Index = ({ data, location }) => {
             <SidebarTabs mobile={mobile} />
             <Pages pages={pages} />
             <SocialButtonsWrap>
-              {socials.map((social) => (
+              {socials.map(social => (
                 <SocialLinkButton
                   key={social.name}
                   href={social.url}
