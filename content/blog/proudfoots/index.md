@@ -10,4 +10,16 @@ Okay, so MoreLessButton is going to be floating between the headers, meaning it'
 
 `headerCount`.
 
-// Alrighty, coding from Fort Trumbull! I've got half an hour or so before Elsbeth and co. are supposed to be here, so I can ... oh back, please cooperate. It kinda works if I don't really look at the screen, or use just my eyes, but it's so tempting to lean forward ... which I can do if I'm writing in English, I don't know about JSX though.
+![View from the Fort Trumbull entrace](./fortTrumbull.jpg)
+
+// Alrighty, coding from Fort Trumbull! I've got half an hour or so before Elsbeth and co. are supposed to be here, so I can ... oh back, please cooperate. Th kinda works if I don't really look at the screen, or use just my eyes, but it's so tempting to lean forward ... which I can do if I'm writing in English, I don't know about JSX though.
+
+Got the header situation handled, I've got some coffee here and just wrote an email ... phew, sent, nice, I think I used words good ;) How 'bout some JavaScript baby, yea! Made some coffee, it's kicking in here, lol.
+
+![Current desk arrangement](./patioDesk.jpg)
+
+Oh, lordie, just went down the FP rabbithole for a while. [Currying and Function Composition by Eric Elliot](https://medium.com/javascript-scene/curry-and-function-composition-2c208d774983)
+
+#### Footer .. heh ..
+
+The title and description are references to Lord of the Rings, the movie, first in the trilogy, not sure exactly why that bit came to mind, but I don't have these sorted by date, and having a memorable name is the only way I can find it quickly. Eyes are weird.

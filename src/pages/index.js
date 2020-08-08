@@ -145,10 +145,6 @@ const DesktopHeader2 = styled.header`
 const Index = ({ data, location }) => {
   const { author, title, socials, pages } = data.site.siteMetadata;
   const [headerState, setHeaderState] = useState({});
-  // combine these into the above
-  const [mobile, setMobile] = useState(false);
-  const [headerCount, setHeaderCount] = useState(1);
-
   const [index, setIndex] = useState(1);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [socialsOpen, setSocialsOpen] = useState(false);
@@ -170,10 +166,9 @@ const Index = ({ data, location }) => {
   useEffect(() => {
     if (typeof window !== `undefined`) {
       const isMobile = window.innerWidth <= 640;
-      // setMobile(window.innderWidth <= 640)
       if (storageAvailable("localStorage")) {
-        const hasHeaderState = localStorage.getItem("headerState");
-        if (!hasHeaderState) {
+        const storedHeaderState = localStorage.getItem("headerState");
+        if (!storedHeaderState) {
           if (isMobile) {
             localStorage.setItem("headerState", {
               mobile: true,
@@ -194,7 +189,25 @@ const Index = ({ data, location }) => {
             });
           }
         } else {
-          setStyles();
+          // BELOW, TEST ME PLZ THX
+          if (
+            typeof storedHeaderState.mobile !== `undefined` &&
+            typeof storedHeaderState.headerCount !== `undefined`
+          ) {
+            if (storedHeaderState.mobile === true) {
+              if (isMobile) {
+                setHeaderState({
+                  mobile: true,
+                  headerCount: storedHeaderState.headerCount,
+                });
+              } else {
+                setHeaderState(
+                  mobile: false,
+                  headerCount: 3,
+                });
+              } // What did I doooo ....
+            }
+          }
         }
       } else {
         // Too bad, no localStorage for us
