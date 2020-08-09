@@ -206,17 +206,30 @@ const Index = ({ data, location }) => {
                 });
               }
             } else {
-              // storedHeaderState.mobile === false
+              if (!isMobile) {
+                setHeaderState({
+                  mobile: false,
+                  headerCount: storedHeaderState.headerCount,
+                });
+              } else {
+                setHeaderState({
+                  mobile: true,
+                  headerCount: 3,
+                });
+              }
             }
           }
         }
       } else {
-        // Too bad, no localStorage for us
-        // TODO FINISH!
         if (isMobile) {
           setHeaderState({
             mobile: true,
             headerCount: 3,
+          });
+        } else {
+          setHeaderState({
+            mobile: false,
+            headerCount: 2,
           });
         }
       }
