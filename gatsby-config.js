@@ -5,10 +5,14 @@ module.exports = {
       name: `Gareth Field`,
       summary: `a trail runner, developer, coffee lover, and dog dad based out of beautiful downtown New London, Connecticut!`,
     },
-    description: `A homepage for all things, running-, coding-, coffee-, Dawa- (my dog :) ) and Gareth-related on the Internet!`,
+    description: `A homepage for all things, running-, coding-, coffee-, Dawa- (my dog 😃) and Gareth-related on the Internet!`,
     siteUrl: `https://www.garethfield.com/`,
-    social: {
-      twitter: `barefootgareth`,
+    socials: {
+      twitter: {
+        handle: `barefootgareth`,
+        name: `Twitter`,
+        url: `https://twitter.com/barefootgareth`,
+      },
     },
   },
   plugins: [
@@ -46,23 +50,16 @@ module.exports = {
           `gatsby-remark-copy-linked-files`,
           `gatsby-remark-smartypants`,
           {
-            resolve: `gatsby-transformer-remark`,
+            resolve: `gatsby-remark-vscode`,
             options: {
-              plugins: [
-                {
-                  resolve: `gatsby-remark-vscode`,
-                  options: {
-                    theme: "Monokai Dimmed",
-                  },
-                },
-              ],
+              theme: "Monokai Dimmed",
             },
           },
         ],
       },
     },
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
@@ -86,7 +83,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-typography`,
       options: {
-        pathToConfigModule: `src/utils/Typography`,
+        pathToConfigModule: `src/utils/typography`,
       },
     },
     `gatsby-plugin-styled-components`,
