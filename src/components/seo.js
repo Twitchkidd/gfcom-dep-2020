@@ -18,8 +18,10 @@ export const SEO = ({ description, lang, meta, title }) => {
           siteMetadata {
             title
             description
-            social {
-              twitter
+            socials {
+              twitter {
+                handle
+              }
             }
           }
         }
@@ -59,7 +61,7 @@ export const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter,
+          content: site.siteMetadata.socials.twitter.handle,
         },
         {
           name: `twitter:title`,

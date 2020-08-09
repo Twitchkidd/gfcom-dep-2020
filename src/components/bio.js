@@ -33,14 +33,16 @@ export const Bio = ({ location }) => {
             name
             summary
           }
-          social {
-            twitter
+          socials {
+            twitter {
+              handle
+            }
           }
         }
       }
     }
   `);
-  const { author, social } = data.site.siteMetadata;
+  const { author, socials } = data.site.siteMetadata;
   const rootPath = `${__PATH_PREFIX__}/`;
   return (
     <Fragment>
@@ -70,7 +72,7 @@ export const Bio = ({ location }) => {
           <p style={{ marginBottom: 0 }}>
             Gareth is {author.summary}
             {` `}
-            <a href={`https://twitter.com/${social.twitter}`}>
+            <a href={`https://twitter.com/${socials.twitter.handle}`}>
               Follow him on Twitter!
             </a>
             {` `}
@@ -108,7 +110,7 @@ export const Bio = ({ location }) => {
           <p style={{ marginBottom: 0 }}>
             Written by <strong>{author.name}</strong>, {author.summary}
             {` `}
-            <a href={`https://twitter.com/${social.twitter}`}>
+            <a href={`https://twitter.com/${socials.twitter.handle}`}>
               Follow him on Twitter!
             </a>
           </p>
