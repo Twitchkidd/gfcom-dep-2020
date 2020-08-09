@@ -7,13 +7,27 @@ module.exports = {
     },
     description: `A homepage for all things, running-, coding-, coffee-, Dawa- (my dog 😃) and Gareth-related on the Internet!`,
     siteUrl: `https://www.garethfield.com/`,
-    socials: {
-      twitter: {
+    socials: [
+      {
         handle: `barefootgareth`,
         name: `Twitter`,
         url: `https://twitter.com/barefootgareth`,
       },
-    },
+    ],
+    pages: [
+      {
+        name: "About",
+        url: "https://www.garethfield.com/about",
+      },
+      {
+        name: "Virtual Garage Sale",
+        url: "https://www.garethfield.com/virtual-garage-sale",
+      },
+      {
+        name: "Credits",
+        url: "https://www.garethfield.com/credits",
+      },
+    ],
   },
   plugins: [
     {

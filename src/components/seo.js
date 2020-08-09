@@ -19,18 +19,18 @@ export const SEO = ({ description, lang, meta, title }) => {
             title
             description
             socials {
-              twitter {
-                handle
-              }
+              name
+              handle
             }
           }
         }
       }
     `
   );
-
   const metaDescription = description || site.siteMetadata.description;
-
+  const twitterHandle = site.siteMetadata.socials.filter(
+    social => social.name === "Twitter"
+  ).handle;
   return (
     <Helmet
       htmlAttributes={{
@@ -61,7 +61,7 @@ export const SEO = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.socials.twitter.handle,
+          content: twitterHandle,
         },
         {
           name: `twitter:title`,

@@ -6,6 +6,9 @@ import { rhythm, scale } from "../utils/typography";
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
   const siteTitle = data.site.siteMetadata.title;
+  const twitterHandle = data.site.siteMetadata.socials.filter(
+    social => social.name === "Twitter"
+  ).handle;
   const { previous, next } = pageContext;
 
   return (
@@ -86,8 +89,9 @@ export const pageQuery = graphql`
           name
           summary
         }
-        social {
-          twitter
+        socials {
+          handle
+          name
         }
       }
     }

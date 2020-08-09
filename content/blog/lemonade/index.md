@@ -31,3 +31,22 @@ Oh, no, Dawa is awake and needs attention for the next two hours, lol. Effff.
 Ayy, applied for a job! I hope they get back to me! Ooo, and the person I emailed said they would pass my name along to someone they know, very exciting! Yay for not appearing outwardly crazy to the other people at the dog park, lol!
 
 Two jobs! Ha! What's the next thing to work on, I need to get the laundry in, myself together, and Dawa outside for a bit. Might work from the dog park. Headers logic. This may be overkill for a button, it's going to be awesome though, if it works out, I'm so stoked if I can pull this effect off.
+
+// Okay, Dawa walked, albeit briefly due to the heat, laundry should be done soon, and let's see how close we are to this thing rendering ... query in blog-post template ... uh-oh, I fixed a few things and it built. I wonder how awful it looks right now, lol. Oh, sweet, now the errors are just showing up at run time. `socials.map` isn't a function, cool, can handle, forgot that's an object, not an array, wrong data type
+
+Oooh, that was confusing, it was telling me data was undefined for the default export of index.js, but the actual problem was that I was importing { Image } from gatsby rather than Image from gatsby-image. I saw a flash of bi pride before it collapsed this time! How exciting!
+
+OH WOW! Guys! Guys come quick! It rendered! It's so awful lollll!!!!
+
+![Mobile bad](./mobileBad.png)
+
+![Wow, so bad](./soBad.png)
+
+![Full glory](./fullGlory.png)
+
+It's rendering though!
+
+Unfortunately, lack of sleep has caught up to me. I'm going to do everything I can to stay up another few hours here and make sure Dawa has enough outside time ... except for drink more coffee. I had two cups today, and I think going off my caffeine schedule yesterday may have contributed. Also I got just way too excited to see my sister and her fam, and then had an emotional breakdown at like midnight, lol. I was going to say maybe I'll get more work done today, but I know when not to push myself, at least sometimes.
+
+Best wishes y'all,
+~g

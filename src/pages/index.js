@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { graphql, Image } from "gatsby";
+import React, { useEffect, useRef, useState } from "react";
+import { graphql } from "gatsby";
+import Image from "gatsby-image";
 import styled from "styled-components";
 import { Tabs, usePanelState } from "@bumaga/tabs";
 import {
@@ -144,6 +145,10 @@ const DesktopHeader2 = styled.header`
 
 const Index = ({ data, location }) => {
   const { author, title, socials, pages } = data.site.siteMetadata;
+  console.log(pages);
+  const twitterHandle = socials.filter(social => social.name === "Twitter")
+    .handle;
+  const twitterUrl = socials.filter(social => social.name === "Twitter").url;
   const [headerState, setHeaderState] = useState({});
   const [index, setIndex] = useState(1);
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -162,14 +167,14 @@ const Index = ({ data, location }) => {
   const handleMoreLess = () => {
     console.log("More less shruggie");
   };
-  const width = window.innerWidth;
+  const isMobileRef = useRef(null);
   useEffect(() => {
     if (typeof window !== `undefined`) {
-      const isMobile = window.innerWidth <= 640;
+      isMobileRef.current = window.innerWidth <= 640;
       if (storageAvailable("localStorage")) {
         const storedHeaderState = localStorage.getItem("headerState");
         if (!storedHeaderState) {
-          if (isMobile) {
+          if (isMobileRef.current) {
             localStorage.setItem("headerState", {
               mobile: true,
               headerCount: 3,
@@ -194,7 +199,7 @@ const Index = ({ data, location }) => {
             typeof storedHeaderState.headerCount !== `undefined`
           ) {
             if (storedHeaderState.mobile === true) {
-              if (isMobile) {
+              if (isMobileRef.current) {
                 setHeaderState({
                   mobile: true,
                   headerCount: storedHeaderState.headerCount,
@@ -206,7 +211,7 @@ const Index = ({ data, location }) => {
                 });
               }
             } else {
-              if (!isMobile) {
+              if (!isMobileRef.current) {
                 setHeaderState({
                   mobile: false,
                   headerCount: storedHeaderState.headerCount,
@@ -221,7 +226,7 @@ const Index = ({ data, location }) => {
           }
         }
       } else {
-        if (isMobile) {
+        if (isMobileRef.current) {
           setHeaderState({
             mobile: true,
             headerCount: 3,
@@ -236,9 +241,9 @@ const Index = ({ data, location }) => {
     }
   }, []);
   return (
-    <Layout location={location} title={title} mobile={mobile}>
+    <Layout location={location} title={title} mobile={isMobileRef.current}>
       <SEO title="Home page" />
-      {mobile ? (
+      {isMobileRef.current ? (
         <Tabs state={[index, setIndex]}>
           <MobileHeader1>
             <Image
@@ -255,23 +260,23 @@ const Index = ({ data, location }) => {
               }}
             />
             <Title>{data.pageTitle}</Title>
-            <MoreLessButtonShadowElement header={headerState} />
+            <MoreLessButtonShadowElement headerState={headerState} />
           </MobileHeader1>
           <ContentWrap>
             <MobileHeader2>
               <Blurb>
                 Gareth is {author.summary}
                 {` `}
-                <a href={`https://twitter.com/${social.twitter}`}>
+                <a href={`https://twitter.com/${twitterHandle}`}>
                   Follow him on Twitter!
                 </a>
               </Blurb>
-              <MoreLessButtonShadowElement header={headerState} />
+              <MoreLessButtonShadowElement headerState={headerState} />
             </MobileHeader2>
             <MobileHeader3>
               <QotD>{data.quote}</QotD>
               <DelightButton onClick={delight} />
-              <MoreLessButtonShadowElement header={headerState} />
+              <MoreLessButtonShadowElement headerState={headerState} />
             </MobileHeader3>
             <Panel>
               <Running />
@@ -287,7 +292,7 @@ const Index = ({ data, location }) => {
             </Panel>
           </ContentWrap>
           <Sidebar>
-            <SidebarTabs mobile={mobile} />
+            <SidebarTabs mobile={isMobileRef.current} />
             <Pages pages={pages} />
             <SocialsButton onClick={openSocials} />
             <SidebarToggle onClick={toggleSidebar} />
@@ -296,7 +301,7 @@ const Index = ({ data, location }) => {
         </Tabs>
       ) : (
         <Tabs state={[index, setIndex]}>
-          <Sidebar mobile={mobile}>
+          <Sidebar mobile={isMobileRef.current}>
             <ImageTitleWrap>
               <Image
                 fixed={data.bigAvatar.childImageSharp.fixed}
@@ -313,7 +318,7 @@ const Index = ({ data, location }) => {
               />
               <Title>{data.pageTitle}</Title>
             </ImageTitleWrap>
-            <SidebarTabs mobile={mobile} />
+            <SidebarTabs mobile={isMobileRef.current} />
             <Pages pages={pages} />
             <SocialButtonsWrap>
               {socials.map(social => (
@@ -330,16 +335,16 @@ const Index = ({ data, location }) => {
               <Blurb>
                 Gareth is {author.summary}
                 {` `}
-                <a href={`${socials.twitter.url}`}>Follow him on Twitter!</a>
+                <a href={`${twitterUrl}`}>Follow him on Twitter!</a>
               </Blurb>
               <QotD>{data.quote}</QotD>
               <DelightButton onClick={delight} />
-              <MoreLessButtonShadowElement header={headerState} />
+              <MoreLessButtonShadowElement headerState={headerState} />
             </DesktopHeader1>
             <ContentWrap>
               <DesktopHeader2>
                 <p>Flash text.</p>
-                <MoreLessButtonShadowElement header={headerState} />
+                <MoreLessButtonShadowElement headerState={headerState} />
               </DesktopHeader2>
               <Panel>
                 <Running />
@@ -392,11 +397,13 @@ export const pageQuery = graphql`
           summary
         }
         socials {
-          twitter {
-            handle
-            name
-            url
-          }
+          handle
+          name
+          url
+        }
+        pages {
+          name
+          url
         }
       }
     }
