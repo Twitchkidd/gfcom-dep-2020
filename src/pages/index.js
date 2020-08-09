@@ -202,9 +202,11 @@ const Index = ({ data, location }) => {
               } else {
                 setHeaderState({
                   mobile: false,
-                  headerCount: 3,
+                  headerCount: 2,
                 });
               }
+            } else {
+              // storedHeaderState.mobile === false
             }
           }
         }
