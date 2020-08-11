@@ -17,15 +17,15 @@ module.exports = {
     pages: [
       {
         name: "About",
-        url: "https://www.garethfield.com/about",
+        url: "/about",
       },
       {
         name: "Virtual Garage Sale",
-        url: "https://www.garethfield.com/virtual-garage-sale",
+        url: "/virtual-garage-sale",
       },
       {
         name: "Credits",
-        url: "https://www.garethfield.com/credits",
+        url: "/credits",
       },
     ],
   },

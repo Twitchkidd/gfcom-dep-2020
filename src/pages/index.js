@@ -145,7 +145,6 @@ const DesktopHeader2 = styled.header`
 
 const Index = ({ data, location }) => {
   const { author, title, socials, pages } = data.site.siteMetadata;
-  console.log(pages);
   const twitterHandle = socials.filter(social => social.name === "Twitter")
     .handle;
   const twitterUrl = socials.filter(social => social.name === "Twitter").url;
