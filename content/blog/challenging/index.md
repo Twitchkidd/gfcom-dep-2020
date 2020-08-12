@@ -12,4 +12,7 @@ Good morning! I'm not having a great mental health day, but I'm here at the park
 
 Whoops, didn't write for a while! I got some administrative things done today that I'd been meaning to do, blew a bunch of lines of CSS out and got some structure ready for a push early tomorrow, and Dawa got as much outside time as we could manage, with the heat. I was pretty low yesterday and earlier today, I'm looking forward to the future again though!
 
-I wonder if I forgot to push a commit on the other machine, the file names I changed haven't changed on this one ...
+I wonder if I forgot to push a commit on the other machine, the file names I changed haven't changed on this one ... Nope! Weird! Why? Glad it's case-insensitive and just works, but dang.
+
+Aaanyway, good luck out there, best wishes,
+~g!
