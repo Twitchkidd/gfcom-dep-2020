@@ -2,14 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import Global from "./Global";
-import { almostWhite, eigengrau } from "../utils";
+import { almostWhite, eigengrau, rhythm, white } from "../utils";
 
 const AppWrap = styled.div`
   position: fixed;
   height: 100vh;
   width: 100vw;
-  color: ${eigengrau};
-  background: ${almostWhite};
   overflow: hidden;
   display: grid;
   grid-template-columns: ${props =>
@@ -18,26 +16,7 @@ const AppWrap = styled.div`
     props.mobile ? `CSS ME CAP'N!` : `CSS ME CAP'N!`};
 `;
 
-const OtherWrap = styled.div`
-  display: ${props => (props.mobile ? "flex" : "grid")};
-`;
-
-export const Layout = ({ location, children, mobile }) => {
-  const rootPath = `${__PATH_PREFIX__}/`;
-  return (
-    <>
-      <Global />
-      {location.pathname === rootPath ? (
-        <AppWrap mobile={mobile}>{children}</AppWrap>
-      ) : (
-        <OtherWrap mobile={mobile}>{children}</OtherWrap>
-      )}
-    </>
-  );
-};
-
-/*
-header = (
+const postHeader = (
   <h3
     style={{
       marginTop: 0,
@@ -55,7 +34,42 @@ header = (
     </Link>
   </h3>
 );
-*/
+
+const OtherWrap = styled.div``;
+
+const Footer = styled.footer`
+  width: 100%;
+  height: 1.85rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+`;
+
+export const Layout = ({ location, children, mobile, title }) => {
+  const rootPath = `${__PATH_PREFIX__}/`;
+  return (
+    <>
+      <Global />
+      {location.pathname === rootPath ? (
+        <AppWrap mobile={mobile}>{children}</AppWrap>
+      ) : (
+        <OtherWrap>
+          <header>{postHeader}</header>
+          <main>{children}</main>
+          <Footer>
+            <span>
+              © {new Date().getFullYear()}, Gareth Field, built with
+              {` `}
+              <a href="https://www.gatsbyjs.org">Gatsby</a>
+            </span>
+          </Footer>
+        </OtherWrap>
+      )}
+    </>
+  );
+};
+
 /*
 const OtherMainDiv = styled.div`
   margin-left: auto;
@@ -97,17 +111,6 @@ const OtherMainDiv = styled.div`
     );
   }
 `;
-*/
-
-/*
-const Footer = styled.footer`
-  width: 100%;
-  height: 1.85rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-  `;
 */
 
 /*
