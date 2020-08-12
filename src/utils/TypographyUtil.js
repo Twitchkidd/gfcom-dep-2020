@@ -1,7 +1,7 @@
 import Typography from "typography";
 import doelgerTheme from "typography-theme-doelger";
 import { MOBILE_MEDIA_QUERY } from "typography-breakpoint-constants";
-import { purple } from "../utils";
+import { purple } from ".";
 
 doelgerTheme.overrideThemeStyles = ({ rhythm }) => ({
   "a.gatsby-resp-image-link": {

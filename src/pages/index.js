@@ -145,9 +145,9 @@ const DesktopHeader2 = styled.header`
 
 const Index = ({ data, location }) => {
   const { author, title, socials, pages } = data.site.siteMetadata;
-  const twitterHandle = socials.filter(social => social.name === "Twitter")
+  const twitterHandle = socials.filter(social => social.name === "Twitter")[0]
     .handle;
-  const twitterUrl = socials.filter(social => social.name === "Twitter").url;
+  const twitterUrl = socials.filter(social => social.name === "Twitter")[0].url;
   const [headerState, setHeaderState] = useState({});
   const [index, setIndex] = useState(1);
   const [sidebarOpen, setSidebarOpen] = useState(false);

@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "gatsby";
 import Global from "./Global";
-import { almostWhite, eigengrau, rhythm, white } from "../utils";
+import { rhythm, white } from "../utils";
 
 const AppWrap = styled.div`
   position: fixed;
@@ -16,7 +16,7 @@ const AppWrap = styled.div`
     props.mobile ? `CSS ME CAP'N!` : `CSS ME CAP'N!`};
 `;
 
-const postHeader = (
+const postHeader = title => (
   <h3
     style={{
       marginTop: 0,
@@ -35,7 +35,46 @@ const postHeader = (
   </h3>
 );
 
-const OtherWrap = styled.div``;
+const OtherWrap = styled.div`
+  margin-left: auto;
+  margin-right: auto;
+  max-width: ${rhythm(32)};
+  padding: ${rhythm(2.5)} ${rhythm(3 / 4)};
+  background: ${white};
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -112px;
+    height: 100%;
+    width: 112px;
+    background: linear-gradient(
+      to left,
+      ${white},
+      ${white},
+      ${white},
+      ${white},
+      transparent
+    );
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    width: 112px;
+    background: linear-gradient(
+      to right,
+      ${white},
+      ${white},
+      ${white},
+      ${white},
+      transparent
+    );
+  }
+`;
 
 const Footer = styled.footer`
   width: 100%;
@@ -55,7 +94,7 @@ export const Layout = ({ location, children, mobile, title }) => {
         <AppWrap mobile={mobile}>{children}</AppWrap>
       ) : (
         <OtherWrap>
-          <header>{postHeader}</header>
+          <header>{postHeader(title)}</header>
           <main>{children}</main>
           <Footer>
             <span>

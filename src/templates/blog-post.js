@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
 import { Bio, Layout, SEO } from "../components";
-import { rhythm, scale } from "../utils/typography";
+import { rhythm, scale } from "../utils";
 
 const BlogPostTemplate = ({ data, pageContext, location }) => {
   const post = data.markdownRemark;
