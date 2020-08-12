@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import Global from "./Global";
+import { almostWhite, eigengrau } from "../utils";
 
 const AppWrap = styled.div`
-  position: relative;
+  position: fixed;
   height: 100vh;
   width: 100vw;
+  color: ${eigengrau};
+  background: ${almostWhite};
   overflow: hidden;
   display: grid;
   grid-template-columns: ${props =>

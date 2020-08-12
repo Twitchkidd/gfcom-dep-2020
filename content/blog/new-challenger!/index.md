@@ -15,3 +15,5 @@ So stoked, about to set myself down to give this a shot! Two questions, JavaScri
 Alright, then, I'm going to go on a mad cleaning/handling-physical-stuff dash here to deal with the stress and get the rest of the day going! ///
 
 Whew! Laundry folded, vacuuming done, sofa de-dusted, bike cleaned up, dishes done, dog bathed, brushed, nails done, and I've got rice and beans on the stove right now. Mmm. Also, yay, responded to someone on LinkedIn who reached out, updated my resume there ...
+
+The layout is just about ready to be filled out. Siesta time, though! I don't know how a workout is going to fit in, though, my ankle is really feelin' it today.
