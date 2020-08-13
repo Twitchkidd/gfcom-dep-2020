@@ -15,3 +15,7 @@ Hmm. Why is mobile null? Oh, wtf ... this is one of those times where it doesn't
 Ohhhkay, just about there with this, and what we learned is that if you have a lot of logic, figure it out before coding, lol. I think maybe I thought that there wasn't as many if statements we'd need for this. A hundred lines to start out with and not really correct to ... 135 lines, 107 aren't comments. Woof, that took way too long. Mad at myself just a little, lol. Maybe I'm still not caught up on sleep though, is what I'm thinking. Time to put myself together and get Dawa out for a run!
 
 Ahhh, jk, I remembered to test it and it's not working :(
+
+// Alright-ily-doo, took Dawa to Harkness, got a run in, feeling a lot of tightness and a little pain at the ankle, ack, but we lived, had a little socialization at the park, I took another shower and got some beans and rice in, coffee, and I'm going to give myself thirty minutes to fix this and do any other coding, then switch to administrative tasks. Go!
+
+It's only happening in desktop mode, it's perfectly fine in mobile mode ...
