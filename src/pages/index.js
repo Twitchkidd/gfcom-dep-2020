@@ -166,65 +166,129 @@ const Index = ({ data, location }) => {
   const handleMoreLess = () => {
     console.log("More less shruggie");
   };
-  const isMobileRef = useRef(null);
+  const isMobileRef = useRef();
   useEffect(() => {
     if (typeof window !== `undefined`) {
       isMobileRef.current = window.innerWidth <= 640;
       if (storageAvailable("localStorage")) {
-        const storedHeaderState = localStorage.getItem("headerState");
-        if (!storedHeaderState) {
-          if (isMobileRef.current) {
-            localStorage.setItem("headerState", {
-              mobile: true,
-              headerCount: 3,
-            });
-            setHeaderState({
-              mobile: true,
-              headerCount: 3,
-            });
-          } else {
-            localStorage.setItem("headerState", {
-              mobile: false,
-              headerCount: 2,
-            });
-            setHeaderState({
-              mobile: false,
-              headerCount: 2,
-            });
-          }
-        } else {
-          if (
-            typeof storedHeaderState.mobile !== `undefined` &&
-            typeof storedHeaderState.headerCount !== `undefined`
-          ) {
-            if (storedHeaderState.mobile === true) {
-              if (isMobileRef.current) {
-                setHeaderState({
+        // If we have localStorage:
+        const storedHeaderState = JSON.parse(
+          localStorage.getItem("headerState")
+        );
+        // capture storedHeaderState if it's there
+        if (
+          storedHeaderState &&
+          typeof storedHeaderState.mobile === `boolean` &&
+          typeof storedHeaderState.headerCount === `number` &&
+          storedHeaderState.headerCount >= 0 &&
+          storedHeaderState.headerCount <= 3
+        ) {
+          // if there's storedHeaderState and the general shape is valid
+          if (!storedHeaderState.mobile) {
+            // and it was on desktop
+            if (isMobileRef) {
+              // but if we're actually on mobile
+              localStorage.setItem(
+                "headerState",
+                JSON.stringify({
                   mobile: true,
+                  headerCount: 3,
+                })
+              );
+              // set the default for mobile in localStorage
+              setHeaderState({
+                mobile: true,
+                headerCount: 3,
+              });
+              // and in state
+            } else {
+              // but if *are* on desktop
+              if (storedHeaderState.headerCount <= 2) {
+                // and the count is still valid
+                setHeaderState({
+                  mobile: false,
                   headerCount: storedHeaderState.headerCount,
                 });
+                // set state to prior state
               } else {
+                // but if the stored count is not valid
+                localStorage.setItem(
+                  "headerState",
+                  JSON.stringify({
+                    mobile: false,
+                    headerCount: 2,
+                  })
+                );
+                // set the default for desktop in localStorage
                 setHeaderState({
                   mobile: false,
                   headerCount: 2,
                 });
-              }
-            } else {
-              if (!isMobileRef.current) {
-                setHeaderState({
-                  mobile: false,
-                  headerCount: storedHeaderState.headerCount,
-                });
-              } else {
-                setHeaderState({
-                  mobile: true,
-                  headerCount: 3,
-                });
+                // and in state
               }
             }
+          } else {
+            // it was on mobile, so
+            if (isMobileRef.current) {
+              // if we're on mobile
+              setHeaderState({
+                mobile: true,
+                headerCount: storedHeaderState.headerCount,
+              });
+              // set prior state
+            } else {
+              // but if we're actually on desktop
+              localStorage.setItem(
+                "headerState",
+                JSON.stringify({
+                  mobile: false,
+                  headerCount: 2,
+                })
+              );
+              // set the default for desktop in localStorage
+              setHeaderState({
+                mobile: false,
+                headerCount: 2,
+              });
+              // and in state
+            }
+          }
+        } else {
+          // but if the stored state wasn't generally valid
+          if (isMobileRef.current) {
+            // and we're on moblie
+            localStorage.setItem(
+              "headerState",
+              JSON.stringify({
+                mobile: true,
+                headerCount: 3,
+              })
+            );
+            // set the default for mobile in localStorage
+            setHeaderState({
+              mobile: true,
+              headerCount: 3,
+            });
+            // and in state
+          } else {
+            // or if we're on desktop
+            localStorage.setItem(
+              "headerState",
+              JSON.stringify({
+                mobile: false,
+                headerCount: 2,
+              })
+            );
+            // set the default for desktop in localStorage
+            setHeaderState({
+              mobile: false,
+              headerCount: 2,
+            });
+            // and in state
           }
         }
       } else {
+        // but if there's no localStorage
         if (isMobileRef.current) {
           setHeaderState({
             mobile: true,
@@ -236,8 +300,9 @@ const Index = ({ data, location }) => {
             headerCount: 2,
           });
         }
+        // set state based on mobile or not
       }
-    }
+    } // otherwise we're in Node
   }, []);
   return (
     <Layout location={location} title={title} mobile={isMobileRef.current}>

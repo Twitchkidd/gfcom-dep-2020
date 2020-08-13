@@ -8,6 +8,8 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    width: 100vw;
+    height: 100vh;
   }
   *, *::before, *::after {
     box-sizing: inherit;
@@ -15,10 +17,12 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    width: 100vw;
+    height: 100vh;
     color: ${eigengrau};
     background: ${almostWhite};
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
   }
 `;
 

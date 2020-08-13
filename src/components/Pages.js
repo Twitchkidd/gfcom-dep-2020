@@ -13,8 +13,10 @@ const Page = styled(Link)`
 
 export const Pages = ({ pages }) => (
   <PagesWrap>
-    {pages.map((page) => (
-      <Page to={page.url}>{page.name}</Page>
+    {pages.map(page => (
+      <Page key={page.name} to={page.url}>
+        {page.name}
+      </Page>
     ))}
   </PagesWrap>
 );

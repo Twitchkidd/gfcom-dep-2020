@@ -10,10 +10,9 @@ const AppWrap = styled.div`
   width: 100vw;
   overflow: hidden;
   display: grid;
-  grid-template-columns: ${props =>
-    props.mobile ? `CSS ME CAP'N!` : `CSS ME CAP'N!`};
+  grid-template-columns: ${props => (props.mobile ? `100%` : `20% 1fr`)};
   grid-template-rows: ${props =>
-    props.mobile ? `CSS ME CAP'N!` : `CSS ME CAP'N!`};
+    props.mobile ? `min-content 1fr` : `10% 1fr`};
 `;
 
 const postHeader = title => (
