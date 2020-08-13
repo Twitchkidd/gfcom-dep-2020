@@ -18,4 +18,6 @@ Ahhh, jk, I remembered to test it and it's not working :(
 
 // Alright-ily-doo, took Dawa to Harkness, got a run in, feeling a lot of tightness and a little pain at the ankle, ack, but we lived, had a little socialization at the park, I took another shower and got some beans and rice in, coffee, and I'm going to give myself thirty minutes to fix this and do any other coding, then switch to administrative tasks. Go!
 
-It's only happening in desktop mode, it's perfectly fine in mobile mode ...
+It's only happening in desktop mode, it's perfectly fine in mobile mode ... yaaay fixed it! I wrote just isMobileRef vs. isMobileRef.current just once and phwoof, it fell over.
+
+Ahh. 10:30. I want to keep going, but I've got to get these things printed, filled out, and in the mail. Priorities time go! Stoked to come back though, the next thing to do is right there on the sketch pad next to me ... must tear self away, lol.
