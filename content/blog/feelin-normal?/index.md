@@ -9,3 +9,5 @@ Good morning! And it is one! Got a couple hours of sleep last night, and then Da
 Still working on migrating to NextJS! I've got some of the npm packages that would be common between them installed, I need to integrate them and get this build process up and running, and figure out how to handle some of the stuff there were Gatsby plugins for, like images, RSS feed, Google Analytics, prismjs and remark stuff, the web manifest, offline capabilities, and I don't know whether Babel needs to know about styled-components here.
 
 Also, why does /pub ..? oh, that's under gitignore, that makes sense.
+
+// OOO! The Next repo has a whole ton of examples! Styled-components configured! Ohhh em geee, and the solution for global styles was in the issues section! Global styles, color utils, check, check! Next step the ... I guess the first version of layout, then adding the blog post list and posts. Rock and roll!
