@@ -2,8 +2,8 @@ import { css } from 'styled-components';
 
 const size = {
 	small: 640,
-	med: 900,
-	large: 1280,
+	med: 768,
+	large: 1024,
 };
 
 export const above = Object.keys(size).reduce((acc, label) => {

@@ -1,9 +1,55 @@
 import styled from 'styled-components';
 import Link from 'next/link';
 import { Avatar, CoverImage, DateFormater } from '../components';
+import { above } from '../utils';
 
-const CoverImageContainer = styled.div`
-	margin-bottom: ;
+const CoverImageWrap = styled.div`
+	margin-bottom: 2rem;
+	${above.med`
+		margin-bottom: 4rem;
+	`}
+`;
+
+const HeroPostWrap = styled.div`
+	margin-bottom: calc(20rem / 4);
+	${above.med`
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 4rem;
+		margin-bottom: 7rem;
+	`}
+	${above.large`
+		gap: 2rem;
+	`}
+`;
+
+const TitleH3 = styled.h3`
+	margin-bottom: 1rem;
+	line-height: 1.25;
+	font-size: 2.25rem;
+	${above.large`
+		font-size: 2.75rem;
+	`}
+`;
+
+const A = styled.a`
+	&:hover {
+		text-decoration: underline;
+	}
+`;
+
+const DateWrapper = styled.div`
+	margin-bottom: 1rem;
+	font-size: 1.125rem;
+	${above.med`
+		margin-bottom: 0;
+	`}
+`;
+
+const Excerpt = styled.p`
+	font-size: 1.125rem;
+	line-height: 1.625;
+	margin-bottom: 1rem;
 `;
 
 export const HeroPost = ({
@@ -15,24 +61,24 @@ export const HeroPost = ({
 	slug,
 }) => (
 	<section>
-		<div className='mb-8 md:mb-16'>
+		<CoverImageWrap>
 			<CoverImage title={title} src={coverImage} slug={slug} />
-		</div>
-		<div className='md:grid md:grid-cols-2 md:col-gap-16 lg:col-gap-8 mb-20 md:mb-28'>
+		</CoverImageWrap>
+		<HeroPostWrap>
 			<div>
-				<h3 className='mb-4 text-4xl lg:text-6xl leading-tight'>
+				<TitleH3>
 					<Link as={`/posts/${slug}`} href='/posts/[slug]'>
-						<a className='hover:underline'>{title}</a>
+						<A>{title}</A>
 					</Link>
-				</h3>
-				<div className='mb-4 md:mb-0 text-lg'>
+				</TitleH3>
+				<DateWrapper>
 					<DateFormater dateString={date} />
-				</div>
+				</DateWrapper>
 			</div>
 			<div>
-				<p className='text-lg leading-relaxed mb-4'>{excerpt}</p>
+				<Excerpt>{excerpt}</Excerpt>
 				<Avatar name={author.name} picture={author.picture} />
 			</div>
-		</div>
+		</HeroPostWrap>
 	</section>
 );
