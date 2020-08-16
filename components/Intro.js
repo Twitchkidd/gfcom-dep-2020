@@ -28,7 +28,7 @@ const IntroH1 = styled.h1`
 const IntroH4 = styled.h4`
 	text-align: center;
 	font-size: 1.125rem;
-	margin-top: calc(5rem / 4);
+	margin-top: 1.25rem;
 	${above.med`
     text-align: left;
     padding-left: 2rem;

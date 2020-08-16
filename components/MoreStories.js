@@ -1,24 +1,48 @@
-import PostPreview from './post-preview';
+import styled from 'styled-components';
+import PostPreview from './PostPreview';
+import { above } from '../utils';
 
-export const MoreStories = ({ posts }) => {
-	return (
-		<section>
-			<h2 className='mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight'>
-				More Stories
-			</h2>
-			<div className='grid grid-cols-1 md:grid-cols-2 md:col-gap-16 lg:col-gap-32 row-gap-20 md:row-gap-32 mb-32'>
-				{posts.map(post => (
-					<PostPreview
-						key={post.slug}
-						title={post.title}
-						coverImage={post.coverImage}
-						date={post.date}
-						author={post.author}
-						slug={post.slug}
-						excerpt={post.excerpt}
-					/>
-				))}
-			</div>
-		</section>
-	);
-};
+const MoreStoriesHeader = styled.h2`
+	margin-bottom: 2rem;
+	font-size: 2.75rem;
+	font-weight: 700;
+	letter-spacing: -0.04em;
+	line-height: 1.2;
+	${above.med`
+		font-size: 4.5rem;
+	`}
+`;
+
+const PostsWrap = styled.div`
+	display: grid;
+	grid-template-rows: repeat(1, minmax(0, 1fr));
+	row-gap: 5rem;
+	margin-bottom: 8rem;
+	${above.med`
+		grid-template-rows: repeat(2, minmax(0, 1fr));
+		column-gap: 4rem;
+		row-gap: 8rem;
+	`}
+	${above.large`
+		column-gap: 8rem;
+	`}
+`;
+
+export const MoreStories = ({ posts }) => (
+	<section>
+		<MoreStoriesHeader>More Stories</MoreStoriesHeader>
+		<PostsWrap>
+			{posts.map(post => (
+				<PostPreview
+					key={post.slug}
+					title={post.title}
+					coverImage={post.coverImage}
+					date={post.date}
+					author={post.author}
+					slug={post.slug}
+					excerpt={post.excerpt}
+				/>
+			))}
+		</PostsWrap>
+	</section>
+);

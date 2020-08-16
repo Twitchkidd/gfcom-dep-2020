@@ -7,8 +7,8 @@ const HeaderH2 = styled.h2`
 	font-weight: 700;
 	letter-spacing: -0.025em;
 	line-height: 1.25;
-	margin-bottom: calc(20rem / 4);
-	margin-top: calc(8rem / 4);
+	margin-bottom: 5rem;
+	margin-top: 2rem;
 	${above.med`
     font-size: 2.25rem;
     letter-spacing: -0.04em;

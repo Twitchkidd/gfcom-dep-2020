@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Avatar from './Avatar';
 import CoverImage from './CoverImage';
-import DateFormater from './DateFormater';
+import DateFormatter from './DateFormatter';
+import Excerpt from './Excerpt';
 import { above } from '../utils';
 
 const CoverImageWrap = styled.div`
@@ -12,16 +13,16 @@ const CoverImageWrap = styled.div`
 	`}
 `;
 
-const HeroPostWrap = styled.div`
-	margin-bottom: calc(20rem / 4);
+const PostWrap = styled.div`
+	margin-bottom: 5rem;
 	${above.med`
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: 4rem;
+		column-gap: 4rem;
 		margin-bottom: 7rem;
 	`}
 	${above.large`
-		gap: 2rem;
+		column-gap: 2rem;
 	`}
 `;
 
@@ -48,12 +49,6 @@ const DateWrapper = styled.div`
 	`}
 `;
 
-const Excerpt = styled.p`
-	font-size: 1.125rem;
-	line-height: 1.625;
-	margin-bottom: 1rem;
-`;
-
 export const HeroPost = ({
 	title,
 	coverImage,
@@ -66,7 +61,7 @@ export const HeroPost = ({
 		<CoverImageWrap>
 			<CoverImage title={title} src={coverImage} slug={slug} />
 		</CoverImageWrap>
-		<HeroPostWrap>
+		<PostWrap>
 			<div>
 				<TitleH3>
 					<Link as={`/posts/${slug}`} href='/posts/[slug]'>
@@ -74,13 +69,13 @@ export const HeroPost = ({
 					</Link>
 				</TitleH3>
 				<DateWrapper>
-					<DateFormater dateString={date} />
+					<DateFormatter dateString={date} />
 				</DateWrapper>
 			</div>
 			<div>
 				<Excerpt>{excerpt}</Excerpt>
 				<Avatar name={author.name} picture={author.picture} />
 			</div>
-		</HeroPostWrap>
+		</PostWrap>
 	</section>
 );

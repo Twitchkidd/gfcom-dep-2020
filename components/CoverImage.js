@@ -3,8 +3,8 @@ import Link from 'next/link';
 import { above } from '../utils';
 
 const CoverImageWrap = styled.div`
-	margin-right: calc(-5rem / 4);
-	margin-left: calc(-5rem / 4);
+	margin-right: -1.25rem;
+	margin-left: -1.25rem;
 	${above.sm`
     margin-right: 0;
     margin-left: 0;
