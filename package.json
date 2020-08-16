@@ -22,6 +22,7 @@
 		"polished": "^3.6.5",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
+		"remark": "^12.0.1",
 		"remark-html": "^12.0.0",
 		"styled-components": "^5.1.1",
 		"typeface-arvo": "^1.1.3",
