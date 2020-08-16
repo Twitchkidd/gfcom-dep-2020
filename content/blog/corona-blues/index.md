@@ -11,3 +11,5 @@ Okay, good news time! Finished all the episodes of The CSS Podcast! Feeling read
 The example blog starter from Next has parts in ... lib/api, lib/markdownToHtml, public/assets/blog, \_posts/, components/\*, pages/posts/[slug], pages/index ... and that seems to sum it up.
 
 // Okay, 10am check-in ... right now I'm bringing all the components over, the styling is handled by Tailwind, though, so the process is to copy it in, set it up with styled-components, and then see what the Tailwind classnames mean and turn them back into CSS. Woof. Oh well.
+
+Wow, so much typing. This is good, though, a lot of the stuff I've been doing recently has been really intellectually challenging, I've had to find solutions to things, build things out, yada yada, this is, I mean I'm not just copying something over from a tutorial or something like that, I have to be cognizant of what the Tailwind class means in CSS and name components and deal with imports/exports, and if I didn't have the HTML/CSS knowledge I do, converting this over would be kinda difficult, this feels great though, little bit of a break. Easy wins are not the worst thing in the world, lol.
