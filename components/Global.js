@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
 import { almostWhite, eigengrau } from '../utils';
 
-const Global = createGlobalStyle`
+export const Global = createGlobalStyle`
   ${normalize()};
   html {
     box-sizing: border-box;
@@ -25,5 +25,3 @@ const Global = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 `;
-
-export default Global;

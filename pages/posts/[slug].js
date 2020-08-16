@@ -2,10 +2,10 @@ import ErrorPage from 'next/error';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import {
-	Layout,
 	Container,
-	PostBody,
 	Header,
+	Layout,
+	PostBody,
 	PostHeader,
 	PostTitle,
 } from '../../components';

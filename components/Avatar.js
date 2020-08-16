@@ -17,7 +17,7 @@ const AvatarName = styled.div`
 	font-weight: 700;
 `;
 
-export const Avatar = ({ name, picture }) => (
+export default Avatar = ({ name, picture }) => (
 	<AvatarWrap>
 		<AvatarImage src={picture} alt={name} />
 		<AvatarName>{name}</AvatarName>

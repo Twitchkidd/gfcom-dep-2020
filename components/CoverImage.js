@@ -25,7 +25,7 @@ const Image = styled.img`
 			: null}
 `;
 
-export const CoverImage = ({ title, src, slug }) => {
+export default CoverImage = ({ title, src, slug }) => {
 	return (
 		<CoverImageWrap>
 			{slug ? (

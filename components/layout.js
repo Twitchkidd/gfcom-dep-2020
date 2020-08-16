@@ -6,7 +6,7 @@ const name = 'Gareth Field';
 export const siteTitle = 'Gareth Field ... dot com!';
 // The fragment was styles.container
 
-export default function Layout({ children, home }) {
+export const Layout = ({ children, home }) => {
 	return (
 		<>
 			<Head>
@@ -48,7 +48,7 @@ export default function Layout({ children, home }) {
 			)}
 		</>
 	);
-}
+};
 
 {
 	/* <>

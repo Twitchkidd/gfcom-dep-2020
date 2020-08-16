@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import { Avatar, CoverImage, DateFormater } from '../components';
+import Avatar from '../components/Avatar';
+import CoverImage from '../components/CoverImage';
+import DateFormater from '../components/DateFormater';
 import { above } from '../utils';
 
 const CoverImageWrap = styled.div`
