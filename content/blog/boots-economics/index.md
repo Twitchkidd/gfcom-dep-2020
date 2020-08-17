@@ -27,3 +27,5 @@ Or I could get horribly sick. Ever bite into a burger and think, "Oh no. The mid
 Look, the world is full of uncertainty. Sometimes you just gotta roll the dice. Send it? F\*\*\*\*'n **sent.**
 
 // Sweet, looks like remark-images might work, remark's use() is chainable, but what's the url going to be?
+
+Alright, Layout is ... well, it's something. PostBody is done.
