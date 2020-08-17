@@ -29,3 +29,7 @@ Look, the world is full of uncertainty. Sometimes you just gotta roll the dice. 
 // Sweet, looks like remark-images might work, remark's use() is chainable, but what's the url going to be?
 
 Alright, Layout is ... well, it's something. PostBody is done.
+
+/// Aaand got all the assets moved, posts moved, images moved, urls changed, I think I know how I'm going to get this working, Ryan is coming over in a minute to help identify some tools I'm going to try and sell, and we're going to call it a day!
+
+Oh, the paperwork. Okay, well, I have to do that tomorrow morning before I do anything else, for realz. Goodnight, and best wishes y'all! ~g
