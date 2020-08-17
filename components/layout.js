@@ -3,7 +3,8 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 const name = 'Gareth Field';
-export const siteTitle = 'Gareth Field ... dot com!';
+const siteTitle = 'Gareth Field ... dot com!';
+// ... why are we exporting siteTitle from Layout?
 // The fragment was styles.container
 
 export const Layout = ({ children, home }) => {
@@ -68,3 +69,101 @@ export const Layout = ({ children, home }) => {
 -                                               </h2>
 -                                       </> */
 }
+// utils
+/*.heading2Xl {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    margin: 1rem 0;
+}
+
+.headingXl {
+    font-size: 2rem;
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    margin: 1rem 0;
+}
+
+.headingLg {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin: 1rem 0;
+}
+
+.headingMd {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.borderCircle {
+    border-radius: 9999px;
+}
+
+.colorInherit {
+    color: inherit;
+}
+
+.padding1px {
+    padding-top: 1px;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.listItem {
+    margin: 0 0 1.25rem;
+}
+
+.lightText {
+    color: #999;
+}*/
+
+// layout.module.css
+/*
+.container {
+    max-width: 50rem;
+    padding: 0 1rem;
+    margin: 2rem auto 6rem;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.headerImage {
+    width: 6rem;
+    height: 6rem;
+}
+
+.headerHomeImage {
+    width: 8rem;
+    height: 8rem;
+}
+
+.backToHome {
+    margin: 3rem 0 0;
+}
+
+.main {
+    text-align: center;
+}
+
+.imageTitle {
+    width: 150px;
+    margin-left: 10px;
+}
+
+.title {
+    color: inherit;
+    display: flex;
+}
+*/

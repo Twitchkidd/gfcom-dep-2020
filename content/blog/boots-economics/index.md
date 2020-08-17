@@ -25,3 +25,5 @@ Here's the plan: just made myself a burger (first meat dish in like ... ?) and p
 Or I could get horribly sick. Ever bite into a burger and think, "Oh no. The middle isn't hot. This is manager's special beef." And _then_ think, "Well, we're here already," and eat the rest of the burger?
 
 Look, the world is full of uncertainty. Sometimes you just gotta roll the dice. Send it? F\*\*\*\*'n **sent.**
+
+// Sweet, looks like remark-images might work, remark's use() is chainable, but what's the url going to be?
