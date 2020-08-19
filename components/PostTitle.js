@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { above } from '../utils';
 
-const PostTitle = styled.h1`
+export const PostTitle = styled.h1`
 	font-size: 2.75rem;
 	font-weight: 700;
 	letter-spacing: -0.04em;
@@ -16,5 +16,3 @@ const PostTitle = styled.h1`
     font-size: 6.25rem;
   `}
 `;
-
-export default PostTitle;
