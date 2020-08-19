@@ -8,6 +8,6 @@ export * from './HeroPost';
 export * from './Intro';
 export * from './Layout';
 export * from './MoreStories';
-export * from './PostBody';
+// export * from './PostBody';
 export * from './PostHeader';
-export * from './PostTitle';
+// export * from './PostTitle';
