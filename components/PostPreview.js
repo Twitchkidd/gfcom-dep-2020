@@ -26,29 +26,22 @@ const PostPreviewDateWrap = styled.div`
 	margin-bottom: 1rem;
 `;
 
-export default function PostPreview({
-	title,
-	coverImage,
-	date,
-	excerpt,
-	author,
-	slug,
-}) {
-	return (
-		<div>
-			<PostPreviewCoverImageWrap>
-				<CoverImage slug={slug} title={title} src={coverImage} />
-			</PostPreviewCoverImageWrap>
-			<PostPreviewLinkWrapH3>
-				<Link as={`/posts/${slug}`} href='/posts/[slug]'>
-					<PostPreviewA>{title}</PostPreviewA>
-				</Link>
-			</PostPreviewLinkWrapH3>
-			<PostPreviewDateWrap>
-				<DateFormatter dateString={date} />
-			</PostPreviewDateWrap>
-			<Excerpt>{excerpt}</Excerpt>
-			<Avatar name={author.name} picture={author.picture} />
-		</div>
-	);
-}
+const PostPreview = ({ title, coverImage, date, excerpt, author, slug }) => (
+	<div>
+		<PostPreviewCoverImageWrap>
+			<CoverImage slug={slug} title={title} src={coverImage} />
+		</PostPreviewCoverImageWrap>
+		<PostPreviewLinkWrapH3>
+			<Link as={`/posts/${slug}`} href='/posts/[slug]'>
+				<PostPreviewA>{title}</PostPreviewA>
+			</Link>
+		</PostPreviewLinkWrapH3>
+		<PostPreviewDateWrap>
+			<DateFormatter dateString={date} />
+		</PostPreviewDateWrap>
+		<Excerpt>{excerpt}</Excerpt>
+		<Avatar name={author.name} picture={author.picture} />
+	</div>
+);
+
+export default PostPreview;

@@ -39,7 +39,7 @@ const AlertLink = styled.a`
 	}
 `;
 
-export default Alert = ({ preview }) => (
+const Alert = ({ preview }) => (
 	<AlertWrap>
 		<Container>
 			<ConditionalWrap>
@@ -64,3 +64,5 @@ export default Alert = ({ preview }) => (
 		</Container>
 	</AlertWrap>
 );
+
+export default Alert;

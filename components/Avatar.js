@@ -17,9 +17,11 @@ const AvatarName = styled.div`
 	font-weight: 700;
 `;
 
-export default Avatar = ({ name, picture }) => (
+const Avatar = ({ name, picture }) => (
 	<AvatarWrap>
 		<AvatarImage src={picture} alt={name} />
 		<AvatarName>{name}</AvatarName>
 	</AvatarWrap>
 );
+
+export default Avatar;

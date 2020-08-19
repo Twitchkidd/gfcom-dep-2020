@@ -9,7 +9,7 @@ import {
 	PostHeader,
 	PostTitle,
 } from '../../components';
-import { getPostBySlug, getAllPosts, markdownToHtml } from '../../lib/api';
+import { getPostBySlug, getAllPosts, markdownToHtml } from '../../lib';
 
 export default function Post({ post, morePosts, preview }) {
 	const router = useRouter();

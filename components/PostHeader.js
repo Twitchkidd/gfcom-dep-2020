@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import Avatar from './Avatar';
 import DateFormatter from './DateFormatter';
 import CoverImage from './CoverImage';
-import PostTitle from './PostTitle';
+import { PostTitle } from './';
 import { above } from '../utils';
 
 const BigAvatarWrap = styled.div`
