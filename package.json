@@ -11,7 +11,7 @@
 		"dev": "next dev",
 		"start": "yarn dev",
 		"build": "next build",
-		"start": "next start",
+		"n-start": "next start",
 		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
 		"dev-new-post": "nodemon ./utils/new-post/index.js",
 		"new-post": "node ./utils/new-post/index.js"
@@ -19,7 +19,12 @@
 	"dependencies": {
 		"@bumaga/tabs": "^0.2.0",
 		"gray-matter": "^4.0.2",
+		"imagemin-mozjpeg": "^9.0.0",
+		"imagemin-optipng": "^8.0.0",
+		"imagemin-svgo": "^8.0.0",
 		"next": "9.5.2",
+		"next-compose-plugins": "^2.2.0",
+		"next-optimized-images": "^2.6.2",
 		"polished": "^3.6.5",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",

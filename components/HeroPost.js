@@ -74,7 +74,7 @@ export const HeroPost = ({
 			</div>
 			<div>
 				<Excerpt>{excerpt}</Excerpt>
-				<Avatar name={author.name} picture={author.picture} />
+				<Avatar />
 			</div>
 		</PostWrap>
 	</section>

@@ -27,11 +27,12 @@ export default function Post({ post, morePosts, preview }) {
 						<article className='mb-32'>
 							<Head>
 								<title>{post.title} | Next.js Blog Example with Markdown</title>
-								<meta property='og:image' content={post.ogImage.url} />
+								{/* <meta property='og:image' content={post.ogImage.url} /> */}
 							</Head>
 							<PostHeader
 								title={post.title}
-								coverImage={post.coverImage}
+								// coverImage={post.coverImage}
+								coverImage={require('../../public/fortTrumbull.jpg')}
 								date={post.date}
 								author={post.author}
 							/>

@@ -17,10 +17,13 @@ const AvatarName = styled.div`
 	font-weight: 700;
 `;
 
-const Avatar = ({ name, picture }) => (
+const Avatar = () => (
 	<AvatarWrap>
-		<AvatarImage src={picture} alt={name} />
-		<AvatarName>{name}</AvatarName>
+		<AvatarImage
+			src={require('../public/profile-pic.jpg')}
+			alt={'Gareth Field'}
+		/>
+		<AvatarName>Gareth Field</AvatarName>
 	</AvatarWrap>
 );
 

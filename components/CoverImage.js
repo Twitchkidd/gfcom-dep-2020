@@ -5,7 +5,7 @@ import { above } from '../utils';
 const CoverImageWrap = styled.div`
 	margin-right: -1.25rem;
 	margin-left: -1.25rem;
-	${above.sm`
+	${above.small`
     margin-right: 0;
     margin-left: 0;
   `}
@@ -30,7 +30,9 @@ const CoverImage = ({ title, src, slug }) => {
 		<CoverImageWrap>
 			{slug ? (
 				<Link as={`/posts/${slug}`} href='/posts/[slug]'>
-					<a aria-label={title}>{image}</a>
+					<a aria-label={title}>
+						<Image src={src} alt={`Cover Image for ${title}`} />
+					</a>
 				</Link>
 			) : (
 				<Image src={src} alt={`Cover Image for ${title}`} />

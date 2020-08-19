@@ -49,14 +49,14 @@ export const PostHeader = ({ title, coverImage, date, author }) => (
 	<>
 		<PostTitle>{title}</PostTitle>
 		<BigAvatarWrap>
-			<Avatar name={author.name} picture={author.picture} />
+			<Avatar />
 		</BigAvatarWrap>
 		<CoverImageWrap>
 			<CoverImage title={title} src={coverImage} />
 		</CoverImageWrap>
 		<SmallAvatarAndDateWrap>
 			<SmallAvatarWrap>
-				<Avatar name={author.name} picture={author.picture} />
+				<Avatar />
 			</SmallAvatarWrap>
 			<DateWrap>
 				<DateFormatter dateString={date} />

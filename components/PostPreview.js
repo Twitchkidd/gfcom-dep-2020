@@ -40,7 +40,7 @@ const PostPreview = ({ title, coverImage, date, excerpt, author, slug }) => (
 			<DateFormatter dateString={date} />
 		</PostPreviewDateWrap>
 		<Excerpt>{excerpt}</Excerpt>
-		<Avatar name={author.name} picture={author.picture} />
+		<Avatar />
 	</div>
 );
 
