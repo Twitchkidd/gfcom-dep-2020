@@ -30,10 +30,10 @@ const Markdown = styled.div`
 	}
 `;
 
-export default function PostBody({ content }) {
+export const PostBody = ({ content }) => {
 	return (
 		<PostBodyWrap>
 			<Markdown dangerouslySetInnerHTML={{ __html: content }} />
 		</PostBodyWrap>
 	);
-}
+};
