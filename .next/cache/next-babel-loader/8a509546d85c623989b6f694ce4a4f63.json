@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from 'styled-components';\nconst Excerpt = styled.p.withConfig({\n  displayName: \"Excerpt\",\n  componentId: \"sc-5yt368-0\"\n})([\"font-size:1.125rem;line-height:1.625;margin-bottom:1rem;\"]);\nexport default Excerpt;","map":null,"metadata":{},"sourceType":"module"}

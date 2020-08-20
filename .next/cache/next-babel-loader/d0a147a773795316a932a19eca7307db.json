@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from 'styled-components';\nexport var Container = styled.div.withConfig({\n  displayName: \"Container\",\n  componentId: \"ho0gqu-0\"\n})([\"margin-left:auto;margin-right:auto;padding-left:1.25rem;padding-right:1.25rem;\"]);","map":null,"metadata":{},"sourceType":"module"}
