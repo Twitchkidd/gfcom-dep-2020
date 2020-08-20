@@ -32,6 +32,7 @@ const CoverImageWrap = styled.div`
 	${above.med`
     margin-bottom: 4rem;
   `}
+	max-width: 100%;
 `;
 
 const DateWrap = styled.div`
@@ -45,7 +46,7 @@ const SmallAvatarAndDateWrap = styled.div`
 	margin-right: auto;
 `;
 
-export const PostHeader = ({ title, coverImage, date, author }) => (
+export const PostHeader = ({ title, coverImage, date }) => (
 	<>
 		<PostTitle>{title}</PostTitle>
 		<BigAvatarWrap>

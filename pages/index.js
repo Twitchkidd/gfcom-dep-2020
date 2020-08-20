@@ -27,9 +27,9 @@ export default function Index({ allPosts }) {
 					{heroPost && (
 						<HeroPost
 							title={heroPost.title}
-							coverImage={heroPost.coverImage}
+							// coverImage={heroPost.coverImage}
+							coverImage={require('../public/fortTrumbull.jpg')}
 							date={heroPost.date}
-							author={heroPost.author}
 							slug={heroPost.slug}
 							excerpt={heroPost.excerpt}
 						/>

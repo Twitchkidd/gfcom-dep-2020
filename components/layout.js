@@ -27,8 +27,11 @@ const HeaderTitle = styled.h1`
 	margin: 1rem 0;
 `;
 
-const BackHomeWrap = styled.div`
-	margin: 3rem 0 0;
+const FooterRow = styled.div`
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: ${props => (props.spread ? 'space-around' : 'center')};
 `;
 
 export const Layout = ({ children, home }) => {
@@ -61,11 +64,11 @@ export const Layout = ({ children, home }) => {
 			</Header>
 			<main>{children}</main>
 			{!home && (
-				<BackHomeWrap>
+				<FooterRow>
 					<Link href='/'>
 						<a>← Back to home</a>
 					</Link>
-				</BackHomeWrap>
+				</FooterRow>
 			)}
 		</>
 	);

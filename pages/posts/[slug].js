@@ -11,13 +11,13 @@ import {
 } from '../../components';
 import { getPostBySlug, getAllPosts, markdownToHtml } from '../../lib';
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post, morePosts }) {
 	const router = useRouter();
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />;
 	}
 	return (
-		<Layout preview={preview}>
+		<Layout>
 			<Container>
 				<Header />
 				{router.isFallback ? (
@@ -34,7 +34,6 @@ export default function Post({ post, morePosts, preview }) {
 								// coverImage={post.coverImage}
 								coverImage={require('../../public/fortTrumbull.jpg')}
 								date={post.date}
-								author={post.author}
 							/>
 							<PostBody content={post.content} />
 						</article>
@@ -50,7 +49,6 @@ export async function getStaticProps({ params }) {
 		'title',
 		'date',
 		'slug',
-		'author',
 		'content',
 		'ogImage',
 		'coverImage',

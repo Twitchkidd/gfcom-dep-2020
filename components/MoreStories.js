@@ -36,7 +36,8 @@ export const MoreStories = ({ posts }) => (
 				<PostPreview
 					key={post.slug}
 					title={post.title}
-					coverImage={post.coverImage}
+					// coverImage={post.coverImage}
+					coverImage={require('../public/fortTrumbull.jpg')}
 					date={post.date}
 					author={post.author}
 					slug={post.slug}
