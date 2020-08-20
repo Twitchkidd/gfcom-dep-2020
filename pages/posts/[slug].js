@@ -31,8 +31,8 @@ export default function Post({ post, morePosts }) {
 							</Head>
 							<PostHeader
 								title={post.title}
-								// coverImage={post.coverImage}
-								coverImage={require('../../public/fortTrumbull.jpg')}
+								coverImage={post.coverImage ? require(`../../public/${post.coverImage}`) : require('../../public/fortTrumbull.jpg')}
+								// coverImage={require('../../public/fortTrumbull.jpg')}
 								date={post.date}
 							/>
 							<PostBody content={post.content} />
