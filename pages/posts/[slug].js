@@ -1,6 +1,7 @@
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import styled from 'styled-components';
 import {
 	Container,
 	Header,
@@ -10,6 +11,10 @@ import {
 	PostTitle,
 } from '../../components';
 import { getPostBySlug, getAllPosts, markdownToHtml } from '../../lib';
+
+const Article = styled.article`
+	margin-bottom: 8rem;
+`;
 
 export default function Post({ post, morePosts }) {
 	const router = useRouter();
@@ -24,19 +29,23 @@ export default function Post({ post, morePosts }) {
 					<PostTitle>Loading…</PostTitle>
 				) : (
 					<>
-						<article className='mb-32'>
+						<Article>
 							<Head>
 								<title>{post.title} | Next.js Blog Example with Markdown</title>
 								{/* <meta property='og:image' content={post.ogImage.url} /> */}
 							</Head>
 							<PostHeader
 								title={post.title}
-								coverImage={post.coverImage ? require(`../../public/${post.coverImage}`) : require('../../public/fortTrumbull.jpg')}
+								coverImage={
+									post.coverImage
+										? require(`../../public/${post.coverImage}`)
+										: require('../../public/fortTrumbull.jpg')
+								}
 								// coverImage={require('../../public/fortTrumbull.jpg')}
 								date={post.date}
 							/>
 							<PostBody content={post.content} />
-						</article>
+						</Article>
 					</>
 				)}
 			</Container>
