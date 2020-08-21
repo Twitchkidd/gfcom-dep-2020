@@ -11,7 +11,7 @@
 		"dev": "next dev",
 		"start": "yarn dev",
 		"build": "next build",
-		"n-start": "next start",
+		"next-start": "next start",
 		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
 		"dev-new-post": "nodemon ./utils/new-post/index.js",
 		"new-post": "node ./utils/new-post/index.js"
@@ -28,6 +28,7 @@
 		"polished": "^3.6.5",
 		"react": "16.13.1",
 		"react-dom": "16.13.1",
+		"react-typography": "^0.16.19",
 		"remark": "^12.0.1",
 		"remark-html": "^12.0.0",
 		"remark-images": "^2.0.0",

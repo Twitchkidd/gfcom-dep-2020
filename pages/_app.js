@@ -1,6 +1,8 @@
 import App from 'next/app';
 import { ThemeProvider } from 'styled-components';
 import { Global } from '../components';
+import 'typeface-arvo';
+import 'typeface-cabin';
 
 const theme = {
 	colors: {

@@ -2,7 +2,7 @@
 title: The Swing
 date: '2020-08-20T10:15:09.911Z'
 description: 'In which we get into it!'
-coverImage: '/dawaCourt.jpg'
+coverImage: 'dawaCourt.jpg'
 ---
 
 Good morning! Dawa and I got to Harkness today! Got another half hour of biking, too, because we were a little too early, they open at eight, but now it's go time! I'm currently on the patio hiding from Dawa. He's got food, fresh water, air conditioning, and we stopped at the dog park on the way back and he got to say hello to a few of his friends. I might have to grab a chair, though, I thought I was going to be able to do the standing thing, but I don't think my back can take it.
