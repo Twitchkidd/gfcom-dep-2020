@@ -9,7 +9,7 @@
 	},
 	"scripts": {
 		"dev": "next dev",
-		"start": "yarn dev",
+		"start": "rm _posts/.DS_Store && yarn dev",
 		"build": "next build",
 		"next-start": "next start",
 		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
