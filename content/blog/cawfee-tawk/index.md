@@ -9,4 +9,6 @@ Good morning! Let's jump right in, I'd already got going and have the fonts and 
 
 // Okay, so, let's hear it for having multiple machines! I brought the main machine outside, and it was great, I could see, but it was like a brick out of an oven after a while, lol. Let's hear it for git and the web, too, while we're at it, git push, git pull, open the tabs I had open, bada bing, bada boom. Crazy.
 
-Being able to see was great though, oof, lol, bright out here in the morning!
+Being able to see was great though, oof, lol, bright out here in the morning! // Lol the sun also turned the backup machine into a small furnace, time for inside mode!
+
+Oh, yea, there's that little bit of quirkiness in the text!

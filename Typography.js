@@ -1,18 +1,25 @@
 import Typography from 'typography';
 import DoelgerTheme from 'typography-theme-doelger';
+import { MOBILE_MEDIA_QUERY } from 'typography-breakpoint-constants';
+import { purple } from './utils';
 
-delete DoelgerTheme.googleFonts;
-
-DoelgerTheme.overrideThemeStyles = ({ rhythm }, options) => ({
-	'h1,h2,h3,h4,h5,h6': {
-		marginTop: rhythm(1 / 2),
+DoelgerTheme.overrideThemeStyles = ({ rhythm }) => ({
+	a: {
+		color: purple,
+		backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, ${purple} 1px, ${purple} 2px, rgba(0, 0, 0, 0) 2px)`,
 	},
-	h1: {
-		fontWeight: 900,
-		letterSpacing: '-1px',
+	blockquote: {
+		borderLeft: `${rhythm(6 / 16)} solid ${purple}`,
+	},
+	[MOBILE_MEDIA_QUERY]: {
+		blockquote: {
+			borderLeft: `${rhythm(3 / 16)} solid ${purple}`,
+		},
 	},
 });
 DoelgerTheme.scaleRatio = 5 / 2;
+
+delete DoelgerTheme.googleFonts;
 
 const typography = new Typography(DoelgerTheme);
 
@@ -22,3 +29,5 @@ if (process.env.NODE_ENV !== `production`) {
 }
 
 export default typography;
+export const rhythm = typography.rhythm;
+export const scale = typography.scale;
