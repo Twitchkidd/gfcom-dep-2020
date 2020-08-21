@@ -46,7 +46,7 @@ const SmallBioAndDateWrap = styled.div`
 	margin-right: auto;
 `;
 
-export const PostHeader = ({ title, coverImage, date }) => (
+export const PostHeader = ({ title, coverImage, date, description }) => (
 	<>
 		<PostTitle>{title}</PostTitle>
 		<BigBioWrap>

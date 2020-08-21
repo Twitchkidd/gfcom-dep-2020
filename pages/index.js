@@ -20,7 +20,7 @@ export default function Index({ allPosts }) {
 		<>
 			<Layout>
 				<Head>
-					<title>Next.js Blog Example with Markdown</title>
+					<title>Gareth Field ... dot com!</title>
 				</Head>
 				<Container>
 					<Intro />

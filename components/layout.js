@@ -35,12 +35,6 @@ const FooterRow = styled.div`
 	justify-content: ${props => (props.spread ? 'space-around' : 'center')};
 `;
 
-const Placeholder = styled.div`
-	background: red;
-	width: 30px;
-	height: 30px;
-`;
-
 const Social = styled.img`
 	width: 30px;
 	height: 30px;

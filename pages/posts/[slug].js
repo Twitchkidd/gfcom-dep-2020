@@ -31,7 +31,7 @@ export default function Post({ post, morePosts }) {
 					<>
 						<Article>
 							<Head>
-								<title>{post.title} | Next.js Blog Example with Markdown</title>
+								<title>{post.title} | Gareth Field ... dot com!</title>
 								{/* <meta property='og:image' content={post.ogImage.url} /> */}
 							</Head>
 							<PostHeader

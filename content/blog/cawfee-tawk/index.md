@@ -12,3 +12,5 @@ Good morning! Let's jump right in, I'd already got going and have the fonts and 
 Being able to see was great though, oof, lol, bright out here in the morning! // Lol the sun also turned the backup machine into a small furnace, time for inside mode!
 
 Oh, yea, there's that little bit of quirkiness in the text!
+
+Got through the footer content, on to header content ... what a mess, the way this thing is organized is driving me nuts ... That's next on the digital todos, it's physical todos time now! I'd love to go for a run, it's beautiful out, but I really need to get a few things done around the house and when the place is put together, I have a phone call I need to get through, and I'm going to get groceries, do some meal prep, and get back to digital todos this evening! Love the progress so far!
