@@ -14,3 +14,16 @@ Oh, let me just post yesterday's ... boyo, am I not going to miss the deployment
 OH VERY EXCITING! First cover image for a post! Okay, cooking time, get a walk in, back to it! If I could be done with the Gatsby site by tonight that would be amazing!
 
 TODO: Switch this content over to the flat file!
+
+// WHOA, VOICEOVER!
+
+Also, got another run with Dawa in, another run barefoot, and I caught a flat on the way to the store afterwards, as I was going get all the self locomotion done in one fell sweep, and did, just took a smidge longer. My back is killing me a little, but I think I've given myself a few test runs of higher mileage/effort, and (knocking on wood) my Achilles hasn't shut me down yet, and I'm feeling more confident about maybe planning a new regimen of like weekdays we can get up earlier and go to the trail behind the dog park in Waterford, and a midday run, and then weekends whatever, because a second major session, maybe just like Monday, Wednesday, Friday at first, in the day, though, and I feel way more focused for longer in the evening.
+
+Ahem. Website. Right.
+
+So the images on index, on the example site they fit the screen 100% below small (640px), then the images stay at 640 and get margin horizontal, then above medium (768px) are 332px, and they actually kinda have an awkward amount of padding in the middle, because the images (two columns now) have margin horizontal and they stack in the middle. Then above large (1024px) the images bump up to 428px with, this has got to be more than accidental, that's a _lot_ of whitespace ... not on the outsides though, that's like ... I dunno, I want it puffier. Not that their box shadows are lacking, those are dope, nice work. Oh, extra large, nice, 1280px the images jump to 556px, maintaining two rows.
+
+Honestly at the moment, these sort of roll one into the next, so how about I make it one column, but use that same strategy, lazy-load the images, deal with pagination in like a week when I have enough posts with cover images that they can be scrolled through, and for the moment just start to archive posts by putting them into just a simple flat list. Sounds like a plan.
+
+Okay, that's it for now, big day tomorrow! Best wishes,
+~g
