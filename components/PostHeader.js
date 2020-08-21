@@ -1,11 +1,11 @@
 import styled from 'styled-components';
-import Avatar from './Avatar';
+import Bio from './Bio';
 import DateFormatter from './DateFormatter';
 import CoverImage from './CoverImage';
 import { PostTitle } from './';
 import { above } from '../utils';
 
-const BigAvatarWrap = styled.div`
+const BigBioWrap = styled.div`
 	display: none;
 	${above.med`
     display: block;
@@ -13,7 +13,7 @@ const BigAvatarWrap = styled.div`
   `}
 `;
 
-const SmallAvatarWrap = styled.div`
+const SmallBioWrap = styled.div`
 	display: block;
 	margin-bottom: 1.5rem;
 	${above.med`
@@ -40,7 +40,7 @@ const DateWrap = styled.div`
 	font-size: 1.125rem;
 `;
 
-const SmallAvatarAndDateWrap = styled.div`
+const SmallBioAndDateWrap = styled.div`
 	max-width: 42rem;
 	margin-left: auto;
 	margin-right: auto;
@@ -49,19 +49,19 @@ const SmallAvatarAndDateWrap = styled.div`
 export const PostHeader = ({ title, coverImage, date }) => (
 	<>
 		<PostTitle>{title}</PostTitle>
-		<BigAvatarWrap>
-			<Avatar />
-		</BigAvatarWrap>
+		<BigBioWrap>
+			<Bio />
+		</BigBioWrap>
 		<CoverImageWrap>
 			<CoverImage title={title} src={coverImage} />
 		</CoverImageWrap>
-		<SmallAvatarAndDateWrap>
-			<SmallAvatarWrap>
-				<Avatar />
-			</SmallAvatarWrap>
+		<SmallBioAndDateWrap>
+			<SmallBioWrap>
+				<Bio />
+			</SmallBioWrap>
 			<DateWrap>
 				<DateFormatter dateString={date} />
 			</DateWrap>
-		</SmallAvatarAndDateWrap>
+		</SmallBioAndDateWrap>
 	</>
 );

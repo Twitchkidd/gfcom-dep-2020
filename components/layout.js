@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import styled from 'styled-components';
+import Bio from './Bio';
 
 const name = 'Gareth Field';
 const siteTitle = 'Gareth Field ... dot com!';
@@ -34,6 +35,17 @@ const FooterRow = styled.div`
 	justify-content: ${props => (props.spread ? 'space-around' : 'center')};
 `;
 
+const Placeholder = styled.div`
+	background: red;
+	width: 30px;
+	height: 30px;
+`;
+
+const Social = styled.img`
+	width: 30px;
+	height: 30px;
+`;
+
 export const Layout = ({ children, home }) => {
 	return (
 		<>
@@ -64,11 +76,28 @@ export const Layout = ({ children, home }) => {
 			</Header>
 			<main>{children}</main>
 			{!home && (
-				<FooterRow>
-					<Link href='/'>
-						<a>← Back to home</a>
-					</Link>
-				</FooterRow>
+				<>
+					<FooterRow>
+						<Bio />
+					</FooterRow>
+					<FooterRow>
+						<Social src={require('../public/github.svg')} />
+						<Social src={require('../public/twitter.svg')} />
+						<Social src={require('../public/linkedin.svg')} />
+						<Social src={require('../public/strava.svg')} />
+						<Social src={require('../public/gmail.svg')} />
+					</FooterRow>
+					<FooterRow>
+						<Link href='/'>
+							<a>← Back to home</a>
+						</Link>
+					</FooterRow>
+					<FooterRow>
+						© {new Date().getFullYear()}, Built with
+						{` `}
+						<a href='https://www.nextjs.org'>Next.js</a>
+					</FooterRow>
+				</>
 			)}
 		</>
 	);

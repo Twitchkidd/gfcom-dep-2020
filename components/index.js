@@ -1,4 +1,4 @@
-export * from './Avatar';
+export * from './Bio';
 export * from './Container';
 export * from './CoverImage';
 export * from './DateFormatter';

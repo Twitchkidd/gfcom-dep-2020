@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import Avatar from './avatar';
+import Bio from './Bio';
 import CoverImage from './CoverImage';
 import DateFormatter from './DateFormatter';
 import Excerpt from './Excerpt';
@@ -40,7 +40,7 @@ const PostPreview = ({ title, coverImage, date, excerpt, author, slug }) => (
 			<DateFormatter dateString={date} />
 		</PostPreviewDateWrap>
 		<Excerpt>{excerpt}</Excerpt>
-		<Avatar />
+		<Bio />
 	</div>
 );
 

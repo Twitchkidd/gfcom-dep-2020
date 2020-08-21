@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'polished';
-import { almostWhite, eigengrau } from '../utils';
+import { eigengrau, white } from '../utils';
 
 export const Global = createGlobalStyle`
   ${normalize()};
@@ -20,7 +20,7 @@ export const Global = createGlobalStyle`
     width: 100vw;
     height: 100vh;
     color: ${eigengrau};
-    background: ${almostWhite};
+    background: ${white};
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
   }

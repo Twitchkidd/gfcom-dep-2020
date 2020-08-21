@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import Avatar from './Avatar';
+import Bio from './Bio';
 import CoverImage from './CoverImage';
 import DateFormatter from './DateFormatter';
 import Excerpt from './Excerpt';
@@ -67,7 +67,7 @@ export const HeroPost = ({ title, coverImage, date, excerpt, slug }) => (
 			</div>
 			<div>
 				<Excerpt>{excerpt}</Excerpt>
-				<Avatar />
+				<Bio />
 			</div>
 		</PostWrap>
 	</section>
