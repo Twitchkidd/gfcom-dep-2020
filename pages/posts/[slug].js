@@ -25,33 +25,33 @@ export default function Post({ post, morePosts }) {
 	}
 	return (
 		<Layout>
-			<Container>
-				{router.isFallback ? (
-					<PostTitle>Loading…</PostTitle>
-				) : (
-					<>
-						<Article>
-							<Head>
-								<title>
-									{post.title} | {siteTitle}
-								</title>
-								{/* <meta property='og:image' content={post.ogImage.url} /> */}
-							</Head>
-							<PostHeader
-								title={post.title}
-								coverImage={
-									post.coverImage
-										? require(`../../public/${post.coverImage}`)
-										: require('../../public/fortTrumbull.jpg')
-								}
-								// coverImage={require('../../public/fortTrumbull.jpg')}
-								date={post.date}
-							/>
-							<PostBody content={post.content} />
-						</Article>
-					</>
-				)}
-			</Container>
+			{/* <Container> */}
+			{router.isFallback ? (
+				<PostTitle>Loading…</PostTitle>
+			) : (
+				<>
+					<Article>
+						<Head>
+							<title>
+								{post.title} | {siteTitle}
+							</title>
+							{/* <meta property='og:image' content={post.ogImage.url} /> */}
+						</Head>
+						<PostHeader
+							title={post.title}
+							coverImage={
+								post.coverImage
+									? require(`../../public/${post.coverImage}`)
+									: require('../../public/fortTrumbull.jpg')
+							}
+							date={post.date}
+							description={post.description}
+						/>
+						<PostBody content={post.content} />
+					</Article>
+				</>
+			)}
+			{/* </Container> */}
 		</Layout>
 	);
 }
@@ -59,6 +59,7 @@ export default function Post({ post, morePosts }) {
 export async function getStaticProps({ params }) {
 	const post = getPostBySlug(params.slug, [
 		'title',
+		'description',
 		'date',
 		'slug',
 		'content',

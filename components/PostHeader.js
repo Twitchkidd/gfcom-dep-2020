@@ -1,24 +1,33 @@
 import styled from 'styled-components';
-import Bio from './Bio';
-import DateFormatter from './DateFormatter';
 import CoverImage from './CoverImage';
-import { PostTitle } from './';
-import { above } from '../utils';
+import DateFormatter from './DateFormatter';
+import { above, lighter } from '../utils';
 
-const BigBioWrap = styled.div`
-	display: none;
+const PostTitle = styled.h1`
+	font-size: 2.75rem;
+	font-weight: 700;
+	letter-spacing: -0.04em;
+	line-height: 1.4;
+	margin-bottom: 1rem;
 	${above.med`
-    display: block;
-    margin-bottom: 3rem;
-  `}
+    font-size: 4.5rem;
+    line-height: 1.05;
+    text-align: left;
+		`}
+	${above.large`
+    font-size: 6.25rem;
+		`}
 `;
 
-const SmallBioWrap = styled.div`
-	display: block;
+const PostDescription = styled.h2`
+	color: ${lighter};
+	margin-top: 0;
+	margin-bottom: 0.25rem;
+`;
+
+const DateWrap = styled.div`
 	margin-bottom: 1.5rem;
-	${above.med`
-    display: none;
-  `}
+	font-size: 1.125rem;
 `;
 
 const CoverImageWrap = styled.div`
@@ -28,40 +37,44 @@ const CoverImageWrap = styled.div`
 	${above.small`
     margin-left: 0;
     margin-right: 0;
-  `}
+		`}
 	${above.med`
     margin-bottom: 4rem;
-  `}
+		`}
 	max-width: 100%;
-`;
-
-const DateWrap = styled.div`
-	margin-bottom: 1.5rem;
-	font-size: 1.125rem;
-`;
-
-const SmallBioAndDateWrap = styled.div`
-	max-width: 42rem;
-	margin-left: auto;
-	margin-right: auto;
 `;
 
 export const PostHeader = ({ title, coverImage, date, description }) => (
 	<>
 		<PostTitle>{title}</PostTitle>
-		<BigBioWrap>
-			<Bio />
-		</BigBioWrap>
+		<PostDescription>{description}</PostDescription>
+		<DateWrap>
+			<DateFormatter dateString={date} />
+		</DateWrap>
 		<CoverImageWrap>
 			<CoverImage title={title} src={coverImage} />
 		</CoverImageWrap>
-		<SmallBioAndDateWrap>
-			<SmallBioWrap>
-				<Bio />
-			</SmallBioWrap>
-			<DateWrap>
-				<DateFormatter dateString={date} />
-			</DateWrap>
-		</SmallBioAndDateWrap>
 	</>
 );
+
+// const SmallBioAndDateWrap = styled.div`
+// 	max-width: 42rem;
+// 	margin-left: auto;
+// 	margin-right: auto;
+// `;
+
+// const BigBioWrap = styled.div`
+// 	display: none;
+// 	${above.med`
+//     display: block;
+//     margin-bottom: 3rem;
+//   `}
+// `;
+
+// const SmallBioWrap = styled.div`
+// 	display: block;
+// 	margin-bottom: 1.5rem;
+// 	${above.med`
+//     display: none;
+//   `}
+// `;
