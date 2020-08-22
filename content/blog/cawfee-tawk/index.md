@@ -14,3 +14,7 @@ Being able to see was great though, oof, lol, bright out here in the morning! //
 Oh, yea, there's that little bit of quirkiness in the text!
 
 Got through the footer content, on to header content ... what a mess, the way this thing is organized is driving me nuts ... That's next on the digital todos, it's physical todos time now! I'd love to go for a run, it's beautiful out, but I really need to get a few things done around the house and when the place is put together, I have a phone call I need to get through, and I'm going to get groceries, do some meal prep, and get back to digital todos this evening! Love the progress so far!
+
+/// Wow okay, place is clean, phone call situation handled, tune in for part two tomorrow morning, lol, bunch of applications out while walking to/from groceries using the LinkedIn app, totally sent the wrong resume to the first company, and they looked perfect, whoops, but I also got the component hierarchy all mapped out and I can fix it now.
+
+Maybe a todo, the Next template uses a fragment instead of null, is this safer or something? Oh, apparently null is suggested by the React team ... what's with this then? Whatever, anyway ...

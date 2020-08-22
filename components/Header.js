@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import styled from 'styled-components';
 import { above } from '../utils';
+import { metadata } from '../siteMetadata';
 
 const HeaderH2 = styled.h2`
 	font-size: 1.5rem;
@@ -21,11 +22,12 @@ const A = styled.a`
 	}
 `;
 
-export const Header = () => (
+const Header = () => (
 	<HeaderH2>
 		<Link href='/'>
-			<A>Blog</A>
+			<A>{metadata.siteTitle}</A>
 		</Link>
-		.
 	</HeaderH2>
 );
+
+export default Header;

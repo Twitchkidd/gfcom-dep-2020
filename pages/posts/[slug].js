@@ -4,17 +4,19 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import {
 	Container,
-	Header,
 	Layout,
 	PostBody,
 	PostHeader,
 	PostTitle,
 } from '../../components';
+import { metadata } from '../../siteMetadata';
 import { getPostBySlug, getAllPosts, markdownToHtml } from '../../lib';
 
 const Article = styled.article`
 	margin-bottom: 8rem;
 `;
+
+const { siteTitle } = metadata;
 
 export default function Post({ post, morePosts }) {
 	const router = useRouter();
@@ -24,14 +26,15 @@ export default function Post({ post, morePosts }) {
 	return (
 		<Layout>
 			<Container>
-				<Header />
 				{router.isFallback ? (
 					<PostTitle>Loading…</PostTitle>
 				) : (
 					<>
 						<Article>
 							<Head>
-								<title>{post.title} | Gareth Field ... dot com!</title>
+								<title>
+									{post.title} | {siteTitle}
+								</title>
 								{/* <meta property='og:image' content={post.ogImage.url} /> */}
 							</Head>
 							<PostHeader
