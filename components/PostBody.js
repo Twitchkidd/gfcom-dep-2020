@@ -1,9 +1,14 @@
 import styled from 'styled-components';
+import { below } from '../utils';
 
 const PostBodyWrap = styled.div`
 	max-width: 42rem;
 	margin-left: auto;
 	margin-right: auto;
+	${below.med`
+		padding-left: 0.5rem;
+		padding-right: 0.5rem;
+	`}
 `;
 
 const Markdown = styled.div`
