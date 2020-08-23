@@ -49,7 +49,9 @@ const DateWrapper = styled.div`
 	`}
 `;
 
-export const HeroPost = ({ title, coverImage, date, excerpt, slug }) => (
+export const HeroPost = ({ heroPost }) => {
+	const { coverImage, date, description, title } = heroPost
+	return (
 	<section>
 		<CoverImageWrap>
 			<CoverImage title={title} src={coverImage} slug={slug} />
@@ -71,4 +73,4 @@ export const HeroPost = ({ title, coverImage, date, excerpt, slug }) => (
 			</div>
 		</PostWrap>
 	</section>
-);
+)};

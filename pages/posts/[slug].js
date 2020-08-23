@@ -3,7 +3,6 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import {
-	Container,
 	Layout,
 	PostBody,
 	PostHeader,
@@ -25,7 +24,6 @@ export default function Post({ post, morePosts }) {
 	}
 	return (
 		<Layout>
-			{/* <Container> */}
 			{router.isFallback ? (
 				<PostTitle>Loading…</PostTitle>
 			) : (
@@ -42,7 +40,7 @@ export default function Post({ post, morePosts }) {
 							coverImage={
 								post.coverImage
 									? require(`../../public/${post.coverImage}`)
-									: require('../../public/fortTrumbull.jpg')
+									: require('../../public/sweetGradient.png')
 							}
 							date={post.date}
 							description={post.description}
@@ -51,7 +49,6 @@ export default function Post({ post, morePosts }) {
 					</Article>
 				</>
 			)}
-			{/* </Container> */}
 		</Layout>
 	);
 }

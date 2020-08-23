@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import PostPreview from './PostPreview';
 import { above } from '../utils';
 
-const MoreStoriesHeader = styled.h2`
+const MorePostsHeader = styled.h2`
 	margin-bottom: 2rem;
 	font-size: 2.75rem;
 	font-weight: 700;
@@ -28,16 +28,16 @@ const PostsWrap = styled.div`
 	`}
 `;
 
-export const MoreStories = ({ posts }) => (
+export const MorePosts = ({ posts }) => (
 	<section>
-		<MoreStoriesHeader>More Stories</MoreStoriesHeader>
+		<MorePostsHeader>More Posts</MorePostsHeader>
 		<PostsWrap>
 			{posts.map(post => (
 				<PostPreview
 					key={post.slug}
 					title={post.title}
-					// coverImage={post.coverImage}
-					coverImage={require('../public/fortTrumbull.jpg')}
+					coverImage={post.coverImage ? post.coverImage : require('../public/sweetGradient.jpg')}
+					coverImage={}
 					date={post.date}
 					author={post.author}
 					slug={post.slug}
