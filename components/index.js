@@ -11,6 +11,7 @@ export * from './HeroPost';
 export * from './Intro';
 export * from './Layout';
 export * from './MorePosts';
+export * from './PanelWrap';
 export * from './PostBody';
 export * from './PostHeader';
 export * from './PostTitle';

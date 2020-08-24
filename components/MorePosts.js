@@ -39,7 +39,7 @@ export const MorePosts = ({ posts }) => (
 					coverImage={
 						post.coverImage
 							? post.coverImage
-							: require('../public/sweetGradient.jpg')
+							: require('../public/sweetGradient.png')
 					}
 					date={post.date}
 					author={post.author}

@@ -3,20 +3,22 @@ import { Tabs, usePanelState } from '@bumaga/tabs';
 import styled from 'styled-components';
 import Head from 'next/head';
 import Link from 'next/link';
+import { Layout, Running, Coding, Coffee, Dog } from '../components';
 import {
-	MorePosts,
-	HeroPost,
-	Layout,
-	TabLinks,
-	Running,
-	Coding,
-	Coffee,
-	Dog,
-} from '../components';
-import { above, socials, quotes } from '../utils';
+	above,
+	socials,
+	quotes,
+	white,
+	pinkFilter,
+	purpleFilter,
+	blueFilter,
+	lighterPurple,
+	lighterBlue,
+	lighterPink,
+} from '../utils';
 import { scale } from '../Typography';
-import { getAllPosts, randomQuote } from '../lib';
-import { metadata } from '../../siteMetadata';
+import { getAllPosts } from '../lib';
+import { metadata } from '../siteMetadata';
 
 const { siteTitle, blurb } = metadata;
 
@@ -37,7 +39,7 @@ const pages = [
 	},
 ];
 
-const Grid = styled.div`
+const AppWrap = styled.div`
 	width: 100%;
 	height: 100%;
 	display: grid;
@@ -49,17 +51,67 @@ const Grid = styled.div`
 	`}
 `;
 
+const Title = styled.h1`
+	color: blue;
+`;
+
+const TabsWrap = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+const PagesWrap = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+const SocialsWrap = styled.div`
+	display: flex;
+	flex-direction: column;
+`;
+
+const SocialsLink = styled.a`
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+`;
+
 const MoreLessButton = styled.button`
 	position: absolute;
 `;
 
-const Sidebar = styled.div``;
+const MoreLessIcon = styled.img`
+	width: 2rem;
+	height: 2rem;
+	background: hotPink;
+`;
+
+const SocialsIcon = styled.img`
+	width: 2rem;
+	height: 2rem;
+	background: hotPink;
+`;
+
+const SocialsLinkName = styled.span`
+	font-size: 0.5rem;
+`;
+
+const MoreLessText = styled.span`
+	display: inline-block;
+`;
+
+const BioImage = styled.img`
+	width: 3rem;
+	height: 3rem;
+	border-radius: 9999px;
+	margin-right: 1rem;
+`;
+
+const SideBar = styled.div``;
 
 const Header1 = styled.header``;
 const Header2 = styled.header``;
 const Header3 = styled.header``;
-const PageLinks = styled.div``;
-const Socials = styled.div``;
 
 const MainWrap = styled.div`
 	height: 100%;
@@ -73,6 +125,10 @@ const Nav = styled.nav`
 	display: flex;
 	flex-direction: column;
 	width: 10rem;
+`;
+
+const Blurb = styled.p`
+	font-size: 1.125rem;
 `;
 
 const Tab = React.forwardRef((props, ref) => {
@@ -224,54 +280,160 @@ export default function Index({ allPosts }) {
 	const [moreLess, setMoreLess] = useState('More');
 	const [socialsModalOpen, setSocialsModalOpen] = useState(false);
 	const codingRef = useRef();
+	const handleSocialsButton = () => {
+		setSocialsModalOpen(!socialModalOpen);
+	};
+	const handleDelightButton = () => {
+		window.alert('Hi!');
+	};
 	useEffect(() => {
-		const quote = randomQuote(quotes);
-		if (!typeof window === 'undefined') {
-			if (window.innerWidth <= 640) {
-				setInitialState({
-					mobile: true,
-					quote: { quote: quote.quote, attribution: quote.attribution },
-				});
-			} else {
-				setInitialState({
-					mobile: false,
-					quote: { quote: quote.quote, attribution: quote.attribution },
-				});
+		if (initialState.mobile !== null) {
+			codingRef.current.focus();
+		}
+	}, [initialState.mobile]);
+	useEffect(() => {
+		const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+		if (typeof window !== 'undefined') {
+			if (initialState.mobile === null) {
+				if (window.innerWidth <= 640) {
+					setInitialState({
+						mobile: true,
+						quote: {
+							quote: randomQuote.quote,
+							attribution: randomQuote.attribution,
+						},
+					});
+				} else {
+					setInitialState({
+						mobile: false,
+						quote: {
+							quote: randomQuote.quote,
+							attribution: randomQuote.attribution,
+						},
+					});
+				}
 			}
 		}
 	}, []);
-	useEffect(() => {
-		codingRef.current.focus();
-	}, [initialState.mobile]);
-	// This needs to return a fragment until (initialState.!) mobile isn't null, then either one layout or the other
-	return (
-		<>
+	if (initialState.mobile === null) {
+		return <>Loading ...</>;
+	} else if (initialState.mobile === false) {
+		return (
 			<Layout>
 				<Head>
 					<title>{siteTitle}</title>
 				</Head>
-				<Grid>
+				<AppWrap>
 					<MoreLessButton>
 						<MoreLessIcon />
 						<MoreLessText>{moreLess}</MoreLessText>
 					</MoreLessButton>
 					<Tabs state={[index, setIndex]}>
-						<Sidebar>
-							<Header1 />
+						<SideBar>
+							<Header1>
+								<BioImage
+									src={require('../public/profile-pic.jpg')}
+									alt={'Gareth Field'}
+								/>
+								<Title>{siteTitle}</Title>
+							</Header1>
 							<Nav>
-								<TabLinks />
-								<PageLinks />
-								<Socials />
+								<TabsWrap>
+									<Tab type='running'>
+										<IconSVG
+											src={require('../public/running.svg')}
+											alt=''
+											id='running'
+										/>
+										<ButtonText style={{ ...scale(3 / 4) }}>Running</ButtonText>
+									</Tab>
+									<Tab type='coding' ref={codingRef}>
+										<IconSVG
+											src={require('../public/coding.svg')}
+											alt=''
+											id='coding'
+										/>
+										<ButtonText style={{ ...scale(3 / 4) }}>Coding</ButtonText>
+									</Tab>
+									<Tab type='coffee'>
+										<IconSVG
+											src={require('../public/coffee.svg')}
+											alt=''
+											id='coffee'
+										/>
+										<ButtonText style={{ ...scale(3 / 4) }}>Coffee</ButtonText>
+									</Tab>
+									<Tab type='dog'>
+										<IconSVG
+											src={require('../public/dog.svg')}
+											alt=''
+											id='dog'
+										/>
+										<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
+									</Tab>
+								</TabsWrap>
+								<PagesWrap>
+									{pages.map(page => (
+										<Link href={page.url}>{page.name}</Link>
+									))}
+								</PagesWrap>
+								<SocialsWrap>
+									{socials.map(social => {
+										if (social.name === 'App Store') {
+											return (
+												<Link href='/run-club'>
+													<SocialsIcon
+														src={require(`../public/${social.fileName}.svg`)}
+													/>
+													<SocialsLinkName>{social.name}</SocialsLinkName>
+												</Link>
+											);
+										}
+										if (social.name === 'RSS Feed') {
+											return (
+												<Link href='/rss'>
+													<SocialsIcon
+														src={require(`../public/${social.fileName}.svg`)}
+													/>
+													<SocialsLinkName>{social.name}</SocialsLinkName>
+												</Link>
+											);
+										}
+										return (
+											<SocialsLink href={social.url}>
+												<SocialsIcon
+													src={require(`../public/${social.fileName}.svg`)}
+												/>
+												<SocialsLinkName>{social.name}</SocialsLinkName>
+											</SocialsLink>
+										);
+									})}
+								</SocialsWrap>
 							</Nav>
-						</Sidebar>
-						<Header2 />
-						<Header3 />
+						</SideBar>
+						<Header2>
+							<Blurb>{blurb}</Blurb>
+							<QotD
+								quote={initialState.quote.quote}
+								attribution={initialState.quote.attribution}
+							/>
+							<DelightButton onClick={handleDelightButton}>
+								<DelightButtonIcon
+									src={require('../public/delightButton.svg')}
+								/>
+								<DelightButtonText>Delight Button</DelightButtonText>
+							</DelightButton>
+							<MoreLessShadowElement />
+						</Header2>
 						<MainWrap>
+							<NavIndicator>
+								<NavIndicatorText>{tabs[index]}</NavIndicatorText>
+							</NavIndicator>
 							<Panel>
 								<Running />
 							</Panel>
 							<Panel>
-								<Coding data={data} />
+								<Coding allposts={allposts} />
 							</Panel>
 							<Panel>
 								<Coffee />
@@ -280,13 +442,135 @@ export default function Index({ allPosts }) {
 								<Dog />
 							</Panel>
 						</MainWrap>
-						<HeroPost heroPost={allPosts[0]} />
-						{morePosts.length > 0 && <MorePosts posts={allPosts.slice(1)} />}
 					</Tabs>
-				</Grid>
+				</AppWrap>
 			</Layout>
-		</>
-	);
+		);
+	} else {
+		return (
+			<Layout>
+				<AppWrap>
+					<MoreLessButton>
+						<MoreLessIcon />
+						<MoreLessText>{moreLess}</MoreLessText>
+					</MoreLessButton>
+					<SocialsModal>
+						{socials.map(social => {
+							if (social.name === 'App Store') {
+								return (
+									<Link href='/run-club'>
+										<SocialsModalIcon
+											src={require(`../public/${social.fileName}.svg`)}
+										/>
+										<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
+									</Link>
+								);
+							}
+							if (social.name === 'RSS Feed') {
+								return (
+									<Link href='/rss'>
+										<SocialsModalIcon
+											src={require(`../public/${social.fileName}.svg`)}
+										/>
+										<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
+									</Link>
+								);
+							}
+							return (
+								<SocialsModalLink href={social.url}>
+									<SocialsModalIcon
+										src={require(`../public/${social.fileName}.svg`)}
+									/>
+									<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
+								</SocialsModalLink>
+							);
+						})}
+					</SocialsModal>
+					<Header1>
+						<BioImage
+							src={require('../public/profile-pic.jpg')}
+							alt={'Gareth Field'}
+						/>
+						<Title>{siteTitle}</Title>
+						<MoreLessShadowElement />
+					</Header1>
+					<Nav>
+						<TabsWrap>
+							<Tab type='running'>
+								<IconSVG
+									src={require('../public/running.svg')}
+									alt=''
+									id='running'
+								/>
+								<ButtonText style={{ ...scale(3 / 4) }}>Running</ButtonText>
+							</Tab>
+							<Tab type='coding' ref={codingRef}>
+								<IconSVG
+									src={require('../public/coding.svg')}
+									alt=''
+									id='coding'
+								/>
+								<ButtonText style={{ ...scale(3 / 4) }}>Coding</ButtonText>
+							</Tab>
+							<Tab type='coffee'>
+								<IconSVG
+									src={require('../public/coffee.svg')}
+									alt=''
+									id='coffee'
+								/>
+								<ButtonText style={{ ...scale(3 / 4) }}>Coffee</ButtonText>
+							</Tab>
+							<Tab type='dog'>
+								<IconSVG src={require('../public/dog.svg')} alt='' id='dog' />
+								<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
+							</Tab>
+						</TabsWrap>
+						<PagesWrap>
+							{pages.map(page => (
+								<Link href={page.url}>{page.name}</Link>
+							))}
+						</PagesWrap>
+						<SocialsButton onClick={handleSocialsButton}>
+							<SocialsButtonIcon src={require('../public/socialsIcon.png')} />
+						</SocialsButton>
+						<NavToggleButton>
+							<NavToggleButtonIcon />
+							<NavToggleButtonText>+</NavToggleButtonText>
+						</NavToggleButton>
+					</Nav>
+					<Header2>
+						<Blurb>{blurb}</Blurb>
+						<MoreLessShadowElement />
+					</Header2>
+					<Header3>
+						<QotD>Thence and whence the well-traveled quail, hi ho!</QotD>
+						<DelightButton onClick={handleDelightButton}>
+							<DelightButtonIcon src={require('../public/delightButton.svg')} />
+							<DelightButtonText>Delight Button</DelightButtonText>
+						</DelightButton>
+						<MoreLessShadowElement />
+					</Header3>
+					<NavIndicator>
+						<NavIndicatorText>{tabs[index]}</NavIndicatorText>
+					</NavIndicator>
+					<MainWrap>
+						<Panel>
+							<Running />
+						</Panel>
+						<Panel>
+							<Coding allposts={allposts} />
+						</Panel>
+						<Panel>
+							<Coffee />
+						</Panel>
+						<Panel>
+							<Dog />
+						</Panel>
+					</MainWrap>
+				</AppWrap>
+			</Layout>
+		);
+	}
 }
 
 export async function getStaticProps() {
@@ -303,118 +587,3 @@ export async function getStaticProps() {
 		props: { allPosts },
 	};
 }
-
-// const Title = styled.h1`
-// 	font-size: 50px;
-// 	color: ${({ theme }) => theme.colors.primary};
-// `;
-
-// * The above was a magical moment, please don't delete for a bit, thx;
-
-// * Back to biz.
-
-// >> Mobile
-
-<AppWrap>
-	<MoreLessButton>
-		<MoreLessIcon />
-		<MoreLessText>{moreLess}</MoreLessText>
-	</MoreLessButton>
-	<SocialsModal>
-		{socials.map(social => {
-			if (social.name === 'App Store') {
-				return (
-					<Link href='/run-club'>
-						<SocialsModalIcon
-							src={require(`../public/${social.fileName}.svg`)}
-						/>
-						<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
-					</Link>
-				);
-			}
-			if (social.name === 'RSS Feed') {
-				return (
-					<Link href='/rss'>
-						<SocialsModalIcon
-							src={require(`../public/${social.fileName}.svg`)}
-						/>
-						<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
-					</Link>
-				);
-			}
-			return (
-				<SocialsModalLink href={social.url}>
-					<SocialsModalIcon src={require(`../public/${social.fileName}.svg`)} />
-					<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
-				</SocialsModalLink>
-			);
-		})}
-	</SocialsModal>
-	<Header1>
-		<BioImage src={require('../public/profile-pic.jpg')} alt={'Gareth Field'} />
-		<Title>{siteTitle}</Title>
-		<MoreLessShadowElement />
-	</Header1>
-	<Nav>
-		<TabsWrap>
-			<Tab type='running'>
-				<IconSVG src={require('../public/running.svg')} alt='' id='running' />
-				<ButtonText style={{ ...scale(3 / 4) }}>Running</ButtonText>
-			</Tab>
-			<Tab type='coding' ref={codingRef}>
-				<IconSVG src={require('../public/coding.svg')} alt='' id='coding' />
-				<ButtonText style={{ ...scale(3 / 4) }}>Coding</ButtonText>
-			</Tab>
-			<Tab type='coffee'>
-				<IconSVG src={require('../public/coffee.svg')} alt='' id='coffee' />
-				<ButtonText style={{ ...scale(3 / 4) }}>Coffee</ButtonText>
-			</Tab>
-			<Tab type='dog'>
-				<IconSVG src={require('../public/dog')} alt='' id='dog' />
-				<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
-			</Tab>
-		</TabsWrap>
-		<PagesWrap>
-			{pages.map(page => (
-				<Link href={page.url}>{page.name}</Link>
-			))}
-		</PagesWrap>
-		<SocialsButton onClick={handleSocialsButton}>
-			<SocialsButtonIcon src={require('../public/socialsIcon.png')} />
-		</SocialsButton>
-		<NavToggleButton>
-			<NavToggleButtonIcon />
-			<NavToggleButtonText>+</NavToggleButtonText>
-		</NavToggleButton>
-	</Nav>
-	<Header2>
-		<Blurb>{blurb}</Blurb>
-		<MoreLessShadowElement />
-	</Header2>
-	<Header3>
-		<QotD>Thence and whence the well-traveled quail, hi ho!</QotD>
-		<DelightButton onClick={handleDelightButton}>
-			<DelightButtonIcon src={require('../public/delightButton.svg')} />
-			<DelightButtonText>Delight Button</DelightButtonText>
-		</DelightButton>
-		<MoreLessShadowElement />
-	</Header3>
-	<NavIndicator>
-		<NavIndicatorIcon src={require('../public/navIndicator.svg')} />
-		<NavIndicatorText>{tabs[index]}</NavIndicatorText>
-	</NavIndicator>
-	<MainWrap>
-		<Panel>
-			<Running />
-		</Panel>
-		<Panel>
-			<Coding data={data} />
-		</Panel>
-		<Panel>
-			<Coffee />
-		</Panel>
-		<Panel>
-			<Dog />
-		</Panel>
-	</MainWrap>
-</AppWrap>;
