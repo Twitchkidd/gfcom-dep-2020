@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { metadata } from '../siteMetadata';
+
+const { blurb } = metadata;
 
 const BioWrap = styled.div`
 	display: flex;
@@ -20,10 +23,7 @@ const BioBlurb = styled.div`
 const Bio = () => (
 	<BioWrap>
 		<BioImage src={require('../public/profile-pic.jpg')} alt={'Gareth Field'} />
-		<BioBlurb>
-			Gareth Field is a trailrunner, developer, and dog-dad based out of
-			beautiful downtown New London, Connecticut!
-		</BioBlurb>
+		<BioBlurb>{blurb}</BioBlurb>
 	</BioWrap>
 );
 

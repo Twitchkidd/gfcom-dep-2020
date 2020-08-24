@@ -36,8 +36,11 @@ export const MorePosts = ({ posts }) => (
 				<PostPreview
 					key={post.slug}
 					title={post.title}
-					coverImage={post.coverImage ? post.coverImage : require('../public/sweetGradient.jpg')}
-					coverImage={}
+					coverImage={
+						post.coverImage
+							? post.coverImage
+							: require('../public/sweetGradient.jpg')
+					}
 					date={post.date}
 					author={post.author}
 					slug={post.slug}
