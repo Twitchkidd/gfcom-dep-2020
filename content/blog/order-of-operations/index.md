@@ -38,3 +38,5 @@ Could not find files for / in .next/build-manifest.json ? Rut roh ... try yarn b
 Oh snap, it rendered! It's still in the loading state though ... hmm ... Going into the depths of useEffect, lol ... Okay, THIS one may have been an effect of using Python, I put a negation in a place that doesn't make sense in JS ... aaand you actually have to _call_ Math.random() ... AppWrap not defined ... back around to random ... Title isn't defined ... TabsWrap ... three more components ... two more ... okay break time ...
 
 /// Oof, nope, that was done time. Okay, so from early tomorrow morning, from then, what did we learn yesterday? Don't put random things in lib, it's all looked at during the build, if you're pulling from there from client side code, that's bad. More than that, for sure, that was a good one though, and I have to take Dawa out, so signing out for now and back in in the next post! Best wishes! ~g
+
+Todo, you forgot to copy the markdown file, you know it's a pain to do this later, commit this to git!
