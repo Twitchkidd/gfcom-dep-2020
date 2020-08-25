@@ -34,7 +34,7 @@ export const MorePosts = ({ posts }) => (
 		<PostsWrap>
 			{posts.map(post => (
 				<PostPreview
-					key={post.slug}
+					key={post.title}
 					title={post.title}
 					coverImage={
 						post.coverImage
@@ -42,9 +42,7 @@ export const MorePosts = ({ posts }) => (
 							: require('../public/sweetGradient.png')
 					}
 					date={post.date}
-					author={post.author}
-					slug={post.slug}
-					excerpt={post.excerpt}
+					description={post.description}
 				/>
 			))}
 		</PostsWrap>

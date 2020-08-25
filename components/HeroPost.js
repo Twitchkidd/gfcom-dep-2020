@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import Bio from './Bio';
 import CoverImage from './CoverImage';
 import DateFormatter from './DateFormatter';
-import Excerpt from './Excerpt';
 import { above } from '../utils';
 
 const CoverImageWrap = styled.div`
@@ -35,6 +33,12 @@ const TitleH3 = styled.h3`
 	`}
 `;
 
+const Description = styled.p`
+	font-size: 1.125rem;
+	line-height: 1.625;
+	margin-bottom: 1rem;
+`;
+
 const A = styled.a`
 	&:hover {
 		text-decoration: underline;
@@ -54,22 +58,19 @@ export const HeroPost = ({ heroPost }) => {
 	return (
 	<section>
 		<CoverImageWrap>
-			<CoverImage title={title} src={coverImage} slug={slug} />
+			<CoverImage title={title} src={coverImage} />
 		</CoverImageWrap>
 		<PostWrap>
 			<div>
 				<TitleH3>
-					<Link as={`/posts/${slug}`} href='/posts/[slug]'>
+					<Link href='/posts/[slug]'>
 						<A>{title}</A>
 					</Link>
 				</TitleH3>
+				<Description>{description}</Description>
 				<DateWrapper>
 					<DateFormatter dateString={date} />
 				</DateWrapper>
-			</div>
-			<div>
-				<Excerpt>{excerpt}</Excerpt>
-				<Bio />
 			</div>
 		</PostWrap>
 	</section>

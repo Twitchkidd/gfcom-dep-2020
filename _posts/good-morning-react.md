@@ -21,3 +21,5 @@ DelightButton ... honestly I thought I got to that one, maybe that was the last 
 Btw, I'd love to get these posts divided up into weeks, I feel like going back to March I'd be more likely to have a good picture for any given week rather than for each almost-daily post, and then by month, and not the least reason is that, while this is soon to be fixed, I have two directories of posts right now because of the two builds, and when they're both open my brain wants to explode. The automater post-creator and the whole UI for months/weeks can wait until after launch, though, so close! Go!
 
 MoreLessShadowElement ... NavIndicator ... NavIndicatorText ... of course allposts isn't defined, it's allPosts with a capital P ... useTabState ... hmmm ... TabLinks ...
+
+OOOHHH MY GOOOD IT RENDERED! IT'S BEAUTIFUL!

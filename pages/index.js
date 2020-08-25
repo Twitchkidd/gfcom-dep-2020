@@ -52,8 +52,8 @@ const AppWrap = styled.div`
 	grid-template-rows: minmax(20%, 10rem) minmax(80%, 1fr);
 	grid-template-columns: 100%;
 	${above.small`
-		grid-template-rows: then again like two?; (4)
-		grid-template-columns: like two, right?; (3)
+		grid-template-rows: minmax(10rem, 20%) 1fr;
+		grid-template-columns: manmax(20%, 40%) minmax(60%, 1fr);
 	`}
 `;
 

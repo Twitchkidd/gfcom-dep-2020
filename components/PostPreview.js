@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import Bio from './Bio';
 import CoverImage from './CoverImage';
 import DateFormatter from './DateFormatter';
-import Excerpt from './Excerpt';
 
 const PostPreviewCoverImageWrap = styled.div`
 	margin-bottom: 1.25rem;
@@ -26,21 +24,26 @@ const PostPreviewDateWrap = styled.div`
 	margin-bottom: 1rem;
 `;
 
-const PostPreview = ({ title, coverImage, date, excerpt, author, slug }) => (
+const Description = styled.p`
+	font-size: 1.125rem;
+	line-height: 1.625;
+	margin-bottom: 1rem;
+`;
+
+const PostPreview = ({ title, coverImage, date, description }) => (
 	<div>
 		<PostPreviewCoverImageWrap>
-			<CoverImage slug={slug} title={title} src={coverImage} />
+			<CoverImage title={title} src={coverImage} />
 		</PostPreviewCoverImageWrap>
 		<PostPreviewLinkWrapH3>
-			<Link as={`/posts/${slug}`} href='/posts/[slug]'>
+			<Link href='/posts/[slug]'>
 				<PostPreviewA>{title}</PostPreviewA>
 			</Link>
 		</PostPreviewLinkWrapH3>
+		<Description>{description}</Description>
 		<PostPreviewDateWrap>
 			<DateFormatter dateString={date} />
 		</PostPreviewDateWrap>
-		<Excerpt>{excerpt}</Excerpt>
-		<Bio />
 	</div>
 );
 
