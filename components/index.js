@@ -16,4 +16,3 @@ export * from './PostBody';
 export * from './PostHeader';
 export * from './PostTitle';
 export * from './Running';
-export * from './TabLinks';

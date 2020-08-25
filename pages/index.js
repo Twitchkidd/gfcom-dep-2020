@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Tabs, usePanelState } from '@bumaga/tabs';
+import { Tabs, usePanelState, useTabState } from '@bumaga/tabs';
 import styled from 'styled-components';
 import Head from 'next/head';
 import Link from 'next/link';
@@ -9,12 +9,18 @@ import {
 	socials,
 	quotes,
 	white,
+	light,
+	veryLight,
 	pinkFilter,
 	purpleFilter,
 	blueFilter,
+	lighterPink,
 	lighterPurple,
 	lighterBlue,
-	lighterPink,
+	lightPink,
+	lightPurple,
+	lightBlue,
+	darkerBlue
 } from '../utils';
 import { scale } from '../Typography';
 import { getAllPosts } from '../lib';
@@ -78,6 +84,14 @@ const SocialsLink = styled.a`
 
 const MoreLessButton = styled.button`
 	position: absolute;
+	width: 40px;
+	height: 40px;
+`;
+
+const MoreLessShadowElement = styled.div`
+	width: 40px;
+	height: 40px;
+	background: ${veryLight};
 `;
 
 const MoreLessIcon = styled.img`
@@ -127,9 +141,40 @@ const Nav = styled.nav`
 	width: 10rem;
 `;
 
+const NavIndicator = styled.div`
+	position: absolute;
+	text-align: center;
+`;
+
+const NavIndicatorText = styled.p`
+	color: red;
+`;
+
 const Blurb = styled.p`
 	font-size: 1.125rem;
 `;
+
+const QotDWrap = styled.blockquote`
+	max-width: 40rem;
+	text-align: left;
+`;
+
+const QuoteText = styled.p`
+	color: ${darkerBlue};
+	font-size: 1.125rem;
+`;
+
+const QuoteAttribution = styled.footer`
+	color: ${light};
+	font-size: 1rem;
+`;
+
+const QotD = ({ quote, attribution }) => (
+	<QotDWrap>
+		<QuoteText>{quote}</QuoteText>
+		<QuoteAttribution><cite>{attribution}</cite></QuoteAttribution>
+	</QotDWrap>
+)
 
 const Tab = React.forwardRef((props, ref) => {
 	const { onClick } = useTabState();
@@ -193,6 +238,24 @@ const Button = styled.button`
 	&:active {
 		transform: scale(0.95);
 	}
+`;
+
+const DelightButton = styled.button`
+	min-width: 40px;
+	height: 60px;
+	background: ${lightPink};
+	display: flex;
+	flex-direction: column;
+`;
+
+const DelightButtonIcon = styled.img`
+	width: 40px;
+	height: 40px;
+	background: ${lightPurple};
+`;
+
+const DelightButtonText = styled.p`
+	color: ${lightBlue};
 `;
 
 const IconSVG = styled.img`
@@ -382,20 +445,21 @@ export default function Index({ allPosts }) {
 										if (social.name === 'App Store') {
 											return (
 												<Link href='/run-club'>
-													<SocialsIcon
+													<a><SocialsIcon
 														src={require(`../public/${social.fileName}.svg`)}
 													/>
-													<SocialsLinkName>{social.name}</SocialsLinkName>
+													<SocialsLinkName>{social.name}</SocialsLinkName></a>
 												</Link>
 											);
 										}
 										if (social.name === 'RSS Feed') {
 											return (
 												<Link href='/rss'>
+													<a>
 													<SocialsIcon
 														src={require(`../public/${social.fileName}.svg`)}
 													/>
-													<SocialsLinkName>{social.name}</SocialsLinkName>
+													<SocialsLinkName>{social.name}</SocialsLinkName></a>
 												</Link>
 											);
 										}
@@ -433,7 +497,7 @@ export default function Index({ allPosts }) {
 								<Running />
 							</Panel>
 							<Panel>
-								<Coding allposts={allposts} />
+								<Coding allPosts={allPosts} />
 							</Panel>
 							<Panel>
 								<Coffee />
@@ -543,7 +607,10 @@ export default function Index({ allPosts }) {
 						<MoreLessShadowElement />
 					</Header2>
 					<Header3>
-						<QotD>Thence and whence the well-traveled quail, hi ho!</QotD>
+						<QotD
+							quote={initialState.quote.quote}
+							attribution={initialState.quote.attribution}
+						/>
 						<DelightButton onClick={handleDelightButton}>
 							<DelightButtonIcon src={require('../public/delightButton.svg')} />
 							<DelightButtonText>Delight Button</DelightButtonText>
@@ -558,7 +625,7 @@ export default function Index({ allPosts }) {
 							<Running />
 						</Panel>
 						<Panel>
-							<Coding allposts={allposts} />
+							<Coding allPosts={allPosts} />
 						</Panel>
 						<Panel>
 							<Coffee />
@@ -577,7 +644,6 @@ export async function getStaticProps() {
 	const allPosts = getAllPosts([
 		'title',
 		'date',
-		'slug',
 		'author',
 		'coverImage',
 		'excerpt',
