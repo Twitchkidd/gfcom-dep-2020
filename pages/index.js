@@ -508,14 +508,16 @@ export default function Index({ allPosts }) {
 								</TabsWrap>
 								<PagesWrap>
 									{pages.map(page => (
-										<Link href={page.url}>{page.name}</Link>
+										<Link href={page.url} key={page.name}>
+											<a>{page.name}</a>
+										</Link>
 									))}
 								</PagesWrap>
 								<SocialsWrap>
 									{socials.map(social => {
 										if (social.name === 'App Store') {
 											return (
-												<Link href='/run-club'>
+												<Link href='/run-club' key={social.name}>
 													<a>
 														<SocialsIcon
 															src={require(`../public/${social.fileName}.svg`)}
@@ -527,7 +529,7 @@ export default function Index({ allPosts }) {
 										}
 										if (social.name === 'RSS Feed') {
 											return (
-												<Link href='/rss'>
+												<Link href='/rss' key={social.name}>
 													<a>
 														<SocialsIcon
 															src={require(`../public/${social.fileName}.svg`)}
@@ -538,7 +540,7 @@ export default function Index({ allPosts }) {
 											);
 										}
 										return (
-											<SocialsLink href={social.url}>
+											<SocialsLink href={social.url} key={social.name}>
 												<SocialsIcon
 													src={require(`../public/${social.fileName}.svg`)}
 												/>
@@ -603,20 +605,24 @@ export default function Index({ allPosts }) {
 							if (social.name === 'App Store') {
 								return (
 									<Link href='/run-club' key={social.name}>
-										<SocialsModalIcon
-											src={require(`../public/${social.fileName}.svg`)}
-										/>
-										<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
+										<a>
+											<SocialsModalIcon
+												src={require(`../public/${social.fileName}.svg`)}
+											/>
+											<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
+										</a>
 									</Link>
 								);
 							}
 							if (social.name === 'RSS Feed') {
 								return (
 									<Link href='/rss' key={social.name}>
-										<SocialsModalIcon
-											src={require(`../public/${social.fileName}.svg`)}
-										/>
-										<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
+										<a>
+											<SocialsModalIcon
+												src={require(`../public/${social.fileName}.svg`)}
+											/>
+											<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
+										</a>
 									</Link>
 								);
 							}
@@ -628,10 +634,10 @@ export default function Index({ allPosts }) {
 									<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
 								</SocialsModalLink>
 							);
-							<SocialsModalCloseButton onClick={closeSocialsModal}>
-								Close
-							</SocialsModalCloseButton>;
 						})}
+						<SocialsModalCloseButton onClick={closeSocialsModal}>
+							Close
+						</SocialsModalCloseButton>
 					</Modal>
 					<Header1>
 						<BioImage
@@ -674,7 +680,9 @@ export default function Index({ allPosts }) {
 						</TabsWrap>
 						<PagesWrap>
 							{pages.map(page => (
-								<Link href={page.url}>{page.name}</Link>
+								<Link href={page.url} key={page.name}>
+									<a>{page.name}</a>
+								</Link>
 							))}
 						</PagesWrap>
 						<SocialsButton onClick={openSocialsModal}>
