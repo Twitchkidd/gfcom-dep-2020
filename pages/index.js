@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import Modal from 'react-modal';
 import { Tabs, usePanelState, useTabState } from '@bumaga/tabs';
 import styled from 'styled-components';
 import Head from 'next/head';
@@ -20,13 +21,26 @@ import {
 	lightPink,
 	lightPurple,
 	lightBlue,
-	darkerBlue
+	darkerBlue,
 } from '../utils';
 import { scale } from '../Typography';
 import { getAllPosts } from '../lib';
 import { metadata } from '../siteMetadata';
 
 const { siteTitle, blurb } = metadata;
+
+const customStyles = {
+	content: {
+		top: '50%',
+		left: '50%',
+		right: 'auto',
+		bottom: 'auto',
+		marginRight: '-50%',
+		transform: 'translate(-50%, -50%)',
+	},
+};
+
+Modal.setAppElement('#__next');
 
 const tabs = ['Running', 'Coding', 'Coffee', 'Dog'];
 
@@ -172,9 +186,11 @@ const QuoteAttribution = styled.footer`
 const QotD = ({ quote, attribution }) => (
 	<QotDWrap>
 		<QuoteText>{quote}</QuoteText>
-		<QuoteAttribution><cite>{attribution}</cite></QuoteAttribution>
+		<QuoteAttribution>
+			<cite>{attribution}</cite>
+		</QuoteAttribution>
 	</QotDWrap>
-)
+);
 
 const Tab = React.forwardRef((props, ref) => {
 	const { onClick } = useTabState();
@@ -343,8 +359,14 @@ export default function Index({ allPosts }) {
 	const [moreLess, setMoreLess] = useState('More');
 	const [socialsModalOpen, setSocialsModalOpen] = useState(false);
 	const codingRef = useRef();
-	const handleSocialsButton = () => {
-		setSocialsModalOpen(!socialModalOpen);
+	const openSocialsModal = () => {
+		setSocialsModalOpen(true);
+	};
+	const afterSocialsModalOpen = () => {
+		subtitle.style.color = '#060';
+	};
+	const closeSocialsModal = () => {
+		setSocialsModalOpen(false);
 	};
 	const handleDelightButton = () => {
 		window.alert('Hi!');
@@ -445,10 +467,12 @@ export default function Index({ allPosts }) {
 										if (social.name === 'App Store') {
 											return (
 												<Link href='/run-club'>
-													<a><SocialsIcon
-														src={require(`../public/${social.fileName}.svg`)}
-													/>
-													<SocialsLinkName>{social.name}</SocialsLinkName></a>
+													<a>
+														<SocialsIcon
+															src={require(`../public/${social.fileName}.svg`)}
+														/>
+														<SocialsLinkName>{social.name}</SocialsLinkName>
+													</a>
 												</Link>
 											);
 										}
@@ -456,10 +480,11 @@ export default function Index({ allPosts }) {
 											return (
 												<Link href='/rss'>
 													<a>
-													<SocialsIcon
-														src={require(`../public/${social.fileName}.svg`)}
-													/>
-													<SocialsLinkName>{social.name}</SocialsLinkName></a>
+														<SocialsIcon
+															src={require(`../public/${social.fileName}.svg`)}
+														/>
+														<SocialsLinkName>{social.name}</SocialsLinkName>
+													</a>
 												</Link>
 											);
 										}
@@ -511,6 +536,7 @@ export default function Index({ allPosts }) {
 			</Layout>
 		);
 	} else {
+		/* * Mobile! * */
 		return (
 			<Layout>
 				<AppWrap>
@@ -594,7 +620,7 @@ export default function Index({ allPosts }) {
 								<Link href={page.url}>{page.name}</Link>
 							))}
 						</PagesWrap>
-						<SocialsButton onClick={handleSocialsButton}>
+						<SocialsButton onClick={openSocialsModal}>
 							<SocialsButtonIcon src={require('../public/socialsIcon.png')} />
 						</SocialsButton>
 						<NavToggleButton>

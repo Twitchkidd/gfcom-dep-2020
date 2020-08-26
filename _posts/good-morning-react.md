@@ -25,3 +25,5 @@ MoreLessShadowElement ... NavIndicator ... NavIndicatorText ... of course allpos
 OOOHHH MY GOOOD IT RENDERED! IT'S BEAUTIFUL!
 
 // Oh crap, so it's 2:58. I just took Dawa to Bluff Point for a run. That's sixteen miles towing fifty pounds, round trip. Sometimes I tend to exercise more when I'm stressed. Pretty stressed right now, lol. Let's light a fire under my ass by publishing this heap of garbage, though! To the future!
+
+///
