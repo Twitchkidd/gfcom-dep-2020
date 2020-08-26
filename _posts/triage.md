@@ -21,3 +21,5 @@ Okay, that was only like a dozen components I just hadn't made yet, thanks Past-
 // Dawa has had another walk. No run today. Ouch. 9:30 is when this nook is totally in shade, and pleasant to work from.
 
 ![Patio desk at 9:30](/morningPatioDesk.jpg)
+
+Oh, compiled successfully it says, I'll believe it when I see it on this last change ... yea, nope, Object(...)(...) is undefined, says it's in panel or in tabs, works on desktop, not on mobile, HRMMM!! // AHHH I forgot to wrap the mobile markup in the Tabs element, derp!

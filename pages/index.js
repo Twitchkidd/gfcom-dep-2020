@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { forwardRef, useState, useEffect, useRef } from 'react';
 import Modal from 'react-modal';
 import { Tabs, usePanelState, useTabState } from '@bumaga/tabs';
 import styled from 'styled-components';
@@ -241,17 +241,6 @@ const QotD = ({ quote, attribution }) => (
 	</QotDWrap>
 );
 
-const Tab = React.forwardRef((props, ref) => {
-	const { onClick } = useTabState();
-	return (
-		<Button ref={ref} onClick={onClick} type={props.type}>
-			<ButtonContentsWrapper type={props.type}>
-				{props.children}
-			</ButtonContentsWrapper>
-		</Button>
-	);
-});
-
 const Button = styled.button`
 	display: block;
 	position: relative;
@@ -395,6 +384,26 @@ const Panel = ({ children }) => {
 	const isActive = usePanelState();
 	return isActive ? children : null;
 };
+
+const Tab = forwardRef((props, ref) => {
+	const { onClick } = useTabState();
+	return (
+		<Button ref={ref} onClick={onClick} type={props.type}>
+			<ButtonContentsWrapper type={props.type}>
+				{props.children}
+			</ButtonContentsWrapper>
+		</Button>
+	);
+});
+
+// const Tab = ({ children, type }) => {
+// 	const { onClick } = useTabState();
+// 	return (
+// 		<Button onClick={onClick} type={type}>
+// 			<ButtonContentsWrapper type={type}>{children}</ButtonContentsWrapper>
+// 		</Button>
+// 	);
+// };
 
 export default function Index({ allPosts }) {
 	const [initialState, setInitialState] = useState({
@@ -601,130 +610,140 @@ export default function Index({ allPosts }) {
 						onRequestClose={closeSocialsModal}
 						style={customStyles}
 						contentLabel='Social Links Modal'>
-						{socials.map(social => {
-							if (social.name === 'App Store') {
+						<>
+							{socials.map(social => {
+								if (social.name === 'App Store') {
+									return (
+										<Link href='/run-club' key={social.name}>
+											<a>
+												<SocialsModalIcon
+													src={require(`../public/${social.fileName}.svg`)}
+												/>
+												<SocialsModalLinkName>
+													{social.name}
+												</SocialsModalLinkName>
+											</a>
+										</Link>
+									);
+								}
+								if (social.name === 'RSS Feed') {
+									return (
+										<Link href='/rss' key={social.name}>
+											<a>
+												<SocialsModalIcon
+													src={require(`../public/${social.fileName}.svg`)}
+												/>
+												<SocialsModalLinkName>
+													{social.name}
+												</SocialsModalLinkName>
+											</a>
+										</Link>
+									);
+								}
 								return (
-									<Link href='/run-club' key={social.name}>
-										<a>
-											<SocialsModalIcon
-												src={require(`../public/${social.fileName}.svg`)}
-											/>
-											<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
-										</a>
-									</Link>
+									<SocialsModalLink href={social.url} key={social.name}>
+										<SocialsModalIcon
+											src={require(`../public/${social.fileName}.svg`)}
+										/>
+										<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
+									</SocialsModalLink>
 								);
-							}
-							if (social.name === 'RSS Feed') {
-								return (
-									<Link href='/rss' key={social.name}>
-										<a>
-											<SocialsModalIcon
-												src={require(`../public/${social.fileName}.svg`)}
-											/>
-											<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
-										</a>
-									</Link>
-								);
-							}
-							return (
-								<SocialsModalLink href={social.url} key={social.name}>
-									<SocialsModalIcon
-										src={require(`../public/${social.fileName}.svg`)}
-									/>
-									<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
-								</SocialsModalLink>
-							);
-						})}
-						<SocialsModalCloseButton onClick={closeSocialsModal}>
-							Close
-						</SocialsModalCloseButton>
+							})}
+							<SocialsModalCloseButton onClick={closeSocialsModal}>
+								Close
+							</SocialsModalCloseButton>
+						</>
 					</Modal>
-					<Header1>
-						<BioImage
-							src={require('../public/profile-pic.jpg')}
-							alt={'Gareth Field'}
-						/>
-						<Title>{siteTitle}</Title>
-						<MoreLessShadowElement />
-					</Header1>
-					<Nav>
-						<TabsWrap>
-							<Tab type='running'>
-								<IconSVG
-									src={require('../public/running.svg')}
-									alt=''
-									id='running'
+					<Tabs state={[index, setIndex]}>
+						<Header1>
+							<BioImage
+								src={require('../public/profile-pic.jpg')}
+								alt={'Gareth Field'}
+							/>
+							<Title>{siteTitle}</Title>
+							<MoreLessShadowElement />
+						</Header1>
+						<Nav>
+							<TabsWrap>
+								<Tab type='running'>
+									<IconSVG
+										src={require('../public/running.svg')}
+										alt=''
+										id='running'
+									/>
+									<ButtonText style={{ ...scale(3 / 4) }}>Running</ButtonText>
+								</Tab>
+								<Tab type='coding' ref={codingRef}>
+									<IconSVG
+										src={require('../public/coding.svg')}
+										alt=''
+										id='coding'
+									/>
+									<ButtonText style={{ ...scale(3 / 4) }}>Coding</ButtonText>
+								</Tab>
+								<Tab type='coffee'>
+									<IconSVG
+										src={require('../public/coffee.svg')}
+										alt=''
+										id='coffee'
+									/>
+									<ButtonText style={{ ...scale(3 / 4) }}>Coffee</ButtonText>
+								</Tab>
+								<Tab type='dog'>
+									<IconSVG src={require('../public/dog.svg')} alt='' id='dog' />
+									<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
+								</Tab>
+							</TabsWrap>
+							<PagesWrap>
+								{pages.map(page => (
+									<Link href={page.url} key={page.name}>
+										<a>{page.name}</a>
+									</Link>
+								))}
+							</PagesWrap>
+							<SocialsButton onClick={openSocialsModal}>
+								<SocialsButtonIcon src={require('../public/socialsIcon.png')} />
+							</SocialsButton>
+							<NavToggleButton>
+								<NavToggleButtonIcon />
+								<NavToggleButtonText>+</NavToggleButtonText>
+							</NavToggleButton>
+						</Nav>
+						<Header2>
+							<Blurb>{blurb}</Blurb>
+							<MoreLessShadowElement />
+						</Header2>
+						<Header3>
+							<QotD
+								quote={initialState.quote.quote}
+								attribution={initialState.quote.attribution}
+							/>
+							<DelightButton onClick={handleDelightButton}>
+								<DelightButtonIcon
+									src={require('../public/delightButton.svg')}
 								/>
-								<ButtonText style={{ ...scale(3 / 4) }}>Running</ButtonText>
-							</Tab>
-							<Tab type='coding' ref={codingRef}>
-								<IconSVG
-									src={require('../public/coding.svg')}
-									alt=''
-									id='coding'
-								/>
-								<ButtonText style={{ ...scale(3 / 4) }}>Coding</ButtonText>
-							</Tab>
-							<Tab type='coffee'>
-								<IconSVG
-									src={require('../public/coffee.svg')}
-									alt=''
-									id='coffee'
-								/>
-								<ButtonText style={{ ...scale(3 / 4) }}>Coffee</ButtonText>
-							</Tab>
-							<Tab type='dog'>
-								<IconSVG src={require('../public/dog.svg')} alt='' id='dog' />
-								<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
-							</Tab>
-						</TabsWrap>
-						<PagesWrap>
-							{pages.map(page => (
-								<Link href={page.url} key={page.name}>
-									<a>{page.name}</a>
-								</Link>
-							))}
-						</PagesWrap>
-						<SocialsButton onClick={openSocialsModal}>
-							<SocialsButtonIcon src={require('../public/socialsIcon.png')} />
-						</SocialsButton>
-						<NavToggleButton>
-							<NavToggleButtonIcon />
-							<NavToggleButtonText>+</NavToggleButtonText>
-						</NavToggleButton>
-					</Nav>
-					<Header2>
-						<Blurb>{blurb}</Blurb>
-						<MoreLessShadowElement />
-					</Header2>
-					<Header3>
-						<QotD
-							quote={initialState.quote.quote}
-							attribution={initialState.quote.attribution}
-						/>
-						<DelightButton onClick={handleDelightButton}>
-							<DelightButtonIcon src={require('../public/delightButton.svg')} />
-							<DelightButtonText>Delight Button</DelightButtonText>
-						</DelightButton>
-						<MoreLessShadowElement />
-					</Header3>
-					<NavIndicator>
-						<NavIndicatorText>{tabs[index]}</NavIndicatorText>
-					</NavIndicator>
-					<MainWrap>
-						<Panel>
-							<Running />
-						</Panel>
-						<Panel>
-							<Coding allPosts={allPosts} />
-						</Panel>
-						<Panel>
-							<Coffee />
-						</Panel>
-						<Panel>
-							<Dog />
-						</Panel>
-					</MainWrap>
+								<DelightButtonText>Delight Button</DelightButtonText>
+							</DelightButton>
+							<MoreLessShadowElement />
+						</Header3>
+						<NavIndicator>
+							<NavIndicatorText>{tabs[index]}</NavIndicatorText>
+						</NavIndicator>
+						<MainWrap>
+							<Panel>
+								<Running />
+							</Panel>
+							<Panel>
+								<Coding allPosts={allPosts} />
+							</Panel>
+							<Panel>
+								<Coffee />
+							</Panel>
+							<Panel>
+								<Dog />
+							</Panel>
+						</MainWrap>
+					</Tabs>
 				</AppWrap>
 			</Layout>
 		);
