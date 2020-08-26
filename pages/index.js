@@ -11,6 +11,7 @@ import {
 	quotes,
 	white,
 	light,
+	lightest,
 	veryLight,
 	pinkFilter,
 	purpleFilter,
@@ -22,6 +23,8 @@ import {
 	lightPurple,
 	lightBlue,
 	darkerBlue,
+	darkerPink,
+	blue,
 } from '../utils';
 import { scale } from '../Typography';
 import { getAllPosts } from '../lib';
@@ -41,6 +44,27 @@ const customStyles = {
 };
 
 Modal.setAppElement('#__next');
+
+const SocialsModalCloseButton = styled.button`
+	border: 1px solid ${darkerPink};
+	border-radius: 1rem;
+	padding: 0.5rem;
+`;
+
+const SocialsModalLink = styled.a`
+	color: ${blue};
+`;
+
+const SocialsModalIcon = styled.img`
+	width: 40px;
+	height: 40px;
+	padding: 8px;
+`;
+
+const SocialsModalLinkName = styled.p`
+	margin-top: 4px;
+	color: ${lightest};
+`;
 
 const tabs = ['Running', 'Coding', 'Coffee', 'Dog'];
 
@@ -114,6 +138,16 @@ const MoreLessIcon = styled.img`
 	background: hotPink;
 `;
 
+const SocialsButton = styled.button`
+	width: 88px;
+	height: 88px;
+`;
+
+const SocialsButtonIcon = styled.img`
+	width: 100%;
+	height: 100%;
+`;
+
 const SocialsIcon = styled.img`
 	width: 2rem;
 	height: 2rem;
@@ -153,6 +187,21 @@ const Nav = styled.nav`
 	display: flex;
 	flex-direction: column;
 	width: 10rem;
+`;
+
+const NavToggleButton = styled.button`
+	width: 60px;
+	height: 60px;
+	background: ${lightPurple};
+`;
+
+const NavToggleButtonIcon = styled.img`
+	width: 100%;
+	height: 100%;
+`;
+
+const NavToggleButtonText = styled.p`
+	color: ${lightest};
 `;
 
 const NavIndicator = styled.div`
@@ -544,11 +593,16 @@ export default function Index({ allPosts }) {
 						<MoreLessIcon />
 						<MoreLessText>{moreLess}</MoreLessText>
 					</MoreLessButton>
-					<SocialsModal>
+					<Modal
+						isOpen={socialsModalOpen}
+						onAfterOpen={afterSocialsModalOpen}
+						onRequestClose={closeSocialsModal}
+						style={customStyles}
+						contentLabel='Social Links Modal'>
 						{socials.map(social => {
 							if (social.name === 'App Store') {
 								return (
-									<Link href='/run-club'>
+									<Link href='/run-club' key={social.name}>
 										<SocialsModalIcon
 											src={require(`../public/${social.fileName}.svg`)}
 										/>
@@ -558,7 +612,7 @@ export default function Index({ allPosts }) {
 							}
 							if (social.name === 'RSS Feed') {
 								return (
-									<Link href='/rss'>
+									<Link href='/rss' key={social.name}>
 										<SocialsModalIcon
 											src={require(`../public/${social.fileName}.svg`)}
 										/>
@@ -567,15 +621,18 @@ export default function Index({ allPosts }) {
 								);
 							}
 							return (
-								<SocialsModalLink href={social.url}>
+								<SocialsModalLink href={social.url} key={social.name}>
 									<SocialsModalIcon
 										src={require(`../public/${social.fileName}.svg`)}
 									/>
 									<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
 								</SocialsModalLink>
 							);
+							<SocialsModalCloseButton onClick={closeSocialsModal}>
+								Close
+							</SocialsModalCloseButton>;
 						})}
-					</SocialsModal>
+					</Modal>
 					<Header1>
 						<BioImage
 							src={require('../public/profile-pic.jpg')}

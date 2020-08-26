@@ -14,4 +14,4 @@ Eugh, whyyy.
 
 Okay, _go_ though ...
 
-SocialsModal is not defined. Can do, boss. Slapping a library on it, easy solutions for the win right now. Fifty seven hundred stars on GitHub, surely we're good. \_\_next is the root element? Kay,
+SocialsModal is not defined. Can do, boss. Slapping a library on it, easy solutions for the win right now. Fifty seven hundred stars on GitHub, surely we're good. \_\_next is the root element? Kay, oop, gotta switch computers, the one was on fire. The one thing about an East-facing patio, I've got this tiny nook of shade with my back to the storage where there's shade, but for the computer, nothing until later.
