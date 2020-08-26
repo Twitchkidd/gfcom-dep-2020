@@ -453,7 +453,7 @@ export default function Index({ allPosts }) {
 		return <>Loading ...</>;
 	} else if (initialState.mobile === false) {
 		return (
-			<Layout>
+			<Layout home>
 				<Head>
 					<title>{siteTitle}</title>
 				</Head>
@@ -589,7 +589,7 @@ export default function Index({ allPosts }) {
 	} else {
 		/* * Mobile! * */
 		return (
-			<Layout>
+			<Layout home>
 				<AppWrap>
 					<MoreLessButton>
 						<MoreLessIcon />
