@@ -30,13 +30,13 @@ const Description = styled.p`
 	margin-bottom: 1rem;
 `;
 
-const PostPreview = ({ title, coverImage, date, description }) => (
+const PostPreview = ({ title, coverImage, date, description, slug }) => (
 	<div>
 		<PostPreviewCoverImageWrap>
 			<CoverImage title={title} src={coverImage} />
 		</PostPreviewCoverImageWrap>
 		<PostPreviewLinkWrapH3>
-			<Link href='/posts/[slug]'>
+			<Link as={`/posts/${slug}`} href='/posts/[slug]'>
 				<PostPreviewA>{title}</PostPreviewA>
 			</Link>
 		</PostPreviewLinkWrapH3>

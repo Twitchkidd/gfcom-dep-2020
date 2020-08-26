@@ -43,6 +43,7 @@ export const MorePosts = ({ posts }) => (
 					}
 					date={post.date}
 					description={post.description}
+					slug={post.slug}
 				/>
 			))}
 		</PostsWrap>

@@ -24,3 +24,5 @@ Okay, that was only like a dozen components I just hadn't made yet, thanks Past-
 ![Patio desk at 9:30](/morningPatioDesk.jpg)
 
 Oh, compiled successfully it says, I'll believe it when I see it on this last change ... yea, nope, Object(...)(...) is undefined, says it's in panel or in tabs, works on desktop, not on mobile, HRMMM!! // AHHH I forgot to wrap the mobile markup in the Tabs element, derp!
+
+Oh boy, I broke posts ... that was one thing I was hoping to see, haha, whoops ... Okay, well, the smallest amount of relief, going to the url manually works, just the links are going to literally /posts/[slug]

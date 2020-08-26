@@ -2,6 +2,7 @@
 title: Order Of Operations
 date: '2020-08-24T07:02:12.821Z'
 description: 'In which our morning starts with #Dawa { visibility: visible !important; }'
+coverImage: 'cow.jpg'
 ---
 
 Good morning!

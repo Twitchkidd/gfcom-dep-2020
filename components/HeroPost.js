@@ -54,24 +54,25 @@ const DateWrapper = styled.div`
 `;
 
 export const HeroPost = ({ heroPost }) => {
-	const { coverImage, date, description, title } = heroPost
+	const { coverImage, date, description, title, slug } = heroPost;
 	return (
-	<section>
-		<CoverImageWrap>
-			<CoverImage title={title} src={coverImage} />
-		</CoverImageWrap>
-		<PostWrap>
-			<div>
-				<TitleH3>
-					<Link href='/posts/[slug]'>
-						<A>{title}</A>
-					</Link>
-				</TitleH3>
-				<Description>{description}</Description>
-				<DateWrapper>
-					<DateFormatter dateString={date} />
-				</DateWrapper>
-			</div>
-		</PostWrap>
-	</section>
-)};
+		<section>
+			<CoverImageWrap>
+				<CoverImage title={title} src={coverImage} />
+			</CoverImageWrap>
+			<PostWrap>
+				<div>
+					<TitleH3>
+						<Link as={`/posts/${slug}`} href='/posts/[slug]'>
+							<A>{title}</A>
+						</Link>
+					</TitleH3>
+					<Description>{description}</Description>
+					<DateWrapper>
+						<DateFormatter dateString={date} />
+					</DateWrapper>
+				</div>
+			</PostWrap>
+		</section>
+	);
+};

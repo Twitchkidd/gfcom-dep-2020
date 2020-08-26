@@ -2,12 +2,7 @@ import ErrorPage from 'next/error';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import {
-	Layout,
-	PostBody,
-	PostHeader,
-	PostTitle,
-} from '../../components';
+import { Layout, PostBody, PostHeader, PostTitle } from '../../components';
 import { metadata } from '../../siteMetadata';
 import { getPostBySlug, getAllPosts, markdownToHtml } from '../../lib';
 
@@ -17,7 +12,7 @@ const Article = styled.article`
 
 const { siteTitle } = metadata;
 
-export default function Post({ post, morePosts }) {
+export default function Post({ post }) {
 	const router = useRouter();
 	if (!router.isFallback && !post?.slug) {
 		return <ErrorPage statusCode={404} />;

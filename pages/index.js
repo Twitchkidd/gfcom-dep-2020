@@ -420,9 +420,9 @@ export default function Index({ allPosts }) {
 	const openSocialsModal = () => {
 		setSocialsModalOpen(true);
 	};
-	const afterSocialsModalOpen = () => {
-		subtitle.style.color = '#060';
-	};
+	// const afterSocialsModalOpen = () => {
+	// 	subtitle.style.color = '#060';
+	// };
 	const closeSocialsModal = () => {
 		setSocialsModalOpen(false);
 	};
@@ -606,53 +606,49 @@ export default function Index({ allPosts }) {
 					</MoreLessButton>
 					<Modal
 						isOpen={socialsModalOpen}
-						onAfterOpen={afterSocialsModalOpen}
+						// onAfterOpen={afterSocialsModalOpen}
 						onRequestClose={closeSocialsModal}
 						style={customStyles}
 						contentLabel='Social Links Modal'>
-						<>
-							{socials.map(social => {
-								if (social.name === 'App Store') {
-									return (
-										<Link href='/run-club' key={social.name}>
-											<a>
-												<SocialsModalIcon
-													src={require(`../public/${social.fileName}.svg`)}
-												/>
-												<SocialsModalLinkName>
-													{social.name}
-												</SocialsModalLinkName>
-											</a>
-										</Link>
-									);
-								}
-								if (social.name === 'RSS Feed') {
-									return (
-										<Link href='/rss' key={social.name}>
-											<a>
-												<SocialsModalIcon
-													src={require(`../public/${social.fileName}.svg`)}
-												/>
-												<SocialsModalLinkName>
-													{social.name}
-												</SocialsModalLinkName>
-											</a>
-										</Link>
-									);
-								}
+						{/* <> */}
+						{socials.map(social => {
+							if (social.name === 'App Store') {
 								return (
-									<SocialsModalLink href={social.url} key={social.name}>
-										<SocialsModalIcon
-											src={require(`../public/${social.fileName}.svg`)}
-										/>
-										<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
-									</SocialsModalLink>
+									<Link href='/run-club' key={social.name}>
+										<a>
+											<SocialsModalIcon
+												src={require(`../public/${social.fileName}.svg`)}
+											/>
+											<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
+										</a>
+									</Link>
 								);
-							})}
-							<SocialsModalCloseButton onClick={closeSocialsModal}>
-								Close
-							</SocialsModalCloseButton>
-						</>
+							}
+							if (social.name === 'RSS Feed') {
+								return (
+									<Link href='/rss' key={social.name}>
+										<a>
+											<SocialsModalIcon
+												src={require(`../public/${social.fileName}.svg`)}
+											/>
+											<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
+										</a>
+									</Link>
+								);
+							}
+							return (
+								<SocialsModalLink href={social.url} key={social.name}>
+									<SocialsModalIcon
+										src={require(`../public/${social.fileName}.svg`)}
+									/>
+									<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
+								</SocialsModalLink>
+							);
+						})}
+						<SocialsModalCloseButton onClick={closeSocialsModal}>
+							Close
+						</SocialsModalCloseButton>
+						{/* </> */}
 					</Modal>
 					<Tabs state={[index, setIndex]}>
 						<Header1>
@@ -757,6 +753,7 @@ export async function getStaticProps() {
 		'author',
 		'coverImage',
 		'excerpt',
+		'slug',
 	]);
 
 	return {
