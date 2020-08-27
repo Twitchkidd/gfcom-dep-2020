@@ -396,15 +396,6 @@ const Tab = forwardRef((props, ref) => {
 	);
 });
 
-// const Tab = ({ children, type }) => {
-// 	const { onClick } = useTabState();
-// 	return (
-// 		<Button onClick={onClick} type={type}>
-// 			<ButtonContentsWrapper type={type}>{children}</ButtonContentsWrapper>
-// 		</Button>
-// 	);
-// };
-
 export default function Index({ allPosts }) {
 	const [initialState, setInitialState] = useState({
 		mobile: null,
