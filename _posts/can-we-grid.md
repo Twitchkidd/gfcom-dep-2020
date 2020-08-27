@@ -29,7 +29,7 @@ Why no grid, website?
 
 #### Relative positioned check
 
--
+- AppWrap
 
 ### Desktop mode:
 
@@ -47,4 +47,8 @@ Why no grid, website?
 
 #### Relative positioned check
 
--
+- AppWrap
+
+Okay, I feel like I'm going crazy here, I'm **sure** that I just went over how to use localStorage and what the difference between it and sessionStorage was, and that there was a nice React library, I guess I took no notes though?
+
+Well, let's get this published, I have to transition into a different mode for the rest of the day here, so I will publish the changes I've made so far and if I get everything done I need to get done, I can get back to this this evening. Until then, or if I don't get back to dev stuff today, best wishes! ~g

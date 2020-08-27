@@ -86,6 +86,7 @@ const pages = [
 ];
 
 const AppWrap = styled.div`
+	position: relative;
 	width: 100%;
 	height: 100%;
 	display: grid;
@@ -208,6 +209,7 @@ const Header2 = styled.header`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 3;
 	${above.small`
 		grid-column: 1 / 2;
 		grid-row: 0 / 1;
@@ -218,6 +220,7 @@ const Header3 = styled.header`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	z-index: 3;
 `;
 
 const MainOverlay = styled.div`
@@ -228,7 +231,7 @@ const MainOverlay = styled.div`
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
-	z-index: 2;
+	z-index: 1;
 	${above.small`
 		grid-column: 1 / 2;
 	`}
@@ -239,6 +242,7 @@ const MainWrap = styled.div`
 	grid-row: 1 / 2;
 	overflow: scroll;
 	padding: 1rem 1rem 1rem 2.5rem;
+	z-index: 2;
 	${above.small`
 		grid-column: 1 / 2;
 	`}
@@ -249,6 +253,7 @@ const Nav = styled.nav`
 	display: flex;
 	flex-direction: column;
 	width: 10rem;
+	z-index: 3;
 `;
 
 const NavToggleButton = styled.button`
@@ -256,6 +261,7 @@ const NavToggleButton = styled.button`
 	height: 60px;
 	background: ${lightPurple};
 	justify-self: end;
+	z-index: 3;
 `;
 
 const NavToggleButtonIcon = styled.img`
@@ -269,6 +275,7 @@ const NavToggleButtonText = styled.p`
 
 const NavIndicator = styled.div`
 	padding: 2rem;
+	z-index: 3;
 `;
 
 const NavIndicatorText = styled.p`
@@ -470,6 +477,9 @@ export default function Index({ allPosts }) {
 	const [moreLess, setMoreLess] = useState({ fileName: 'less', text: 'Less' });
 	const [socialsModalOpen, setSocialsModalOpen] = useState(false);
 	const codingRef = useRef();
+	const getInitialHeaderCount = () => {
+		// check if there's localstorage ... when did we just do this? polar pairs?
+	};
 	const openSocialsModal = () => {
 		setSocialsModalOpen(true);
 	};
@@ -478,6 +488,12 @@ export default function Index({ allPosts }) {
 	// };
 	const closeSocialsModal = () => {
 		setSocialsModalOpen(false);
+	};
+	const handleLess = () => {
+		if (initialState.mobile) {
+		} else {
+			setMoreLess({ fileName: 'more', text: 'More' });
+		}
 	};
 	const handleDelightButton = () => {
 		window.alert('Hi!');
