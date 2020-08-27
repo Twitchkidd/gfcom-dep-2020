@@ -26,6 +26,7 @@ import {
 	darkerBlue,
 	darkerPink,
 	blue,
+	pink,
 } from '../utils';
 import { scale } from '../Typography';
 import { getAllPosts } from '../lib';
@@ -88,11 +89,11 @@ const AppWrap = styled.div`
 	width: 100%;
 	height: 100%;
 	display: grid;
-	grid-template-rows: minmax(20%, 10rem) minmax(80%, 1fr);
 	grid-template-columns: 100%;
+	grid-template-rows: minmax(20%, 10rem) 1fr;
 	${above.small`
-		grid-template-rows: minmax(10rem, 20%) 1fr;
-		grid-template-columns: manmax(20%, 40%) minmax(60%, 1fr);
+		grid-template-columns: minmax(30rem, 40%) 1fr;
+		grid-template-rows: minmax(18rem, 20%) 1fr;
 	`}
 `;
 
@@ -108,23 +109,33 @@ const TabsWrap = styled.div`
 const PagesWrap = styled.div`
 	display: flex;
 	flex-direction: column;
+	justify-self: end;
 `;
 
 const SocialsWrap = styled.div`
 	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
+	max-width: 88px;
+	justify-self: end;
 `;
 
 const SocialsLink = styled.a`
 	display: inline-block;
 	width: 24px;
 	height: 24px;
+	padding-right: 8px;
+	padding-bottom: 8px;
 `;
 
 const MoreLessButton = styled.button`
 	position: absolute;
+	top: 8px;
+	left: calc(100vw - 48px);
 	width: 40px;
 	height: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 `;
 
 const MoreLessShadowElement = styled.div`
@@ -137,6 +148,11 @@ const MoreLessIcon = styled.img`
 	width: 2rem;
 	height: 2rem;
 	background: hotPink;
+	margin-bottom: 0.25rem;
+`;
+
+const MoreLessText = styled.span`
+	display: inline-block;
 `;
 
 const SocialsButton = styled.button`
@@ -159,10 +175,6 @@ const SocialsLinkName = styled.span`
 	font-size: 0.5rem;
 `;
 
-const MoreLessText = styled.span`
-	display: inline-block;
-`;
-
 const BioImage = styled.img`
 	width: 3rem;
 	height: 3rem;
@@ -170,22 +182,66 @@ const BioImage = styled.img`
 	margin-right: 1rem;
 `;
 
-const SideBar = styled.div``;
+const SideBar = styled.div`
+	grid-column: 0 / 1;
+	grid-row: 0 / 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+`;
 
 const Header1 = styled.header`
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	${below.small`
-		
+		grid-column: 0 / 1;
+		grid-row: 0 / 1;
+	`}
+	${above.small`
+		max-width: 12rem;
 	`}
 `;
 
-const Header2 = styled.header``;
-const Header3 = styled.header``;
+const Header2 = styled.header`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	${above.small`
+		grid-column: 1 / 2;
+		grid-row: 0 / 1;
+	`}
+`;
+
+const Header3 = styled.header`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`;
+
+const MainOverlay = styled.div`
+	grid-column: 0 / 1;
+	grid-row: 1 / 2;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	z-index: 2;
+	${above.small`
+		grid-column: 1 / 2;
+	`}
+`;
 
 const MainWrap = styled.div`
-	height: 100%;
-	flex: 1;
+	grid-column: 0 / 1;
+	grid-row: 1 / 2;
 	overflow: scroll;
 	padding: 1rem 1rem 1rem 2.5rem;
+	${above.small`
+		grid-column: 1 / 2;
+	`}
 `;
 
 const Nav = styled.nav`
@@ -199,6 +255,7 @@ const NavToggleButton = styled.button`
 	width: 60px;
 	height: 60px;
 	background: ${lightPurple};
+	justify-self: end;
 `;
 
 const NavToggleButtonIcon = styled.img`
@@ -211,12 +268,11 @@ const NavToggleButtonText = styled.p`
 `;
 
 const NavIndicator = styled.div`
-	position: absolute;
-	text-align: center;
+	padding: 2rem;
 `;
 
 const NavIndicatorText = styled.p`
-	color: red;
+	color: ${pink};
 `;
 
 const Blurb = styled.p`
@@ -386,15 +442,6 @@ const ButtonContentsWrapper = styled.div`
 			: null}
 `;
 
-const MainOverlay = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	width: 100%;
-	height: 100%;
-	z-index: 2;
-`;
-
 const Panel = ({ children }) => {
 	const isActive = usePanelState();
 	return isActive ? children : null;
@@ -420,7 +467,7 @@ export default function Index({ allPosts }) {
 		},
 	});
 	const [index, setIndex] = useState(1);
-	const [moreLess, setMoreLess] = useState('More');
+	const [moreLess, setMoreLess] = useState({ fileName: 'less', text: 'Less' });
 	const [socialsModalOpen, setSocialsModalOpen] = useState(false);
 	const codingRef = useRef();
 	const openSocialsModal = () => {
@@ -475,8 +522,10 @@ export default function Index({ allPosts }) {
 				<AppWrap>
 					<Tabs state={[index, setIndex]}>
 						<MoreLessButton>
-							<MoreLessIcon />
-							<MoreLessText>{moreLess}</MoreLessText>
+							<MoreLessIcon
+								src={require(`../public/${moreLess.fileName}.svg`)}
+							/>
+							<MoreLessText>{moreLess.text}</MoreLessText>
 						</MoreLessButton>
 						{initialState.mobile === true ? (
 							/* * Mobile Mode! * */
@@ -539,65 +588,61 @@ export default function Index({ allPosts }) {
 									<Title>{siteTitle}</Title>
 									<MoreLessShadowElement />
 								</Header1>
-								<Nav>
-									<TabsWrap>
-										<Tab type='running'>
-											<IconSVG
-												src={require('../public/running.svg')}
-												alt=''
-												id='running'
-											/>
-											<ButtonText style={{ ...scale(3 / 4) }}>
-												Running
-											</ButtonText>
-										</Tab>
-										<Tab type='coding' ref={codingRef}>
-											<IconSVG
-												src={require('../public/coding.svg')}
-												alt=''
-												id='coding'
-											/>
-											<ButtonText style={{ ...scale(3 / 4) }}>
-												Coding
-											</ButtonText>
-										</Tab>
-										<Tab type='coffee'>
-											<IconSVG
-												src={require('../public/coffee.svg')}
-												alt=''
-												id='coffee'
-											/>
-											<ButtonText style={{ ...scale(3 / 4) }}>
-												Coffee
-											</ButtonText>
-										</Tab>
-										<Tab type='dog'>
-											<IconSVG
-												src={require('../public/dog.svg')}
-												alt=''
-												id='dog'
-											/>
-											<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
-										</Tab>
-									</TabsWrap>
-									<PagesWrap>
-										{pages.map(page => (
-											<Link href={page.url} key={page.name}>
-												<a>{page.name}</a>
-											</Link>
-										))}
-									</PagesWrap>
-									<SocialsButton onClick={openSocialsModal}>
-										<SocialsButtonIcon
-											src={require('../public/socialsIcon.png')}
-										/>
-									</SocialsButton>
-									<NavToggleButton>
-										<NavToggleButtonIcon />
-										<NavToggleButtonText>+</NavToggleButtonText>
-									</NavToggleButton>
-								</Nav>
 								<MainOverlay>
+									<Nav>
+										<TabsWrap>
+											<Tab type='running'>
+												<IconSVG
+													src={require('../public/running.svg')}
+													alt=''
+													id='running'
+												/>
+												<ButtonText style={{ ...scale(3 / 4) }}>
+													Running
+												</ButtonText>
+											</Tab>
+											<Tab type='coding' ref={codingRef}>
+												<IconSVG
+													src={require('../public/coding.svg')}
+													alt=''
+													id='coding'
+												/>
+												<ButtonText style={{ ...scale(3 / 4) }}>
+													Coding
+												</ButtonText>
+											</Tab>
+											<Tab type='coffee'>
+												<IconSVG
+													src={require('../public/coffee.svg')}
+													alt=''
+													id='coffee'
+												/>
+												<ButtonText style={{ ...scale(3 / 4) }}>
+													Coffee
+												</ButtonText>
+											</Tab>
+											<Tab type='dog'>
+												<IconSVG
+													src={require('../public/dog.svg')}
+													alt=''
+													id='dog'
+												/>
+												<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
+											</Tab>
+										</TabsWrap>
+										<PagesWrap>
+											{pages.map(page => (
+												<Link href={page.url} key={page.name}>
+													<a>{page.name}</a>
+												</Link>
+											))}
+										</PagesWrap>
+										<SocialsButton onClick={openSocialsModal}>
+											<SocialsButtonIcon
+												src={require('../public/socialsIcon.png')}
+											/>
+										</SocialsButton>
+									</Nav>
 									<Header2>
 										<Blurb>{blurb}</Blurb>
 										<MoreLessShadowElement />
@@ -618,6 +663,10 @@ export default function Index({ allPosts }) {
 									<NavIndicator>
 										<NavIndicatorText>{tabs[index]}</NavIndicatorText>
 									</NavIndicator>
+									<NavToggleButton>
+										<NavToggleButtonIcon />
+										<NavToggleButtonText>+</NavToggleButtonText>
+									</NavToggleButton>
 								</MainOverlay>
 								<MainWrap>
 									<Panel>

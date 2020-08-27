@@ -18,7 +18,7 @@ Why no grid, website?
 
 - AppWrap (check, though whether the grid defined is correct, who knows)
 - Header1 (is a flex item in desktop mode!)
-- Nav
+- Nav (is a flex item in desktop mode!) (putting it under mainoverlay!)
 - MainOverlay
 - MainWrap
 
