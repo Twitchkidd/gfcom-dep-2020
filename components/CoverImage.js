@@ -27,10 +27,18 @@ const Image = styled.img`
 	max-width: 100%;
 `;
 
-const CoverImage = ({ title, src }) => {
+const CoverImage = ({ title, src, slug }) => {
 	return (
 		<CoverImageWrap>
+			{slug ? (
+				<Link as={`/posts/${slug}`} href='/posts/[slug]'>
+					<a aria-label={title}>
+						<Image src={src} alt={title} />
+					</a>
+				</Link>
+			) : (
 				<Image src={src} alt={`Cover Image for ${title}`} />
+			)}
 		</CoverImageWrap>
 	);
 };

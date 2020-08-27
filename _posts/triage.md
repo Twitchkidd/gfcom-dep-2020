@@ -26,3 +26,5 @@ Okay, that was only like a dozen components I just hadn't made yet, thanks Past-
 Oh, compiled successfully it says, I'll believe it when I see it on this last change ... yea, nope, Object(...)(...) is undefined, says it's in panel or in tabs, works on desktop, not on mobile, HRMMM!! // AHHH I forgot to wrap the mobile markup in the Tabs element, derp!
 
 Oh boy, I broke posts ... that was one thing I was hoping to see, haha, whoops ... Okay, well, the smallest amount of relief, going to the url manually works, just the links are going to literally /posts/[slug]
+
+/// Lol crashed again, from the future I'm feeling a little better, I don't think I'm going to be able to run today still though. Best wishes! ~g

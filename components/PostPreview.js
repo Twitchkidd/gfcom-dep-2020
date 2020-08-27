@@ -33,7 +33,7 @@ const Description = styled.p`
 const PostPreview = ({ title, coverImage, date, description, slug }) => (
 	<div>
 		<PostPreviewCoverImageWrap>
-			<CoverImage title={title} src={coverImage} />
+			<CoverImage title={title} src={coverImage} slug={slug} />
 		</PostPreviewCoverImageWrap>
 		<PostPreviewLinkWrapH3>
 			<Link as={`/posts/${slug}`} href='/posts/[slug]'>

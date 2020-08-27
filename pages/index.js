@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { Layout, Running, Coding, Coffee, Dog } from '../components';
 import {
 	above,
+	below,
 	socials,
 	quotes,
 	white,
@@ -171,7 +172,12 @@ const BioImage = styled.img`
 
 const SideBar = styled.div``;
 
-const Header1 = styled.header``;
+const Header1 = styled.header`
+	${below.small`
+		
+	`}
+`;
+
 const Header2 = styled.header``;
 const Header3 = styled.header``;
 
@@ -380,6 +386,15 @@ const ButtonContentsWrapper = styled.div`
 			: null}
 `;
 
+const MainOverlay = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
+	height: 100%;
+	z-index: 2;
+`;
+
 const Panel = ({ children }) => {
 	const isActive = usePanelState();
 	return isActive ? children : null;
@@ -451,78 +466,38 @@ export default function Index({ allPosts }) {
 	}, []);
 	if (initialState.mobile === null) {
 		return <>Loading ...</>;
-	} else if (initialState.mobile === false) {
+	} else {
 		return (
 			<Layout home>
 				<Head>
 					<title>{siteTitle}</title>
 				</Head>
 				<AppWrap>
-					<MoreLessButton>
-						<MoreLessIcon />
-						<MoreLessText>{moreLess}</MoreLessText>
-					</MoreLessButton>
 					<Tabs state={[index, setIndex]}>
-						<SideBar>
-							<Header1>
-								<BioImage
-									src={require('../public/profile-pic.jpg')}
-									alt={'Gareth Field'}
-								/>
-								<Title>{siteTitle}</Title>
-							</Header1>
-							<Nav>
-								<TabsWrap>
-									<Tab type='running'>
-										<IconSVG
-											src={require('../public/running.svg')}
-											alt=''
-											id='running'
-										/>
-										<ButtonText style={{ ...scale(3 / 4) }}>Running</ButtonText>
-									</Tab>
-									<Tab type='coding' ref={codingRef}>
-										<IconSVG
-											src={require('../public/coding.svg')}
-											alt=''
-											id='coding'
-										/>
-										<ButtonText style={{ ...scale(3 / 4) }}>Coding</ButtonText>
-									</Tab>
-									<Tab type='coffee'>
-										<IconSVG
-											src={require('../public/coffee.svg')}
-											alt=''
-											id='coffee'
-										/>
-										<ButtonText style={{ ...scale(3 / 4) }}>Coffee</ButtonText>
-									</Tab>
-									<Tab type='dog'>
-										<IconSVG
-											src={require('../public/dog.svg')}
-											alt=''
-											id='dog'
-										/>
-										<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
-									</Tab>
-								</TabsWrap>
-								<PagesWrap>
-									{pages.map(page => (
-										<Link href={page.url} key={page.name}>
-											<a>{page.name}</a>
-										</Link>
-									))}
-								</PagesWrap>
-								<SocialsWrap>
+						<MoreLessButton>
+							<MoreLessIcon />
+							<MoreLessText>{moreLess}</MoreLessText>
+						</MoreLessButton>
+						{initialState.mobile === true ? (
+							/* * Mobile Mode! * */
+							<>
+								<Modal
+									isOpen={socialsModalOpen}
+									// onAfterOpen={afterSocialsModalOpen}
+									onRequestClose={closeSocialsModal}
+									style={customStyles}
+									contentLabel='Social Links Modal'>
 									{socials.map(social => {
 										if (social.name === 'App Store') {
 											return (
 												<Link href='/run-club' key={social.name}>
 													<a>
-														<SocialsIcon
+														<SocialsModalIcon
 															src={require(`../public/${social.fileName}.svg`)}
 														/>
-														<SocialsLinkName>{social.name}</SocialsLinkName>
+														<SocialsModalLinkName>
+															{social.name}
+														</SocialsModalLinkName>
 													</a>
 												</Link>
 											);
@@ -531,205 +506,272 @@ export default function Index({ allPosts }) {
 											return (
 												<Link href='/rss' key={social.name}>
 													<a>
-														<SocialsIcon
+														<SocialsModalIcon
 															src={require(`../public/${social.fileName}.svg`)}
 														/>
-														<SocialsLinkName>{social.name}</SocialsLinkName>
+														<SocialsModalLinkName>
+															{social.name}
+														</SocialsModalLinkName>
 													</a>
 												</Link>
 											);
 										}
 										return (
-											<SocialsLink href={social.url} key={social.name}>
-												<SocialsIcon
+											<SocialsModalLink href={social.url} key={social.name}>
+												<SocialsModalIcon
 													src={require(`../public/${social.fileName}.svg`)}
 												/>
-												<SocialsLinkName>{social.name}</SocialsLinkName>
-											</SocialsLink>
+												<SocialsModalLinkName>
+													{social.name}
+												</SocialsModalLinkName>
+											</SocialsModalLink>
 										);
 									})}
-								</SocialsWrap>
-							</Nav>
-						</SideBar>
-						<Header2>
-							<Blurb>{blurb}</Blurb>
-							<QotD
-								quote={initialState.quote.quote}
-								attribution={initialState.quote.attribution}
-							/>
-							<DelightButton onClick={handleDelightButton}>
-								<DelightButtonIcon
-									src={require('../public/delightButton.svg')}
-								/>
-								<DelightButtonText>Delight Button</DelightButtonText>
-							</DelightButton>
-							<MoreLessShadowElement />
-						</Header2>
-						<MainWrap>
-							<NavIndicator>
-								<NavIndicatorText>{tabs[index]}</NavIndicatorText>
-							</NavIndicator>
-							<Panel>
-								<Running />
-							</Panel>
-							<Panel>
-								<Coding allPosts={allPosts} />
-							</Panel>
-							<Panel>
-								<Coffee />
-							</Panel>
-							<Panel>
-								<Dog />
-							</Panel>
-						</MainWrap>
-					</Tabs>
-				</AppWrap>
-			</Layout>
-		);
-	} else {
-		/* * Mobile! * */
-		return (
-			<Layout home>
-				<AppWrap>
-					<MoreLessButton>
-						<MoreLessIcon />
-						<MoreLessText>{moreLess}</MoreLessText>
-					</MoreLessButton>
-					<Modal
-						isOpen={socialsModalOpen}
-						// onAfterOpen={afterSocialsModalOpen}
-						onRequestClose={closeSocialsModal}
-						style={customStyles}
-						contentLabel='Social Links Modal'>
-						{/* <> */}
-						{socials.map(social => {
-							if (social.name === 'App Store') {
-								return (
-									<Link href='/run-club' key={social.name}>
-										<a>
-											<SocialsModalIcon
-												src={require(`../public/${social.fileName}.svg`)}
+									<SocialsModalCloseButton onClick={closeSocialsModal}>
+										Close
+									</SocialsModalCloseButton>
+								</Modal>
+								<Header1>
+									<BioImage
+										src={require('../public/profile-pic.jpg')}
+										alt={'Gareth Field'}
+									/>
+									<Title>{siteTitle}</Title>
+									<MoreLessShadowElement />
+								</Header1>
+								<Nav>
+									<TabsWrap>
+										<Tab type='running'>
+											<IconSVG
+												src={require('../public/running.svg')}
+												alt=''
+												id='running'
 											/>
-											<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
-										</a>
-									</Link>
-								);
-							}
-							if (social.name === 'RSS Feed') {
-								return (
-									<Link href='/rss' key={social.name}>
-										<a>
-											<SocialsModalIcon
-												src={require(`../public/${social.fileName}.svg`)}
+											<ButtonText style={{ ...scale(3 / 4) }}>
+												Running
+											</ButtonText>
+										</Tab>
+										<Tab type='coding' ref={codingRef}>
+											<IconSVG
+												src={require('../public/coding.svg')}
+												alt=''
+												id='coding'
 											/>
-											<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
-										</a>
-									</Link>
-								);
-							}
-							return (
-								<SocialsModalLink href={social.url} key={social.name}>
-									<SocialsModalIcon
-										src={require(`../public/${social.fileName}.svg`)}
-									/>
-									<SocialsModalLinkName>{social.name}</SocialsModalLinkName>
-								</SocialsModalLink>
-							);
-						})}
-						<SocialsModalCloseButton onClick={closeSocialsModal}>
-							Close
-						</SocialsModalCloseButton>
-						{/* </> */}
-					</Modal>
-					<Tabs state={[index, setIndex]}>
-						<Header1>
-							<BioImage
-								src={require('../public/profile-pic.jpg')}
-								alt={'Gareth Field'}
-							/>
-							<Title>{siteTitle}</Title>
-							<MoreLessShadowElement />
-						</Header1>
-						<Nav>
-							<TabsWrap>
-								<Tab type='running'>
-									<IconSVG
-										src={require('../public/running.svg')}
-										alt=''
-										id='running'
-									/>
-									<ButtonText style={{ ...scale(3 / 4) }}>Running</ButtonText>
-								</Tab>
-								<Tab type='coding' ref={codingRef}>
-									<IconSVG
-										src={require('../public/coding.svg')}
-										alt=''
-										id='coding'
-									/>
-									<ButtonText style={{ ...scale(3 / 4) }}>Coding</ButtonText>
-								</Tab>
-								<Tab type='coffee'>
-									<IconSVG
-										src={require('../public/coffee.svg')}
-										alt=''
-										id='coffee'
-									/>
-									<ButtonText style={{ ...scale(3 / 4) }}>Coffee</ButtonText>
-								</Tab>
-								<Tab type='dog'>
-									<IconSVG src={require('../public/dog.svg')} alt='' id='dog' />
-									<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
-								</Tab>
-							</TabsWrap>
-							<PagesWrap>
-								{pages.map(page => (
-									<Link href={page.url} key={page.name}>
-										<a>{page.name}</a>
-									</Link>
-								))}
-							</PagesWrap>
-							<SocialsButton onClick={openSocialsModal}>
-								<SocialsButtonIcon src={require('../public/socialsIcon.png')} />
-							</SocialsButton>
-							<NavToggleButton>
-								<NavToggleButtonIcon />
-								<NavToggleButtonText>+</NavToggleButtonText>
-							</NavToggleButton>
-						</Nav>
-						<Header2>
-							<Blurb>{blurb}</Blurb>
-							<MoreLessShadowElement />
-						</Header2>
-						<Header3>
-							<QotD
-								quote={initialState.quote.quote}
-								attribution={initialState.quote.attribution}
-							/>
-							<DelightButton onClick={handleDelightButton}>
-								<DelightButtonIcon
-									src={require('../public/delightButton.svg')}
-								/>
-								<DelightButtonText>Delight Button</DelightButtonText>
-							</DelightButton>
-							<MoreLessShadowElement />
-						</Header3>
-						<NavIndicator>
-							<NavIndicatorText>{tabs[index]}</NavIndicatorText>
-						</NavIndicator>
-						<MainWrap>
-							<Panel>
-								<Running />
-							</Panel>
-							<Panel>
-								<Coding allPosts={allPosts} />
-							</Panel>
-							<Panel>
-								<Coffee />
-							</Panel>
-							<Panel>
-								<Dog />
-							</Panel>
-						</MainWrap>
+											<ButtonText style={{ ...scale(3 / 4) }}>
+												Coding
+											</ButtonText>
+										</Tab>
+										<Tab type='coffee'>
+											<IconSVG
+												src={require('../public/coffee.svg')}
+												alt=''
+												id='coffee'
+											/>
+											<ButtonText style={{ ...scale(3 / 4) }}>
+												Coffee
+											</ButtonText>
+										</Tab>
+										<Tab type='dog'>
+											<IconSVG
+												src={require('../public/dog.svg')}
+												alt=''
+												id='dog'
+											/>
+											<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
+										</Tab>
+									</TabsWrap>
+									<PagesWrap>
+										{pages.map(page => (
+											<Link href={page.url} key={page.name}>
+												<a>{page.name}</a>
+											</Link>
+										))}
+									</PagesWrap>
+									<SocialsButton onClick={openSocialsModal}>
+										<SocialsButtonIcon
+											src={require('../public/socialsIcon.png')}
+										/>
+									</SocialsButton>
+									<NavToggleButton>
+										<NavToggleButtonIcon />
+										<NavToggleButtonText>+</NavToggleButtonText>
+									</NavToggleButton>
+								</Nav>
+								<MainOverlay>
+									<Header2>
+										<Blurb>{blurb}</Blurb>
+										<MoreLessShadowElement />
+									</Header2>
+									<Header3>
+										<QotD
+											quote={initialState.quote.quote}
+											attribution={initialState.quote.attribution}
+										/>
+										<DelightButton onClick={handleDelightButton}>
+											<DelightButtonIcon
+												src={require('../public/delightButton.svg')}
+											/>
+											<DelightButtonText>Delight Button</DelightButtonText>
+										</DelightButton>
+										<MoreLessShadowElement />
+									</Header3>
+									<NavIndicator>
+										<NavIndicatorText>{tabs[index]}</NavIndicatorText>
+									</NavIndicator>
+								</MainOverlay>
+								<MainWrap>
+									<Panel>
+										<Running />
+									</Panel>
+									<Panel>
+										<Coding allPosts={allPosts} />
+									</Panel>
+									<Panel>
+										<Coffee />
+									</Panel>
+									<Panel>
+										<Dog />
+									</Panel>
+								</MainWrap>
+							</>
+						) : (
+							/* * Desktop Mode! */
+							<>
+								<SideBar>
+									<Header1>
+										<BioImage
+											src={require('../public/profile-pic.jpg')}
+											alt={'Gareth Field'}
+										/>
+										<Title>{siteTitle}</Title>
+									</Header1>
+									<Nav>
+										<TabsWrap>
+											<Tab type='running'>
+												<IconSVG
+													src={require('../public/running.svg')}
+													alt=''
+													id='running'
+												/>
+												<ButtonText style={{ ...scale(3 / 4) }}>
+													Running
+												</ButtonText>
+											</Tab>
+											<Tab type='coding' ref={codingRef}>
+												<IconSVG
+													src={require('../public/coding.svg')}
+													alt=''
+													id='coding'
+												/>
+												<ButtonText style={{ ...scale(3 / 4) }}>
+													Coding
+												</ButtonText>
+											</Tab>
+											<Tab type='coffee'>
+												<IconSVG
+													src={require('../public/coffee.svg')}
+													alt=''
+													id='coffee'
+												/>
+												<ButtonText style={{ ...scale(3 / 4) }}>
+													Coffee
+												</ButtonText>
+											</Tab>
+											<Tab type='dog'>
+												<IconSVG
+													src={require('../public/dog.svg')}
+													alt=''
+													id='dog'
+												/>
+												<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
+											</Tab>
+										</TabsWrap>
+										<PagesWrap>
+											{pages.map(page => (
+												<Link href={page.url} key={page.name}>
+													<a>{page.name}</a>
+												</Link>
+											))}
+										</PagesWrap>
+										<SocialsWrap>
+											{socials.map(social => {
+												if (social.name === 'App Store') {
+													return (
+														<Link href='/run-club' key={social.name}>
+															<a>
+																<SocialsIcon
+																	src={require(`../public/${social.fileName}.svg`)}
+																/>
+																<SocialsLinkName>{social.name}</SocialsLinkName>
+															</a>
+														</Link>
+													);
+												}
+												if (social.name === 'RSS Feed') {
+													return (
+														<Link href='/rss' key={social.name}>
+															<a>
+																<SocialsIcon
+																	src={require(`../public/${social.fileName}.svg`)}
+																/>
+																<SocialsLinkName>{social.name}</SocialsLinkName>
+															</a>
+														</Link>
+													);
+												}
+												return (
+													<SocialsLink href={social.url} key={social.name}>
+														<SocialsIcon
+															src={require(`../public/${social.fileName}.svg`)}
+														/>
+														<SocialsLinkName>{social.name}</SocialsLinkName>
+													</SocialsLink>
+												);
+											})}
+										</SocialsWrap>
+									</Nav>
+								</SideBar>
+								<Header2>
+									<Blurb>{blurb}</Blurb>
+									<MoreLessShadowElement />
+								</Header2>
+								<MainOverlay>
+									<Header3>
+										<QotD
+											quote={initialState.quote.quote}
+											attribution={initialState.quote.attribution}
+										/>
+										<DelightButton onClick={handleDelightButton}>
+											<DelightButtonIcon
+												src={require('../public/delightButton.svg')}
+											/>
+											<DelightButtonText>Delight Button</DelightButtonText>
+										</DelightButton>
+										<MoreLessShadowElement />
+									</Header3>
+									<NavIndicator>
+										<NavIndicatorText>{tabs[index]}</NavIndicatorText>
+									</NavIndicator>
+								</MainOverlay>
+								<MainWrap>
+									<NavIndicator>
+										<NavIndicatorText>{tabs[index]}</NavIndicatorText>
+									</NavIndicator>
+									<Panel>
+										<Running />
+									</Panel>
+									<Panel>
+										<Coding allPosts={allPosts} />
+									</Panel>
+									<Panel>
+										<Coffee />
+									</Panel>
+									<Panel>
+										<Dog />
+									</Panel>
+								</MainWrap>
+							</>
+						)}
 					</Tabs>
 				</AppWrap>
 			</Layout>

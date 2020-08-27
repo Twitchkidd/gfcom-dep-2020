@@ -58,7 +58,7 @@ export const HeroPost = ({ heroPost }) => {
 	return (
 		<section>
 			<CoverImageWrap>
-				<CoverImage title={title} src={coverImage} />
+				<CoverImage title={title} src={coverImage} slug={slug} />
 			</CoverImageWrap>
 			<PostWrap>
 				<div>
