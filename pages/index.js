@@ -184,8 +184,8 @@ const BioImage = styled.img`
 `;
 
 const SideBar = styled.div`
-	grid-column: 0 / 1;
-	grid-row: 0 / 2;
+	grid-column: 1 / 2;
+	grid-row: 1 / 3;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -197,8 +197,8 @@ const Header1 = styled.header`
 	justify-content: center;
 	align-items: center;
 	${below.small`
-		grid-column: 0 / 1;
-		grid-row: 0 / 1;
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
 	`}
 	${above.small`
 		max-width: 12rem;
@@ -211,8 +211,8 @@ const Header2 = styled.header`
 	align-items: center;
 	z-index: 3;
 	${above.small`
-		grid-column: 1 / 2;
-		grid-row: 0 / 1;
+		grid-column: 2 / 3;
+		grid-row: 1 / 2;
 	`}
 `;
 
@@ -224,8 +224,8 @@ const Header3 = styled.header`
 `;
 
 const MainOverlay = styled.div`
-	grid-column: 0 / 1;
-	grid-row: 1 / 2;
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
 	position: relative;
 	display: flex;
 	flex-direction: column;
@@ -233,18 +233,18 @@ const MainOverlay = styled.div`
 	align-items: flex-start;
 	z-index: 1;
 	${above.small`
-		grid-column: 1 / 2;
+		grid-column: 2 / 3;
 	`}
 `;
 
 const MainWrap = styled.div`
-	grid-column: 0 / 1;
-	grid-row: 1 / 2;
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
 	overflow: scroll;
 	padding: 1rem 1rem 1rem 2.5rem;
 	z-index: 2;
 	${above.small`
-		grid-column: 1 / 2;
+		grid-column: 2 / 3;
 	`}
 `;
 
