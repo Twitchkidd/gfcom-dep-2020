@@ -21,6 +21,7 @@ const HeaderH2 = styled.h3`
 const A = styled.a`
 	&:hover {
 		text-decoration: underline;
+		cursor: pointer;
 	}
 	color: ${lightPurple};
 	background-image: none;

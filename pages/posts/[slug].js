@@ -7,7 +7,7 @@ import { metadata } from '../../siteMetadata';
 import { getPostBySlug, getAllPosts, markdownToHtml } from '../../lib';
 
 const Article = styled.article`
-	margin-bottom: 8rem;
+	margin-bottom: 6rem;
 `;
 
 const { siteTitle } = metadata;

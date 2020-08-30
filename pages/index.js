@@ -87,19 +87,20 @@ const pages = [
 
 const AppWrap = styled.div`
 	position: relative;
-	width: 100%;
-	height: 100%;
+	width: 100vw;
+	height: 100vh;
 	display: grid;
 	grid-template-columns: 100%;
 	grid-template-rows: minmax(20%, 10rem) 1fr;
 	${above.small`
-		grid-template-columns: minmax(30rem, 40%) 1fr;
-		grid-template-rows: minmax(18rem, 20%) 1fr;
+		grid-template-columns: minmax(18rem, 40%) 1fr;
+		grid-template-rows: minmax(8rem, 20%) 1fr;
 	`}
 `;
 
 const Title = styled.h1`
-	color: blue;
+	color: ${light};
+	text-align: center;
 `;
 
 const TabsWrap = styled.div`
@@ -177,15 +178,16 @@ const SocialsLinkName = styled.span`
 `;
 
 const BioImage = styled.img`
-	width: 3rem;
-	height: 3rem;
+	width: 4rem;
+	height: 4rem;
 	border-radius: 9999px;
-	margin-right: 1rem;
+	margin: 0.67em 0;
+	margin-right: 0.5rem;
 `;
 
 const SideBar = styled.div`
 	grid-column: 1 / 2;
-	grid-row: 1 / 3;
+	grid-row: 2 / 3;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -196,12 +198,11 @@ const Header1 = styled.header`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	${below.small`
-		grid-column: 1 / 2;
-		grid-row: 1 / 2;
-	`}
+	grid-column: 1 / 2;
+	grid-row: 1 / 2;
+	place-self: center;
 	${above.small`
-		max-width: 12rem;
+		max-width: 18rem;
 	`}
 `;
 
@@ -213,6 +214,8 @@ const Header2 = styled.header`
 	${above.small`
 		grid-column: 2 / 3;
 		grid-row: 1 / 2;
+		padding-left: 2rem;
+		padding-right: 2rem;
 	`}
 `;
 
@@ -702,14 +705,14 @@ export default function Index({ allPosts }) {
 						) : (
 							/* * Desktop Mode! */
 							<>
+								<Header1>
+									<BioImage
+										src={require('../public/profile-pic.jpg')}
+										alt={'Gareth Field'}
+									/>
+									<Title>{siteTitle}</Title>
+								</Header1>
 								<SideBar>
-									<Header1>
-										<BioImage
-											src={require('../public/profile-pic.jpg')}
-											alt={'Gareth Field'}
-										/>
-										<Title>{siteTitle}</Title>
-									</Header1>
 									<Nav>
 										<TabsWrap>
 											<Tab type='running'>
@@ -762,26 +765,26 @@ export default function Index({ allPosts }) {
 											{socials.map(social => {
 												if (social.name === 'App Store') {
 													return (
-														<Link href='/run-club' key={social.name}>
+														<SocialsLink href='/run-club' key={social.name}>
 															<a>
 																<SocialsIcon
 																	src={require(`../public/${social.fileName}.svg`)}
 																/>
 																<SocialsLinkName>{social.name}</SocialsLinkName>
 															</a>
-														</Link>
+														</SocialsLink>
 													);
 												}
 												if (social.name === 'RSS Feed') {
 													return (
-														<Link href='/rss' key={social.name}>
+														<SocialsLink href='/rss' key={social.name}>
 															<a>
 																<SocialsIcon
 																	src={require(`../public/${social.fileName}.svg`)}
 																/>
 																<SocialsLinkName>{social.name}</SocialsLinkName>
 															</a>
-														</Link>
+														</SocialsLink>
 													);
 												}
 												return (
@@ -797,7 +800,7 @@ export default function Index({ allPosts }) {
 									</Nav>
 								</SideBar>
 								<Header2>
-									<Blurb>{blurb}</Blurb>
+									<Blurb>{blurb} Enjoy the blog and everything!</Blurb>
 									<MoreLessShadowElement />
 								</Header2>
 								<MainOverlay>
@@ -814,9 +817,6 @@ export default function Index({ allPosts }) {
 										</DelightButton>
 										<MoreLessShadowElement />
 									</Header3>
-									<NavIndicator>
-										<NavIndicatorText>{tabs[index]}</NavIndicatorText>
-									</NavIndicator>
 								</MainOverlay>
 								<MainWrap>
 									<NavIndicator>

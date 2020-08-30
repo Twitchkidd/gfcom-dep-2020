@@ -8,9 +8,10 @@ const FooterRow = styled.div`
 	flex-direction: row;
 	align-items: center;
 	justify-content: ${props => (props.spread ? 'space-around' : 'center')};
-	width: 36rem;
+	width: 42rem;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 1rem;
 	${below.med`
     width: 100%;
     padding-left: 0.5rem;
@@ -25,12 +26,17 @@ const SocialLink = styled.a`
 const Social = styled.img`
 	width: 30px;
 	height: 30px;
+	margin-bottom: 0;
 `;
 
 const StyledFooter = styled.footer`
 	max-width: 42rem;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 3rem;
+	${below.small`
+		margin-bottom: 2rem;
+	`}
 	min-height: 14rem;
 	display: flex;
 	flex-direction: column;
