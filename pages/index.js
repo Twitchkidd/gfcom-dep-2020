@@ -510,10 +510,8 @@ export default function Index({ allPosts }) {
 	useEffect(() => {
 		const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 		if (typeof window !== `undefined`) {
-			console.log('window defined');
 			isMobileRef.current = window.innerWidth <= 640;
 			if (storageAvailable('localStorage')) {
-				console.log('localStorage defined');
 				// If we have localStorage:
 				const storedHeaderState = JSON.parse(
 					localStorage.getItem('headerState')
@@ -526,13 +524,10 @@ export default function Index({ allPosts }) {
 					storedHeaderState.headerCount >= 0 &&
 					storedHeaderState.headerCount <= 3
 				) {
-					console.log('generally valid');
 					// if there's storedHeaderState and the general shape is valid
 					if (!storedHeaderState.mobile) {
-						console.log('was on desktop');
 						// and it was on desktop
 						if (isMobileRef.current) {
-							console.log('actually on mobile');
 							// but if we're actually on mobile
 							localStorage.setItem(
 								'headerState',
@@ -552,10 +547,8 @@ export default function Index({ allPosts }) {
 							});
 							// and in state
 						} else {
-							console.log('are on desktop');
 							// but if *are* on desktop
 							if (storedHeaderState.headerCount <= 2) {
-								console.log('desktop valid');
 								// and the count is still valid
 								setInitialState({
 									mobile: false,
@@ -567,7 +560,6 @@ export default function Index({ allPosts }) {
 								});
 								// set state to prior state
 							} else {
-								console.log('desktop invalid');
 								// but if the stored count is not valid
 								localStorage.setItem(
 									'headerState',
@@ -589,10 +581,8 @@ export default function Index({ allPosts }) {
 							}
 						}
 					} else {
-						console.log('was on mobile');
 						// it was on mobile, so
 						if (isMobileRef.current) {
-							console.log('are on mobile');
 							// if we're on mobile
 							setInitialState({
 								mobile: true,
@@ -604,7 +594,6 @@ export default function Index({ allPosts }) {
 							});
 							// set prior state
 						} else {
-							console.log('are on desktop');
 							// but if we're actually on desktop
 							localStorage.setItem(
 								'headerState',
@@ -626,10 +615,8 @@ export default function Index({ allPosts }) {
 						}
 					}
 				} else {
-					console.log('generally invalid');
 					// but if the stored state wasn't generally valid
 					if (isMobileRef.current) {
-						console.log('are on mobile');
 						// and we're on moblie
 						localStorage.setItem(
 							'headerState',
@@ -649,7 +636,6 @@ export default function Index({ allPosts }) {
 						});
 						// and in state
 					} else {
-						console.log('are on desktop');
 						// or if we're on desktop
 						localStorage.setItem(
 							'headerState',
@@ -672,7 +658,6 @@ export default function Index({ allPosts }) {
 				}
 			} else {
 				// but if there's no localStorage
-				console.log('no localStorage');
 				if (isMobileRef.current) {
 					setInitialState({
 						mobile: true,
