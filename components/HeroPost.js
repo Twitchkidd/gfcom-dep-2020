@@ -9,6 +9,7 @@ const CoverImageWrap = styled.div`
 	${above.med`
 		margin-bottom: 4rem;
 	`}
+	max-width: 100%;
 `;
 
 const PostWrap = styled.div`
@@ -17,7 +18,7 @@ const PostWrap = styled.div`
 		display: grid;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		column-gap: 4rem;
-		margin-bottom: 7rem;
+		margin-bottom: 1.625rem;
 	`}
 	${above.large`
 		column-gap: 2rem;
@@ -57,9 +58,6 @@ export const HeroPost = ({ heroPost }) => {
 	const { coverImage, date, description, title, slug } = heroPost;
 	return (
 		<section>
-			<CoverImageWrap>
-				<CoverImage title={title} src={coverImage} slug={slug} />
-			</CoverImageWrap>
 			<PostWrap>
 				<div>
 					<TitleH3>
@@ -73,6 +71,9 @@ export const HeroPost = ({ heroPost }) => {
 					</DateWrapper>
 				</div>
 			</PostWrap>
+			<CoverImageWrap>
+				<CoverImage title={title} src={coverImage} slug={slug} />
+			</CoverImageWrap>
 		</section>
 	);
 };

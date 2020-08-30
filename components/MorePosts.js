@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import PostPreview from './PostPreview';
-import { above } from '../utils';
+import { above, light } from '../utils';
 
 const MorePostsHeader = styled.h2`
 	margin-bottom: 2rem;
@@ -11,13 +11,14 @@ const MorePostsHeader = styled.h2`
 	${above.med`
 		font-size: 4.5rem;
 	`}
+	color: ${light};
 `;
 
 const PostsWrap = styled.div`
 	display: grid;
 	grid-template-rows: repeat(1, minmax(0, 1fr));
-	row-gap: 5rem;
-	margin-bottom: 8rem;
+	row-gap: 2rem;
+	margin-bottom: 2rem;
 	${above.med`
 		grid-template-rows: repeat(2, minmax(0, 1fr));
 		column-gap: 4rem;

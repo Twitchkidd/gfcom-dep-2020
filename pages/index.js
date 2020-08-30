@@ -7,8 +7,9 @@ import Link from 'next/link';
 import { Layout, Running, Coding, Coffee, Dog } from '../components';
 import {
 	above,
-	socials,
+	elevation,
 	quotes,
+	socials,
 	white,
 	light,
 	lightest,
@@ -87,13 +88,14 @@ const pages = [
 
 const AppWrap = styled.div`
 	position: relative;
-	width: 100vw;
+	width: 96vw;
 	height: 100vh;
+	padding: 0 2vw 0 2vw;
 	display: grid;
 	grid-template-columns: 100%;
 	grid-template-rows: minmax(20%, 10rem) 1fr;
 	${above.small`
-		grid-template-columns: minmax(18rem, 40%) 1fr;
+		grid-template-columns: minmax(18rem, 30%) 1fr;
 		grid-template-rows: minmax(8rem, 20%) 1fr;
 	`}
 `;
@@ -106,19 +108,22 @@ const Title = styled.h1`
 const TabsWrap = styled.div`
 	display: flex;
 	flex-direction: column;
+	margin-top: 3rem;
+	margin-bottom: 3rem;
 `;
 
 const PagesWrap = styled.div`
 	display: flex;
 	flex-direction: column;
-	justify-self: end;
+	text-align: center;
 `;
 
 const SocialsWrap = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	max-width: 88px;
-	justify-self: end;
+	justify-content: center;
+	align-items: center;
 `;
 
 const SocialsLink = styled.a`
@@ -127,6 +132,7 @@ const SocialsLink = styled.a`
 	height: 24px;
 	padding-right: 8px;
 	padding-bottom: 8px;
+	background-image: none;
 `;
 
 const MoreLessButton = styled.button`
@@ -149,7 +155,6 @@ const MoreLessShadowElement = styled.div`
 const MoreLessIcon = styled.img`
 	width: 2rem;
 	height: 2rem;
-	background: hotPink;
 	margin-bottom: 0.25rem;
 `;
 
@@ -170,7 +175,6 @@ const SocialsButtonIcon = styled.img`
 const SocialsIcon = styled.img`
 	width: 2rem;
 	height: 2rem;
-	background: hotPink;
 `;
 
 const SocialsLinkName = styled.span`
@@ -188,9 +192,10 @@ const BioImage = styled.img`
 const SideBar = styled.div`
 	grid-column: 1 / 2;
 	grid-row: 2 / 3;
+	height: 100%;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: space-around;
 	align-items: center;
 `;
 
@@ -202,8 +207,9 @@ const Header1 = styled.header`
 	grid-row: 1 / 2;
 	place-self: center;
 	${above.small`
-		max-width: 18rem;
+		max-width: 20rem;
 	`}
+	padding: 1rem;
 `;
 
 const Header2 = styled.header`
@@ -217,13 +223,17 @@ const Header2 = styled.header`
 		padding-left: 2rem;
 		padding-right: 2rem;
 	`}
+	color: ${light};
+	${elevation[1]}
 `;
 
 const Header3 = styled.header`
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 3;
+	z-index: 4;
+	width: 100%;
+	visibility: hidden;
 `;
 
 const MainOverlay = styled.div`
@@ -244,7 +254,7 @@ const MainWrap = styled.div`
 	grid-column: 1 / 2;
 	grid-row: 2 / 3;
 	overflow: scroll;
-	padding: 1rem 1rem 1rem 2.5rem;
+	padding: 1rem 2.5rem 1rem 2.5rem;
 	z-index: 2;
 	${above.small`
 		grid-column: 2 / 3;
@@ -277,8 +287,10 @@ const NavToggleButtonText = styled.p`
 `;
 
 const NavIndicator = styled.div`
-	padding: 2rem;
-	z-index: 3;
+	z-index: 1;
+	p {
+		margin-bottom: 0;
+	}
 `;
 
 const NavIndicatorText = styled.p`
@@ -369,9 +381,9 @@ const Button = styled.button`
 const DelightButton = styled.button`
 	min-width: 40px;
 	height: 60px;
-	background: ${lightPink};
-	display: flex;
-	flex-direction: column;
+	background: ${lighterPurple};
+	display: grid;
+	place-items: center;
 `;
 
 const DelightButtonIcon = styled.img`
@@ -756,7 +768,7 @@ export default function Index({ allPosts }) {
 										alt={'Gareth Field'}
 									/>
 									<Title>{siteTitle}</Title>
-									<MoreLessShadowElement />
+									{/* <MoreLessShadowElement /> */}
 								</Header1>
 								<MainOverlay>
 									<Nav>
@@ -815,7 +827,7 @@ export default function Index({ allPosts }) {
 									</Nav>
 									<Header2>
 										<Blurb>{blurb}</Blurb>
-										<MoreLessShadowElement />
+										{/* <MoreLessShadowElement /> */}
 									</Header2>
 									<Header3>
 										<QotD
@@ -828,7 +840,7 @@ export default function Index({ allPosts }) {
 											/>
 											<DelightButtonText>Delight Button</DelightButtonText>
 										</DelightButton>
-										<MoreLessShadowElement />
+										{/* <MoreLessShadowElement /> */}
 									</Header3>
 									<NavIndicator>
 										<NavIndicatorText>{tabs[index]}</NavIndicatorText>
@@ -917,11 +929,11 @@ export default function Index({ allPosts }) {
 												if (social.name === 'App Store') {
 													return (
 														<SocialsLink href='/run-club' key={social.name}>
-															<a>
+															<a style={{ backgroundImage: 'none' }}>
 																<SocialsIcon
 																	src={require(`../public/${social.fileName}.svg`)}
 																/>
-																<SocialsLinkName>{social.name}</SocialsLinkName>
+																{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
 															</a>
 														</SocialsLink>
 													);
@@ -929,11 +941,11 @@ export default function Index({ allPosts }) {
 												if (social.name === 'RSS Feed') {
 													return (
 														<SocialsLink href='/rss' key={social.name}>
-															<a>
+															<a style={{ backgroundImage: 'none' }}>
 																<SocialsIcon
 																	src={require(`../public/${social.fileName}.svg`)}
 																/>
-																<SocialsLinkName>{social.name}</SocialsLinkName>
+																{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
 															</a>
 														</SocialsLink>
 													);
@@ -943,7 +955,7 @@ export default function Index({ allPosts }) {
 														<SocialsIcon
 															src={require(`../public/${social.fileName}.svg`)}
 														/>
-														<SocialsLinkName>{social.name}</SocialsLinkName>
+														{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
 													</SocialsLink>
 												);
 											})}
@@ -952,7 +964,7 @@ export default function Index({ allPosts }) {
 								</SideBar>
 								<Header2>
 									<Blurb>{blurb} Enjoy the blog and everything!</Blurb>
-									<MoreLessShadowElement />
+									{/* <MoreLessShadowElement /> */}
 								</Header2>
 								<MainOverlay>
 									<Header3>
@@ -966,7 +978,7 @@ export default function Index({ allPosts }) {
 											/>
 											<DelightButtonText>Delight Button</DelightButtonText>
 										</DelightButton>
-										<MoreLessShadowElement />
+										{/* <MoreLessShadowElement /> */}
 									</Header3>
 								</MainOverlay>
 								<MainWrap>

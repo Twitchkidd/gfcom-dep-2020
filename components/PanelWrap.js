@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { above } from '../utils';
+import { above, elevation } from '../utils';
 
 export const PanelWrap = styled.div`
 	grid-column: 0 / 1;

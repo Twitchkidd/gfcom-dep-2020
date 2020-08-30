@@ -2,6 +2,7 @@
 title: Frog Stand
 date: '2020-08-30T10:56:58.929Z'
 description: 'In which Gareth starts work on planche progression!'
+coverImage: 'otherpaw.jpg'
 ---
 
 Good morning! It's certainly later in the day than I'd have liked, but Dawa is handled, we got to Harkness and ... tried for running around the perimeter ... we got there eventually. Should be a cute photo in there somewhere! 🐶
@@ -12,4 +13,6 @@ Managed to track down the commit! Yay, being able to navigate git! This is what 
 
 Alright, well, time's a little past up, actually, and instead of 850 lines, index is now 1011 lines and there's a new 28 line utility function in utils/. The useEffect stayed pretty much as-is, it works, I have to hit publish. I hope to get back to this after putting in the work I need to put in on other projects today, but just in case, best wishes y'all. ~g
 
-Oop, well, I broke it, hold on ... Oooh, forgot to export storageAvailable from index ... and copy over markdown file because I haven't touched the newPost function ... and add a cute picture of a dog ...
+P.S. ... Oop, well, I broke it, hold on ... Oooh, forgot to export storageAvailable from index ... and copy over markdown file because I haven't touched the newPost function ... and add a cute picture of a dog ...
+
+Omg mobile is hideous and I spent way too much time on this, gotta move, peace!

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import { above } from '../utils';
+import { above, elevation } from '../utils';
 
 const CoverImageWrap = styled.div`
 	margin-right: -1.25rem;
@@ -10,6 +10,7 @@ const CoverImageWrap = styled.div`
     margin-left: 0;
   `}
 	max-width: 100%;
+	${elevation[1]}
 `;
 
 const Image = styled.img`
