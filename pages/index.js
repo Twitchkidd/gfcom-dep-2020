@@ -7,7 +7,6 @@ import Link from 'next/link';
 import { Layout, Running, Coding, Coffee, Dog } from '../components';
 import {
 	above,
-	below,
 	socials,
 	quotes,
 	white,
@@ -27,6 +26,7 @@ import {
 	darkerPink,
 	blue,
 	pink,
+	storageAvailable,
 } from '../utils';
 import { scale } from '../Typography';
 import { getAllPosts } from '../lib';
@@ -506,13 +506,177 @@ export default function Index({ allPosts }) {
 			codingRef.current.focus();
 		}
 	}, [initialState.mobile]);
+	const isMobileRef = useRef();
 	useEffect(() => {
 		const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-		if (typeof window !== 'undefined') {
-			if (initialState.mobile === null) {
-				if (window.innerWidth <= 640) {
+		if (typeof window !== `undefined`) {
+			console.log('window defined');
+			isMobileRef.current = window.innerWidth <= 640;
+			if (storageAvailable('localStorage')) {
+				console.log('localStorage defined');
+				// If we have localStorage:
+				const storedHeaderState = JSON.parse(
+					localStorage.getItem('headerState')
+				);
+				// capture storedHeaderState if it's there
+				if (
+					storedHeaderState &&
+					typeof storedHeaderState.mobile === `boolean` &&
+					typeof storedHeaderState.headerCount === `number` &&
+					storedHeaderState.headerCount >= 0 &&
+					storedHeaderState.headerCount <= 3
+				) {
+					console.log('generally valid');
+					// if there's storedHeaderState and the general shape is valid
+					if (!storedHeaderState.mobile) {
+						console.log('was on desktop');
+						// and it was on desktop
+						if (isMobileRef.current) {
+							console.log('actually on mobile');
+							// but if we're actually on mobile
+							localStorage.setItem(
+								'headerState',
+								JSON.stringify({
+									mobile: true,
+									headerCount: 3,
+								})
+							);
+							// set the default for mobile in localStorage
+							setInitialState({
+								mobile: true,
+								headerCount: 3,
+								quote: {
+									quote: randomQuote.quote,
+									attribution: randomQuote.attribution,
+								},
+							});
+							// and in state
+						} else {
+							console.log('are on desktop');
+							// but if *are* on desktop
+							if (storedHeaderState.headerCount <= 2) {
+								console.log('desktop valid');
+								// and the count is still valid
+								setInitialState({
+									mobile: false,
+									headerCount: storedHeaderState.headerCount,
+									quote: {
+										quote: randomQuote.quote,
+										attribution: randomQuote.attribution,
+									},
+								});
+								// set state to prior state
+							} else {
+								console.log('desktop invalid');
+								// but if the stored count is not valid
+								localStorage.setItem(
+									'headerState',
+									JSON.stringify({
+										mobile: false,
+										headerCount: 2,
+									})
+								);
+								// set the default for desktop in localStorage
+								setInitialState({
+									mobile: false,
+									headerCount: 2,
+									quote: {
+										quote: randomQuote.quote,
+										attribution: randomQuote.attribution,
+									},
+								});
+								// and in state
+							}
+						}
+					} else {
+						console.log('was on mobile');
+						// it was on mobile, so
+						if (isMobileRef.current) {
+							console.log('are on mobile');
+							// if we're on mobile
+							setInitialState({
+								mobile: true,
+								headerCount: storedHeaderState.headerCount,
+								quote: {
+									quote: randomQuote.quote,
+									attribution: randomQuote.attribution,
+								},
+							});
+							// set prior state
+						} else {
+							console.log('are on desktop');
+							// but if we're actually on desktop
+							localStorage.setItem(
+								'headerState',
+								JSON.stringify({
+									mobile: false,
+									headerCount: 2,
+								})
+							);
+							// set the default for desktop in localStorage
+							setInitialState({
+								mobile: false,
+								headerCount: 2,
+								quote: {
+									quote: randomQuote.quote,
+									attribution: randomQuote.attribution,
+								},
+							});
+							// and in state
+						}
+					}
+				} else {
+					console.log('generally invalid');
+					// but if the stored state wasn't generally valid
+					if (isMobileRef.current) {
+						console.log('are on mobile');
+						// and we're on moblie
+						localStorage.setItem(
+							'headerState',
+							JSON.stringify({
+								mobile: true,
+								headerCount: 3,
+							})
+						);
+						// set the default for mobile in localStorage
+						setInitialState({
+							mobile: true,
+							headerCount: 3,
+							quote: {
+								quote: randomQuote.quote,
+								attribution: randomQuote.attribution,
+							},
+						});
+						// and in state
+					} else {
+						console.log('are on desktop');
+						// or if we're on desktop
+						localStorage.setItem(
+							'headerState',
+							JSON.stringify({
+								mobile: false,
+								headerCount: 2,
+							})
+						);
+						// set the default for desktop in localStorage
+						setInitialState({
+							mobile: false,
+							headerCount: 2,
+							quote: {
+								quote: randomQuote.quote,
+								attribution: randomQuote.attribution,
+							},
+						});
+						// and in state
+					}
+				}
+			} else {
+				// but if there's no localStorage
+				console.log('no localStorage');
+				if (isMobileRef.current) {
 					setInitialState({
 						mobile: true,
+						headerCount: 3,
 						quote: {
 							quote: randomQuote.quote,
 							attribution: randomQuote.attribution,
@@ -521,14 +685,16 @@ export default function Index({ allPosts }) {
 				} else {
 					setInitialState({
 						mobile: false,
+						headerCount: 2,
 						quote: {
 							quote: randomQuote.quote,
 							attribution: randomQuote.attribution,
 						},
 					});
 				}
+				// set state based on mobile or not
 			}
-		}
+		} // otherwise we're in Node
 	}, []);
 	if (initialState.mobile === null) {
 		return <>Loading ...</>;
