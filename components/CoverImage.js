@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import Link from 'next/link';
-import { above, elevation } from '../utils';
+import { above, purple } from '../utils';
 
 const CoverImageWrap = styled.div`
 	margin-right: -1.25rem;
@@ -10,7 +10,14 @@ const CoverImageWrap = styled.div`
     margin-left: 0;
   `}
 	max-width: 100%;
-	${elevation[1]}
+`;
+
+const ImageLink = styled.a`
+	background-image: none;
+	&:hover {
+		cursor: pointer;
+		border-bottom: 1px solid ${purple};
+	}
 `;
 
 const Image = styled.img`
@@ -33,9 +40,9 @@ const CoverImage = ({ title, src, slug }) => {
 		<CoverImageWrap>
 			{slug ? (
 				<Link as={`/posts/${slug}`} href='/posts/[slug]'>
-					<a aria-label={title}>
+					<ImageLink aria-label={title}>
 						<Image src={src} alt={title} />
-					</a>
+					</ImageLink>
 				</Link>
 			) : (
 				<Image src={src} alt={`Cover Image for ${title}`} />

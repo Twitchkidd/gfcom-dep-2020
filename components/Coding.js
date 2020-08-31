@@ -4,12 +4,15 @@ import { lighter } from '../utils';
 
 const CodingTitle = styled.h2`
 	color: ${lighter};
+	max-width: 40rem;
+	text-align: right;
 `;
 
 export const Coding = ({ allPosts }) => (
 	<PanelWrap>
 		<CodingTitle>
-			Welcome to my blog! Mostly coding-related, for future reference!
+			Welcome to my blog! Answer to the question, "Where's he at?" Mostly
+			coding-related, mostly for future reference!
 		</CodingTitle>
 		<HeroPost heroPost={allPosts[0]} />
 		<MorePosts posts={allPosts.slice(1)} />

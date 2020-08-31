@@ -2,7 +2,7 @@
 title: Frog Stand
 date: '2020-08-30T10:56:58.929Z'
 description: 'In which Gareth starts work on planche progression!'
-coverImage: 'otherpaw.jpg'
+coverImage: 'otherPaw.jpg'
 ---
 
 Good morning! It's certainly later in the day than I'd have liked, but Dawa is handled, we got to Harkness and ... tried for running around the perimeter ... we got there eventually. Should be a cute photo in there somewhere! 🐶

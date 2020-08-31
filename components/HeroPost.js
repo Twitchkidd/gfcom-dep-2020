@@ -43,6 +43,7 @@ const Description = styled.p`
 const A = styled.a`
 	&:hover {
 		text-decoration: underline;
+		cursor: pointer;
 	}
 `;
 
@@ -65,14 +66,18 @@ export const HeroPost = ({ heroPost }) => {
 							<A>{title}</A>
 						</Link>
 					</TitleH3>
-					<Description>{description}</Description>
+					{/* <Description>{description}</Description> */}
 					<DateWrapper>
 						<DateFormatter dateString={date} />
 					</DateWrapper>
 				</div>
 			</PostWrap>
 			<CoverImageWrap>
-				<CoverImage title={title} src={coverImage} slug={slug} />
+				<CoverImage
+					title={title}
+					src={coverImage ? coverImage : require('../public/sweetGradient.png')}
+					slug={slug}
+				/>
 			</CoverImageWrap>
 		</section>
 	);

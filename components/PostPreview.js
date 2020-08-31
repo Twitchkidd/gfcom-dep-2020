@@ -16,6 +16,7 @@ const PostPreviewLinkWrapH3 = styled.h3`
 const PostPreviewA = styled.a`
 	&:hover {
 		text-decoration: underline;
+		cursor: pointer;
 	}
 `;
 
@@ -37,7 +38,7 @@ const PostPreview = ({ title, coverImage, date, description, slug }) => (
 				<PostPreviewA>{title}</PostPreviewA>
 			</Link>
 		</PostPreviewLinkWrapH3>
-		<Description>{description}</Description>
+		{/* <Description>{description}</Description> */}
 		<PostPreviewDateWrap>
 			<DateFormatter dateString={date} />
 		</PostPreviewDateWrap>

@@ -23,10 +23,14 @@ import {
 	lightPink,
 	lightPurple,
 	lightBlue,
-	darkerBlue,
+	darkPink,
+	darkPurple,
+	darkBlue,
 	darkerPink,
-	blue,
+	darkerBlue,
 	pink,
+	purple,
+	blue,
 	storageAvailable,
 } from '../utils';
 import { scale } from '../Typography';
@@ -73,12 +77,12 @@ const tabs = ['Running', 'Coding', 'Coffee', 'Dog'];
 
 const pages = [
 	{
-		name: 'Virtual Garage Sale',
-		url: '/virtual-garage-sale',
-	},
-	{
 		name: 'About',
 		url: '/about',
+	},
+	{
+		name: 'Virtual Garage Sale',
+		url: '/virtual-garage-sale',
 	},
 	{
 		name: 'Credits',
@@ -114,17 +118,47 @@ const TabsWrap = styled.div`
 
 const PagesWrap = styled.div`
 	display: flex;
+	width: 100%;
+	height: 142px;
 	flex-direction: column;
 	text-align: center;
+	justify-content: space-around;
+	align-items: center;
 `;
 
-const SocialsWrap = styled.div`
+const PageLink = styled.a`
+	&:not(:visited) {
+		color: ${light};
+	}
+	&:not(:hover) {
+		background-image: none;
+	}
+	&:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+`;
+
+const SocialsOuterBox = styled.div`
+	width: 100%;
+	height: 142px;
+	display: grid;
+	place-items: center;
+`;
+
+const SocialsInnerBox = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	max-width: 88px;
+	width: 88px;
 	justify-content: center;
 	align-items: center;
 `;
+
+const SocialsWrap = ({ children }) => (
+	<SocialsOuterBox>
+		<SocialsInnerBox>{children}</SocialsInnerBox>
+	</SocialsOuterBox>
+);
 
 const SocialsLink = styled.a`
 	display: inline-block;
@@ -213,10 +247,11 @@ const Header1 = styled.header`
 `;
 
 const Header2 = styled.header`
+	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 3;
+	z-index: 8;
 	${above.small`
 		grid-column: 2 / 3;
 		grid-row: 1 / 2;
@@ -224,7 +259,20 @@ const Header2 = styled.header`
 		padding-right: 2rem;
 	`}
 	color: ${light};
-	${elevation[1]}
+	/* ${elevation[1]} */
+	/* border-bottom: 1px solid linear-gradient(to right, ${purple}, ${blue}); */
+	/* margin-bottom: 1px solid ${blue}; */
+	&::after {
+		content: '';
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		height: 2px;
+		width: 100%;
+		background: linear-gradient(to right, ${pink}, ${purple}, ${blue});
+		z-index: 9;
+		margin-bottom: 1rem;
+	}
 `;
 
 const Header3 = styled.header`
@@ -288,13 +336,21 @@ const NavToggleButtonText = styled.p`
 
 const NavIndicator = styled.div`
 	z-index: 1;
-	p {
-		margin-bottom: 0;
-	}
 `;
 
 const NavIndicatorText = styled.p`
-	color: ${pink};
+	margin-bottom: 1rem;
+	font-size: 1.125rem;
+	color: ${props =>
+		props.tab === 'Running'
+			? `${darkPurple}`
+			: props.tab === 'Coding'
+			? `${darkBlue}`
+			: props.tab === 'Coffee'
+			? `${darkPink}`
+			: props.tab === 'Dog'
+			? `${darkPurple}`
+			: `${light}`};
 `;
 
 const Blurb = styled.p`
@@ -703,12 +759,12 @@ export default function Index({ allPosts }) {
 				</Head>
 				<AppWrap>
 					<Tabs state={[index, setIndex]}>
-						<MoreLessButton>
+						{/* <MoreLessButton>
 							<MoreLessIcon
 								src={require(`../public/${moreLess.fileName}.svg`)}
 							/>
 							<MoreLessText>{moreLess.text}</MoreLessText>
-						</MoreLessButton>
+						</MoreLessButton> */}
 						{initialState.mobile === true ? (
 							/* * Mobile Mode! * */
 							<>
@@ -843,7 +899,9 @@ export default function Index({ allPosts }) {
 										{/* <MoreLessShadowElement /> */}
 									</Header3>
 									<NavIndicator>
-										<NavIndicatorText>{tabs[index]}</NavIndicatorText>
+										<NavIndicatorText tab={tabs[index]}>
+											{tabs[index]}
+										</NavIndicatorText>
 									</NavIndicator>
 									<NavToggleButton>
 										<NavToggleButtonIcon />
@@ -920,7 +978,7 @@ export default function Index({ allPosts }) {
 										<PagesWrap>
 											{pages.map(page => (
 												<Link href={page.url} key={page.name}>
-													<a>{page.name}</a>
+													<PageLink>{page.name}</PageLink>
 												</Link>
 											))}
 										</PagesWrap>
@@ -983,7 +1041,9 @@ export default function Index({ allPosts }) {
 								</MainOverlay>
 								<MainWrap>
 									<NavIndicator>
-										<NavIndicatorText>{tabs[index]}</NavIndicatorText>
+										<NavIndicatorText tab={tabs[index]}>
+											{tabs[index]}
+										</NavIndicatorText>
 									</NavIndicator>
 									<Panel>
 										<Running />
@@ -1013,6 +1073,7 @@ export async function getStaticProps() {
 		'date',
 		'author',
 		'coverImage',
+		'description',
 		'excerpt',
 		'slug',
 	]);
