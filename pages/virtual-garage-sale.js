@@ -33,6 +33,5 @@ export default () => (
 	<Layout>
 		<h2>Virtual Garage Sale!</h2>
 		<p>This is a todo, sorry folks!</p>
-		{/* Note to self, the branch is 'gs' for garageSale */}
 	</Layout>
 );
