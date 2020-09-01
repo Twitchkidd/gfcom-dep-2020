@@ -260,15 +260,14 @@ const Header2 = styled.header`
 	`}
 	color: ${light};
 	/* ${elevation[1]} */
-	/* border-bottom: 1px solid linear-gradient(to right, ${purple}, ${blue}); */
-	/* margin-bottom: 1px solid ${blue}; */
 	&::after {
 		content: '';
 		position: absolute;
 		left: 0;
 		bottom: 0;
 		height: 2px;
-		width: 100%;
+		width: calc(100% - 4rem);
+		margin: 0 2rem;
 		background: linear-gradient(to right, ${pink}, ${purple}, ${blue});
 		z-index: 9;
 		margin-bottom: 1rem;
@@ -355,6 +354,7 @@ const NavIndicatorText = styled.p`
 
 const Blurb = styled.p`
 	font-size: 1.125rem;
+	margin-bottom: 0;
 `;
 
 const QotDWrap = styled.blockquote`
