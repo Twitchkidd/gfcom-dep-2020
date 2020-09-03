@@ -34,7 +34,7 @@ export default function Post({ post }) {
 							title={post.title}
 							coverImage={
 								post.coverImage
-									? require(`../../public/${post.coverImage}`)
+									? require(`../../public/postCovers/${post.coverImage}`)
 									: require('../../public/sweetGradient.png')
 							}
 							date={post.date}

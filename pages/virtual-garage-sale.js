@@ -1,7 +1,28 @@
 import styled from 'styled-components';
 import { Layout } from '../components';
 import { light } from '../utils';
-import categories from '../virtualGarageSale.js';
+// import data from '../virtualGarageSale.js';
+
+/*
+
+flights = [../public/vgs/f1, ../public/vgs/f2, ...]
+
+total = items.length
+sold = soldItems.length
+
+categories = items.map().filter()
+
+items = items.map(item =>
+	if items.soldFor {
+		{ title, description, category, images, soldOn } = item
+	} else if (items.saleAttempt[saleAttempts.length]) {
+		{ title, description, category, images, link, saleAttemptAuctionPrice, saleAttemptPrice } = item
+	} else {
+		{ title, description, category, images, link, saleAttemptPrice } = item
+	}
+)
+
+*/
 
 const ItemsGrid = styled.div`
 	width: 90%;
@@ -35,3 +56,19 @@ export default () => (
 		<p>This is a todo, sorry folks!</p>
 	</Layout>
 );
+
+// export async function getStaticProps() {
+// 	const allPosts = getAllPosts([
+// 		'title',
+// 		'date',
+// 		'author',
+// 		'coverImage',
+// 		'description',
+// 		'excerpt',
+// 		'slug',
+// 	]);
+
+// 	return {
+// 		props: { allPosts },
+// 	};
+// }
