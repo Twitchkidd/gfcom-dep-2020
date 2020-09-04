@@ -987,24 +987,20 @@ export default function Index({ allPosts }) {
 												if (social.name === 'App Store') {
 													return (
 														<SocialsLink href='/run-club' key={social.name}>
-															<a style={{ backgroundImage: 'none' }}>
-																<SocialsIcon
-																	src={require(`../public/${social.fileName}.svg`)}
-																/>
-																{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
-															</a>
+															<SocialsIcon
+																src={require(`../public/${social.fileName}.svg`)}
+															/>
+															{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
 														</SocialsLink>
 													);
 												}
 												if (social.name === 'RSS Feed') {
 													return (
 														<SocialsLink href='/rss' key={social.name}>
-															<a style={{ backgroundImage: 'none' }}>
-																<SocialsIcon
-																	src={require(`../public/${social.fileName}.svg`)}
-																/>
-																{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
-															</a>
+															<SocialsIcon
+																src={require(`../public/${social.fileName}.svg`)}
+															/>
+															{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
 														</SocialsLink>
 													);
 												}

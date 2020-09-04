@@ -16,3 +16,15 @@ Ayyy, made another sale! Alright!!
 I'm going to have to go back to listing items soon enough, but let's keep going here for another minute ... we'll need a list of categories, so we can do ye ole h1, h2, grid of cards, h2, grid of cards type thing, and I'd love to sort those so that partially sold categories are at the top, and then totally unsold categories, and then any categories where all items have been sold. Then, let's see ... the link, the filenames of the photos ... that will just require splitting along the comma, and I guess ... hmm, carusel time, and I'll have the various flights as a hero carusel ... maybe just use the first image for items? Ooo, or if you could have a non-automatic carusel in the cards for any items with multiple images, and clicking the handles would progress photos, but clicking any photo would open a tab with the item's post? And then price, so don't show one if it's sold, nobody needs to know that, just highlight them, and then so unsold items, show the price, and if there are more than one sale attempts, show like a 'down from \$x!' with the previous price ...
 
 Ooo, and I heard back from a recruiter! He seems nice. Very exciting! Okay, I've got to get moving here. I can't sit any longer, and don't feel like using the standing desk. (Honestly my ankle is killing me, really would rather not be biking to the post office right now, oh well though, haha.) My reward for working hard the rest of the day will be getting the VGS page up! 😃
+
+///
+
+You know, some days just turn up roses?
+
+I gotta go, but here's this! I love wireframing!
+
+![Wireframing the virtual garage sale](/vgsWireframing1.jpg)
+
+To the future! Best wishes!
+
+~g

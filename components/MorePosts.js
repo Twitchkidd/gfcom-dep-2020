@@ -33,20 +33,23 @@ export const MorePosts = ({ posts }) => (
 	<section>
 		<MorePostsHeader>More Posts</MorePostsHeader>
 		<PostsWrap>
-			{posts.map(post => (
-				<PostPreview
-					key={post.title}
-					title={post.title}
-					coverImage={
-						post.coverImage
-							? post.coverImage
-							: require('../public/sweetGradient.png')
-					}
-					date={post.date}
-					description={post.description}
-					slug={post.slug}
-				/>
-			))}
+			{posts.map(post => {
+				const { title, coverImage, date, description, slug } = post;
+				return (
+					<PostPreview
+						key={title}
+						title={title}
+						coverImage={
+							coverImage
+								? require(`../public/postCovers/${coverImage}`)
+								: require('../public/sweetGradient.png')
+						}
+						date={date}
+						description={description}
+						slug={slug}
+					/>
+				);
+			})}
 		</PostsWrap>
 	</section>
 );

@@ -45,6 +45,7 @@ const A = styled.a`
 		text-decoration: underline;
 		cursor: pointer;
 	}
+	hyphens: manual;
 `;
 
 const DateWrapper = styled.div`
@@ -57,13 +58,21 @@ const DateWrapper = styled.div`
 
 export const HeroPost = ({ heroPost }) => {
 	const { coverImage, date, description, title, slug } = heroPost;
+	let useSuperSecret = false;
+	if (title === 'Happy Thirdsday!') {
+		useSuperSecret = true;
+	}
 	return (
 		<section>
 			<PostWrap>
 				<div>
 					<TitleH3>
 						<Link as={`/posts/${slug}`} href='/posts/[slug]'>
-							<A>{title}</A>
+							<A>
+								{useSuperSecret
+									? `Happy Thirds${String.fromCharCode(173)}day!`
+									: title}
+							</A>
 						</Link>
 					</TitleH3>
 					{/* <Description>{description}</Description> */}
@@ -75,7 +84,11 @@ export const HeroPost = ({ heroPost }) => {
 			<CoverImageWrap>
 				<CoverImage
 					title={title}
-					src={coverImage ? coverImage : require('../public/sweetGradient.png')}
+					src={
+						coverImage
+							? require(`../public/postCovers/${coverImage}`)
+							: require('../public/sweetGradient.png')
+					}
 					slug={slug}
 				/>
 			</CoverImageWrap>
