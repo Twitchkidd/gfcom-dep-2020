@@ -10,3 +10,5 @@ Good morning! Dawa and I went to Harkness today, and I'm glad we got out relativ
 Whoops, just realized I broke cover images, lol. Uno momento!
 
 // Oh, that's a pain in the butt, I need to make a script for updating my site. It's down from 45 minutes with the 'blow-everything-away-and-reupload' method to 'file-by-file-with-a-list' in 15 minutes, bleh though.
+
+Oh, how did I not know about `brew install duck` before?
