@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Layout } from '../components';
 import { light } from '../utils';
-// import data from '../virtualGarageSale.js';
+// import {  } from '../lib';
 
 /*
 
