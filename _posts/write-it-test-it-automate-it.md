@@ -12,3 +12,5 @@ Alright, sweet, felt good to author that, that's all we need for the moment, the
 Oh, aside, have you seen this, because ohh mmm geeee:
 
 [![Too Many Zooz - Car Alarm, Official Music Video](http://img.youtube.com/vi/xV7nHX2RLjQ/0.jpg)](https://www.youtube.com/watch?v=xV7nHX2RLjQ 'Too Many Zooz - Car Alarm Official Music Video')
+
+// Well, got another bike ride and run at Harkness with Dawa in! He just looked at me like he wanted to be taken out again, solid nope from me right now bro. Pressing on.
