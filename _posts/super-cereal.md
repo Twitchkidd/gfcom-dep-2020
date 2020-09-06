@@ -1,7 +1,7 @@
 ---
 title: Super Cereal
-date: "2020-04-16T10:22:07.128Z"
-description: "Like, cerealsly!"
+date: '2020-04-16T10:22:07.128Z'
+description: 'Like, cerealsly!'
 ---
 
 Oooh, _this_ is fresh! Search 'city pop' on Spotify!
@@ -22,7 +22,7 @@ What was I doing? I picked out some fonts, and I should just pull over the icons
 
 OH NO! EVERYTHING WAS STILL IN CACHE IN VSCODE AND THEN I BLEW **THAT** AWAY! I'M A FULL-BLOWN IDIOT! 😢 FUCK! // AND I WAS ON THE MASTER BRANCH WHEN I MADE ALL THE NEW CHANGES! AHHHH!!! ... AND THE REACT BRANCH WAS OVERWRITTEN. WHAT.
 
-[![Nichijou Shrine Incident](http://img.youtube.com/vi/v74-0GON0go/0.jpg)](http://www.youtube.com/watch?v=v74-0GON0go "What The Fuck")
+[![Nichijou Shrine Incident](http://img.youtube.com/vi/v74-0GON0go/0.jpg)](http://www.youtube.com/watch?v=v74-0GON0go 'What The Fuck')
 
 ... and Dawa needs to go out again. What. The. Fuck. Shoot me.
 

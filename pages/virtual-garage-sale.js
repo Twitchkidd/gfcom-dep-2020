@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Layout } from '../components';
-import { light } from '../utils';
+import { light, veryLight, darkPink, darkPurple, darkBlue } from '../utils';
 // import {  } from '../lib';
 
 /*
@@ -52,8 +52,48 @@ Card.Image = styled.img`
 
 export default () => (
 	<Layout>
-		<h2>Virtual Garage Sale!</h2>
-		<p>This is a todo, sorry folks!</p>
+		<CaruselHeaderWrap>
+			<Header>Virtual Garage Sale</Header>
+			<Carusel>
+				{flights.map(flight => (
+					<Slide>
+						<Image src={flight.url} />
+					</Slide>
+				))}
+			</Carusel>
+		</CaruselHeaderWrap>
+		<Blurb>{blurb}</Blurb>
+		<ProgressWrap>
+			<Line
+				percent={[percent, 100 - percent]}
+				strokeWidth='6'
+				strokeColor={[
+					{
+						'100%': `${darkBlue}`,
+						'50%': `${darkPurple}`,
+						'0%': `${darkPink}`,
+					},
+					veryLight,
+				]}
+			/>
+		</ProgressWrap>
+		<TableOfCategoriesWrap>
+			{categories.map(category => (
+				<CategoryButton>
+					<Link href={`/virtual-garage-sale#${category.slug}`}>
+						<CategoryButtonA>{category.name}</CategoryButtonA>
+					</Link>
+				</CategoryButton>
+			))}
+		</TableOfCategoriesWrap>
+		{categories.map(category => (
+			<CategoryWrap key={category.name}>
+				<CategoryHeader>{category.name}</CategoryHeader>
+				{category.items.map(item => (
+					<Card key={item.name} item={item} />
+				))}
+			</CategoryWrap>
+		))}
 	</Layout>
 );
 
