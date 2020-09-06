@@ -2,7 +2,7 @@
 title: Write It Test It Automate It
 date: '2020-09-06T07:14:44.760Z'
 description: 'In which Gareth has enough data!'
-coverImage: ''
+coverImage: 'beans.jpg'
 ---
 
 Good morning! Definitely noticing that the sun isn't up as early these days! Works fine for me, though, the patio isn't a blazing inferno at 7:15, and I'm going to just wire up this virtual garage sale page and get right back to posting things. Go go go!
