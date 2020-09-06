@@ -14,3 +14,11 @@ Oh, aside, have you seen this, because ohh mmm geeee:
 [![Too Many Zooz - Car Alarm, Official Music Video](http://img.youtube.com/vi/xV7nHX2RLjQ/0.jpg)](https://www.youtube.com/watch?v=xV7nHX2RLjQ 'Too Many Zooz - Car Alarm Official Music Video')
 
 // Well, got another bike ride and run at Harkness with Dawa in! He just looked at me like he wanted to be taken out again, solid nope from me right now bro. Pressing on.
+
+// Pwoof, okay, after some time, I've had an ice coffee, which is kicking in, I might find my way to a bench somewhere to get a little movement in before working again. It's sooo close to rendering at least _something_ out though ...
+
+// Eugh, this part is so draining, when you're just trying to get to a point where the devtools are useful and it means hitting error message after error message you need to descipher in order to handle your 🍝code ...
+
+Starting to lose it, it's been like a bonus hour of playing with how Nextjs does it's build step and gives garethfield.com/virtualGarageSale it's data. // Close enough, it's definitely there, I just need to reform it. I can't code anymore, tooo muuuuch byyyeeeeeeee.
+
+If I don't get back to this today, best wishes! ~g
