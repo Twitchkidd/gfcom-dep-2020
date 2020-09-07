@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { Link } from 'next/link';
+import Link from 'next/link';
 import Carousel from '@brainhubeu/react-carousel';
 import { Line } from 'rc-progress';
 import { Layout } from '../components';
-import { light, veryLight, darkPink, darkPurple, darkBlue } from '../utils';
+import { elevation, veryLight, darkPink, darkPurple, darkBlue } from '../utils';
 import { getAllItems } from '../lib';
 
 /*
@@ -88,13 +88,12 @@ const Card = ({ item }) => {
 	);
 };
 
-let flights = [];
-flights.length = 4;
-
 const blurb = 'Four score and seven years ago ...';
 
 export default function VirtualGarageSale({ allItems }) {
 	console.log(allItems);
+	let flights = [];
+	flights.length = 4;
 	// const categories = new Set(allItems.map(item => item[2]));
 	const categories = ['fermf'];
 	const percent = 10;
