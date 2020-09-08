@@ -6,6 +6,112 @@ import { Layout } from '../components';
 import { elevation, veryLight, darkPink, darkPurple, darkBlue } from '../utils';
 import { getAllItems } from '../lib';
 
+const CarouselHeaderWrap = styled.header``;
+
+const Header = styled.h1``;
+
+const Slide = styled.img`
+	max-width: 100%;
+`;
+
+const Blurb = styled.p``;
+
+const ProgressWrap = styled.div``;
+
+const TableOfCategoriesWrap = styled.div``;
+
+const CategoryButton = styled.button``;
+
+const CategoryButtonA = styled.a``;
+
+const CategoryWrap = styled.section``;
+
+const CategoryHeader = styled.h2``;
+
+const CardWrap = styled.div``;
+
+const Card = ({ item }) => {
+	const { description, name, soldOn } = item;
+	return (
+		<CardWrap homed={soldOn}>
+			<h3>{name}</h3>
+			<p>{description}</p>
+			{/* <img? || CARUSEL?! */}
+		</CardWrap>
+	);
+};
+
+const blurb = 'Four score and seven years ago ...';
+
+export default function VirtualGarageSale({ allItems }) {
+	// console.log(allItems);
+	let flights = [];
+	flights.length = 4;
+	// const categories = new Set(allItems.map(item => item[2]));
+	const categories = ['fermf'];
+	const percent = 10;
+	return (
+		<Layout>
+			Hey
+			{/* <CarouselHeaderWrap>
+				<Header>Virtual Garage Sale</Header>
+				<Carousel>
+					{flights.map((flight, i) => (
+						<Slide
+							key={`Flight number ${i}.`}
+							src={require(`../public/virtualGarageSale/flight${i + 1}.jpg`)}
+							alt={`Flights of items, batch ${i + 1}.`}
+						/>
+					))}
+				</Carousel>
+			</CarouselHeaderWrap>
+			<Blurb>{blurb}</Blurb>
+			<ProgressWrap>
+				<Line
+					percent={[percent, 100 - percent]}
+					strokeWidth='6'
+					strokeColor={[
+						{
+							'100%': `${darkBlue}`,
+							'50%': `${darkPurple}`,
+							'0%': `${darkPink}`,
+						},
+						veryLight,
+					]}
+				/>
+			</ProgressWrap>
+			<TableOfCategoriesWrap>
+				{categories.map(category => (
+					<CategoryButton key={category.name}>
+						<Link href={`/virtual-garage-sale#${category.slug}`}>
+							<CategoryButtonA>{category.name}</CategoryButtonA>
+						</Link>
+					</CategoryButton>
+				))}
+			</TableOfCategoriesWrap>
+			{categories.map(category => (
+				<CategoryWrap key={category.name}>
+					<CategoryHeader>{category.name}</CategoryHeader>
+					{category.items.map(item => (
+						<Card key={item.name} item={item} />
+					))}
+				</CategoryWrap>
+			))} */}
+		</Layout>
+	);
+}
+
+export async function getStaticProps() {
+	const everyRow = getAllItems();
+	console.log(everyRow.message);
+	console.log(everyRow.items);
+	// const items = JSON.parse(JSON.stringify(everyCell));
+	// console.log(items);
+	return {
+		props: { allItems: ['fermf'] },
+	};
+}
+
 /*
 
 flights = [../public/vgs/f1, ../public/vgs/f2, ...]
@@ -52,104 +158,3 @@ items = items.map(item =>
 // Card.Image = styled.img`
 // 	max-width: 100%;
 // `;
-
-const CarouselHeaderWrap = styled.header``;
-
-const Header = styled.h1``;
-
-const Slide = styled.img`
-	max-width: 100%;
-`;
-
-const Blurb = styled.p``;
-
-const ProgressWrap = styled.div``;
-
-const TableOfCategoriesWrap = styled.div``;
-
-const CategoryButton = styled.button``;
-
-const CategoryButtonA = styled.a``;
-
-const CategoryWrap = styled.section``;
-
-const CategoryHeader = styled.h2``;
-
-const CardWrap = styled.div``;
-
-const Card = ({ item }) => {
-	const { description, name, soldOn } = item;
-	return (
-		<CardWrap homed={soldOn}>
-			<h3>{name}</h3>
-			<p>{description}</p>
-			{/* <img? || CARUSEL?! */}
-		</CardWrap>
-	);
-};
-
-const blurb = 'Four score and seven years ago ...';
-
-export default function VirtualGarageSale({ allItems }) {
-	console.log(allItems);
-	let flights = [];
-	flights.length = 4;
-	// const categories = new Set(allItems.map(item => item[2]));
-	const categories = ['fermf'];
-	const percent = 10;
-	return (
-		<Layout>
-			<CarouselHeaderWrap>
-				<Header>Virtual Garage Sale</Header>
-				<Carousel>
-					{flights.map((flight, i) => (
-						<Slide
-							key={`Flight number ${i}.`}
-							src={require(`../public/virtualGarageSale/flight${i + 1}.jpg`)}
-							alt={`Flights of items, batch ${i + 1}.`}
-						/>
-					))}
-				</Carousel>
-			</CarouselHeaderWrap>
-			<Blurb>{blurb}</Blurb>
-			<ProgressWrap>
-				<Line
-					percent={[percent, 100 - percent]}
-					strokeWidth='6'
-					strokeColor={[
-						{
-							'100%': `${darkBlue}`,
-							'50%': `${darkPurple}`,
-							'0%': `${darkPink}`,
-						},
-						veryLight,
-					]}
-				/>
-			</ProgressWrap>
-			<TableOfCategoriesWrap>
-				{categories.map(category => (
-					<CategoryButton key={category.name}>
-						<Link href={`/virtual-garage-sale#${category.slug}`}>
-							<CategoryButtonA>{category.name}</CategoryButtonA>
-						</Link>
-					</CategoryButton>
-				))}
-			</TableOfCategoriesWrap>
-			{categories.map(category => (
-				<CategoryWrap key={category.name}>
-					<CategoryHeader>{category.name}</CategoryHeader>
-					{category.items.map(item => (
-						<Card key={item.name} item={item} />
-					))}
-				</CategoryWrap>
-			))}
-		</Layout>
-	);
-}
-
-export async function getStaticProps() {
-	const items = JSON.parse(JSON.stringify(getAllItems()));
-	return {
-		props: { allItems: items },
-	};
-}
