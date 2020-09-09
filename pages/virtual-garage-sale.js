@@ -102,7 +102,7 @@ export default function VirtualGarageSale({ allItems }) {
 }
 
 export async function getStaticProps() {
-	const everyRow = getAllItems();
+	const everyRow = await getAllItems();
 	console.log(everyRow.message);
 	console.log(everyRow.items);
 	// const items = JSON.parse(JSON.stringify(everyCell));
