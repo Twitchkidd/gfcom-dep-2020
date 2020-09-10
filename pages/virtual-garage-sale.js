@@ -110,6 +110,7 @@ export default function VirtualGarageSale({ rows }) {
 }
 
 export async function getStaticProps() {
+<<<<<<< HEAD
 	const rows = await getAllItems();
 	/*
 		- Percent complete
@@ -130,6 +131,13 @@ export async function getStaticProps() {
 			- Description
 			- Image (out of images)
 	*/
+=======
+	const everyRow = await getAllItems();
+	console.log(everyRow.message);
+	console.log(everyRow.items);
+	// const items = JSON.parse(JSON.stringify(everyCell));
+	// console.log(items);
+>>>>>>> 5906b20481b2da9dbbce35d417a8a59461a3b71f
 	return {
 		props: { rows },
 	};
