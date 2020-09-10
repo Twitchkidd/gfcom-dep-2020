@@ -43,13 +43,21 @@ const Card = ({ item }) => {
 
 const blurb = 'Four score and seven years ago ...';
 
-export default function VirtualGarageSale({ allItems }) {
-	// console.log(allItems);
+export default function VirtualGarageSale({ rows }) {
+	const handledRows = rows.map(row => {
+		return {
+			name: row[18] !== '' ? row[19] : row[12] !== '' ? row[13] : row[6],
+			sold: row[3] !== '',
+		};
+	});
+	console.log(handledRows);
+	const categoriesArray = Array.from(new Set(rows.map(row => row[1]).sort()));
+	const categories = categoriesArray.map(category => ({
+		name: category,
+		items: handledRows.filter(item => item.category === category),
+	}));
 	let flights = [];
 	flights.length = 4;
-	// const categories = new Set(allItems.map(item => item[2]));
-	const categories = ['fermf'];
-	const percent = 10;
 	return (
 		<Layout>
 			Hey
@@ -102,13 +110,28 @@ export default function VirtualGarageSale({ allItems }) {
 }
 
 export async function getStaticProps() {
-	const everyRow = getAllItems();
-	console.log(everyRow.message);
-	console.log(everyRow.items);
-	// const items = JSON.parse(JSON.stringify(everyCell));
-	// console.log(items);
+	const rows = await getAllItems();
+	/*
+		- Percent complete
+		- Categories ✅
+
+		- Items: (BY CATEGORY!)
+			- Not Sold:
+				- Most recent:
+					- Title
+					- Description
+					- Image (out of images)
+					- Link
+					- Platform
+						- Price or Auction/Buy price ... oooh, how do you look up the current auction rather than the start?
+						- Any previous price/auction prices
+		- Sold?
+			- Title
+			- Description
+			- Image (out of images)
+	*/
 	return {
-		props: { allItems: ['fermf'] },
+		props: { rows },
 	};
 }
 
