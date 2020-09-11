@@ -6,12 +6,14 @@ import Carousel from '@brainhubeu/react-carousel';
 import { Line } from 'rc-progress';
 import { Layout } from '../components';
 import {
-	elevation,
-	veryLight,
+	above,
 	darkPink,
 	darkPurple,
 	darkBlue,
+	eigengrau,
+	elevation,
 	slugify,
+	veryLight,
 } from '../utils';
 import { getAllItems } from '../lib';
 
@@ -35,11 +37,33 @@ const CategoryWrap = styled.section``;
 
 const CategoryHeader = styled.h2``;
 
+const CardsWrap = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+`;
+
+// card in tablet, plz stretch content vertically
 const CardWrap = styled.a`
 	display: block;
+	color: ${eigengrau};
 	border: 2px solid ${props => (props.sold ? 'green' : 'gray')};
 	border-radius: 0.5rem;
 	${elevation[0]}
+	padding: 1rem;
+	flex: 1;
+	${above.small`
+		margin: 0.25rem;
+		max-width: 329px;
+	`}
+	${above.med`
+		margin: 0.5rem;
+		max-width: 272px;
+	`}
+	${above.large`
+		margin: 1rem;
+		max-width: 356px;
+	`}
 `;
 
 const DetailsWrap = styled.div`
@@ -91,6 +115,7 @@ const Card = ({ item }) => {
 	} = item;
 	return (
 		<CardWrap
+			key={title}
 			sold={soldOn !== ''}
 			href={link}
 			alt={platform + ' post'}
@@ -101,7 +126,7 @@ const Card = ({ item }) => {
 				<p>Click/tap to go to {platform}.com!</p>
 			</DetailsWrap>
 			<ImageWrap>
-				<Image src={require('../public/fortTrumbull.jpg')} />
+				<Image src={require(`../public${image}`)} />
 				<PriceTag>
 					{auctionPrice === '' ? (
 						previousPrice === '' ? (
@@ -140,22 +165,20 @@ export default function VirtualGarageSale({ rows }) {
 	useEffect(() => {
 		const categoriesArray = Array.from(new Set(rows.map(row => row[2]).sort()));
 		const handledItems = rows.map(row => {
-			const attemptNumber = row[19] !== '' ? 3 : row[12] !== '' ? 2 : 1;
+			const attemptNumber = row[19] !== '*' ? 3 : row[12] !== '*' ? 2 : 1;
 			return {
 				category: row[2],
 				soldOn: row[3],
 				startDate: [row[5], row[12], row[18]][attemptNumber - 1],
 				title: [row[6], row[13], row[19]][attemptNumber - 1],
 				description: [row[7], row[14], row[20]][attemptNumber - 1],
-				// image: [row[8], row[15], row[21]][attemptNumber - 1].includes(',')
-				// 	? [row[8], row[15], row[21]][attemptNumber - 1].split(',')[0].trim()
-				// 	: [row[8], row[15], row[21]][attemptNumber - 1],
-				image: 'fermf',
+				image: [row[8], row[15], row[21]][attemptNumber - 1].includes(',')
+					? [row[8], row[15], row[21]][attemptNumber - 1].split(',')[0].trim()
+					: [row[8], row[15], row[21]][attemptNumber - 1],
 				link: [row[9], row[16], row[22]][attemptNumber - 1],
-				// platform: [row[9], row[16], row[22]][attemptNumber - 1].includes('ebay')
-				// 	? 'eBay'
-				// 	: 'Craigslist',
-				platform: 'Craigslist',
+				platform: [row[9], row[16], row[22]][attemptNumber - 1].includes('ebay')
+					? 'eBay'
+					: 'Craigslist',
 				auctionPrice: [row[10], row[17], row[23]][attemptNumber - 1],
 				price: [row[11], row[18], row[24]][attemptNumber - 1],
 				previousPrice:
@@ -177,6 +200,7 @@ export default function VirtualGarageSale({ rows }) {
 		);
 	}, []);
 	useEffect(() => {
+		console.log('effect 2');
 		if (categories) {
 			const items = categories.map(category => category.items).flat();
 			setTotalPercent(
@@ -230,9 +254,11 @@ export default function VirtualGarageSale({ rows }) {
 					{categories.map(category => (
 						<CategoryWrap key={category.name} id={slugify(category.name)}>
 							<CategoryHeader>{category.name}</CategoryHeader>
-							{category.items.map(item => (
-								<Card key={item.name} item={item} />
-							))}
+							<CardsWrap>
+								{category.items.map(item => (
+									<Card key={item.title} item={item} />
+								))}
+							</CardsWrap>
 						</CategoryWrap>
 					))}
 				</>
@@ -243,7 +269,6 @@ export default function VirtualGarageSale({ rows }) {
 
 export async function getStaticProps() {
 	const rows = await getAllItems();
-	console.log(rows);
 	return {
 		props: { rows },
 	};

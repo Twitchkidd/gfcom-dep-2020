@@ -22,7 +22,7 @@ const PostsWrap = styled.div`
 	${above.med`
 		grid-template-rows: repeat(2, minmax(0, 1fr));
 		column-gap: 4rem;
-		row-gap: 8rem;
+		row-gap: 2rem;
 	`}
 	${above.large`
 		column-gap: 8rem;

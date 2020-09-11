@@ -2,6 +2,7 @@
 title: Are You Actually Resolving The Promise
 date: '2020-09-10T06:08:51.009Z'
 description: 'In which Gareth needs to add something to the checklist.'
+coverImage: 'dozingDawa.jpg'
 ---
 
 Good evening! I'd been blocked for two days on this bug, so let's out with what went down and the single keyword that squashed it!
