@@ -2,7 +2,7 @@
 title: Beanie Weather
 date: '2020-09-12T06:27:55.014Z'
 description: "In which the season changes, in Gareth's head! ... on Gareth's head?"
-coverImage: ''
+coverImage: 'dawaHarknessFall.jpg'
 ---
 
 Good morning! Up early, and boyoo has 'early' changed! I dig it! Beanies ftw.
@@ -18,3 +18,5 @@ Spreadsheet. Images. Postings. Website. Go.
 Right, okay future me, it's `find . -name '*.png' | xargs -I % sh -c 'open %;'` and you can run `-maxdepth 1` or any number to limit find's recursiveness.
 
 // Whew, that was a lot of pointing and clicking, lol. Images hopefully fixed? Let's see what the production build looks like!
+
+// Whoops, forgot /public/postCovers!
