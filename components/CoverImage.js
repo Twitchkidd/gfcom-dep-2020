@@ -35,13 +35,13 @@ const Image = styled.img`
 	max-width: 100%;
 `;
 
-const CoverImage = ({ title, src, slug }) => {
+const CoverImage = ({ title, src, slug, loading }) => {
 	return (
 		<CoverImageWrap>
 			{slug ? (
 				<Link as={`/posts/${slug}`} href='/posts/[slug]'>
 					<ImageLink aria-label={title}>
-						<Image src={src} alt={title} loading='lazy' />
+						<Image src={src} alt={title} loading={loading} />
 					</ImageLink>
 				</Link>
 			) : (

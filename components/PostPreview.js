@@ -43,7 +43,7 @@ const PostPreview = ({ title, coverImage, date, description, slug }) => (
 			<DateFormatter dateString={date} />
 		</PostPreviewDateWrap>
 		<PostPreviewCoverImageWrap>
-			<CoverImage title={title} src={coverImage} slug={slug} />
+			<CoverImage title={title} src={coverImage} slug={slug} loading='lazy' />
 		</PostPreviewCoverImageWrap>
 	</div>
 );

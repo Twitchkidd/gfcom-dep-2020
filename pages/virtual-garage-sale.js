@@ -126,7 +126,7 @@ const Card = ({ item }) => {
 				<p>Click/tap to go to {platform}.com!</p>
 			</DetailsWrap>
 			<ImageWrap>
-				<Image src={require(`../public${image}`)} />
+				<Image src={require(`../public${image}`)} loading='lazy' />
 				<PriceTag>
 					{auctionPrice === '' ? (
 						previousPrice === '' ? (
@@ -224,6 +224,7 @@ export default function VirtualGarageSale({ rows }) {
 								key={`Flight number ${i}.`}
 								src={require(`../public/virtualGarageSale/flight${i + 1}.jpg`)}
 								alt={`Flights of items, batch ${i + 1}.`}
+								loading='lazy'
 							/>
 						))}
 					</Carousel>
