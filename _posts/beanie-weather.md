@@ -22,3 +22,5 @@ Right, okay future me, it's `find . -name '*.png' | xargs -I % sh -c 'open %;'` 
 // Whoops, forgot /public/postCovers!
 
 HOOHH HOOHH OKAY, from a half an hour build to ninety seconds, and from a 2.6gb bundle to 194mb, I'm uploading this and we'll see what the speed is, live.
+
+... Yup. That's more like what you'd hope to see from a modern website. Jeez, Louise.
