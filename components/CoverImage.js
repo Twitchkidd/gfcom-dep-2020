@@ -41,7 +41,7 @@ const CoverImage = ({ title, src, slug }) => {
 			{slug ? (
 				<Link as={`/posts/${slug}`} href='/posts/[slug]'>
 					<ImageLink aria-label={title}>
-						<Image src={src} alt={title} />
+						<Image src={src} alt={title} loading='lazy' />
 					</ImageLink>
 				</Link>
 			) : (
