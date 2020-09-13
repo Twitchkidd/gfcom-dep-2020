@@ -2,11 +2,13 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 // import addDays from 'date-fns/addDays';
 import Link from 'next/link';
-import Carousel from '@brainhubeu/react-carousel';
+import { Carousel } from 'react-responsive-carousel';
 import { Line } from 'rc-progress';
 import { Layout } from '../components';
 import {
 	above,
+	white,
+	almostWhite,
 	darkPink,
 	darkPurple,
 	darkBlue,
@@ -20,7 +22,9 @@ import { getAllItems } from '../lib';
 const Header = styled.h1``;
 
 const Slide = styled.img`
+	height: 360px;
 	max-width: 100%;
+	object-fit: cover;
 `;
 
 const Blurb = styled.p``;
@@ -49,7 +53,7 @@ const CardWrap = styled.a`
 	color: ${eigengrau};
 	border: 2px solid ${props => (props.sold ? 'green' : 'gray')};
 	border-radius: 0.5rem;
-	${elevation[0]}
+	${elevation[1]}
 	padding: 1rem;
 	flex: 1;
 	${above.small`
@@ -64,6 +68,7 @@ const CardWrap = styled.a`
 		margin: 1rem;
 		max-width: 356px;
 	`}
+	background-image: none;
 `;
 
 const DetailsWrap = styled.div`
@@ -85,10 +90,13 @@ const PriceTag = styled.div`
 	position: absolute;
 	top: -0.5rem;
 	left: -0.5rem;
+	border: 1px solid ${almostWhite};
 	border-radius: 0.5rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 0.25rem;
+	background: ${white};
 `;
 
 const Price = styled.span`
@@ -100,7 +108,7 @@ const PreviousPrice = styled(Price)`
 	text-decoration: line-through;
 `;
 
-const Card = ({ item }) => {
+const Card = ({ item, cat }) => {
 	const {
 		soldOn,
 		startDate,
@@ -126,7 +134,10 @@ const Card = ({ item }) => {
 				<p>Click/tap to go to {platform}.com!</p>
 			</DetailsWrap>
 			<ImageWrap>
-				<Image src={require(`../public${image}`)} loading='lazy' />
+				<Image
+					src={require(`../public${image}`)}
+					loading={cat === 0 ? 'eager' : 'lazy'}
+				/>
 				<PriceTag>
 					{auctionPrice === '' ? (
 						previousPrice === '' ? (
@@ -182,7 +193,7 @@ export default function VirtualGarageSale({ rows }) {
 				auctionPrice: [row[10], row[17], row[23]][attemptNumber - 1],
 				price: [row[11], row[18], row[24]][attemptNumber - 1],
 				previousPrice:
-					attemptNumber > 2 ? row[18] : attemptNumber > 1 ? row[11] : null,
+					attemptNumber > 2 ? row[18] : attemptNumber > 1 ? row[11] : '',
 			};
 		});
 		setCategories(
@@ -200,7 +211,6 @@ export default function VirtualGarageSale({ rows }) {
 		);
 	}, []);
 	useEffect(() => {
-		console.log('effect 2');
 		if (categories) {
 			const items = categories.map(category => category.items).flat();
 			setTotalPercent(
@@ -210,24 +220,23 @@ export default function VirtualGarageSale({ rows }) {
 			);
 		}
 	}, [categories]);
-	let flights = [];
-	flights.length = 4;
+	let flights = ['2', '3', '4'];
 	return (
 		<Layout>
 			{!categories ? null : (
 				<>
-					<Header>Virtual Garage Sale</Header>
-					<Blurb>{blurb}</Blurb>
 					<Carousel>
-						{flights.map((f, i) => (
+						{flights.map(f => (
 							<Slide
-								key={`Flight number ${i}.`}
-								src={require(`../public/virtualGarageSale/flight${i + 1}.jpg`)}
-								alt={`Flights of items, batch ${i + 1}.`}
-								loading='lazy'
+								key={`Flight number ${f}.`}
+								src={require(`../public/virtualGarageSale/flight${f}.jpg`)}
+								alt={`Flights of items, batch ${f}.`}
+								loading='eager'
 							/>
 						))}
 					</Carousel>
+					<Header>Virtual Garage Sale</Header>
+					<Blurb>{blurb}</Blurb>
 					<ProgressWrap>
 						<Line
 							percent={totalPercent}
@@ -252,12 +261,12 @@ export default function VirtualGarageSale({ rows }) {
 							</CategoryButton>
 						))}
 					</TableOfCategoriesWrap>
-					{categories.map(category => (
+					{categories.map((category, c) => (
 						<CategoryWrap key={category.name} id={slugify(category.name)}>
 							<CategoryHeader>{category.name}</CategoryHeader>
 							<CardsWrap>
 								{category.items.map(item => (
-									<Card key={item.title} item={item} />
+									<Card key={item.title} item={item} cat={c} />
 								))}
 							</CardsWrap>
 						</CategoryWrap>

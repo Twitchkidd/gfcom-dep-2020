@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { Global } from '../components';
 import 'typeface-arvo';
 import 'typeface-cabin';
-import '@brainhubeu/react-carousel/lib/style.css';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const theme = {
 	colors: {
