@@ -13,6 +13,4 @@ Good morning! Today's first challenge is refactoring the socials icons, because 
 
 Hoof, okay, well, we'll see if it works in production, it's much simpler now though. Time to test out the new update flow, too.
 
-### Temp
-
-Stay tuned if you're reading this! :)
+YES!
