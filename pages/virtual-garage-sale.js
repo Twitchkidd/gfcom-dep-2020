@@ -29,17 +29,39 @@ const Slide = styled.img`
 
 const Blurb = styled.p``;
 
-const ProgressWrap = styled.div``;
+const ProgressWrap = styled.div`
+	margin: 1rem auto;
+`;
 
 const TableOfCategoriesWrap = styled.div``;
 
-const CategoryButton = styled.button``;
+const CategoryButton = styled.button`
+	padding: 0.5rem;
+	margin: 0.25rem;
+	border-radius: 0.25rem;
+	&:hover {
+		${elevation[2]}
+	}
+`;
 
-const CategoryButtonA = styled.a``;
+const CategoryButtonA = styled.a`
+	background-image: none;
+`;
 
 const CategoryWrap = styled.section``;
 
-const CategoryHeader = styled.h2``;
+const CategoryHeader = styled.h2`
+	text-decoration: underline;
+	position: relative;
+	&::before {
+		content: '#';
+		position: absolute;
+		top: 0.5rem;
+		left: -1rem;
+		color: ${veryLight};
+		font-size: 1rem;
+	}
+`;
 
 const CardsWrap = styled.div`
 	display: flex;
@@ -51,7 +73,7 @@ const CardsWrap = styled.div`
 const CardWrap = styled.a`
 	display: block;
 	color: ${eigengrau};
-	border: 2px solid ${props => (props.sold ? 'green' : 'gray')};
+	border: 2px solid ${props => (props.sold ? '#006600' : 'gray')};
 	border-radius: 0.5rem;
 	${elevation[1]}
 	padding: 1rem;
@@ -213,14 +235,19 @@ export default function VirtualGarageSale({ rows }) {
 	useEffect(() => {
 		if (categories) {
 			const items = categories.map(category => category.items).flat();
+			console.log(
+				Math.round(
+					(items.filter(item => item.soldOn !== '').length / items.length) * 100
+				)
+			);
 			setTotalPercent(
 				Math.round(
-					items.filter(item => item.soldOn !== '').length / items.length
-				) * 100
+					(items.filter(item => item.soldOn !== '').length / items.length) * 100
+				)
 			);
 		}
 	}, [categories]);
-	let flights = ['2', '3', '4'];
+	let flights = ['1', '2', '3', '4'];
 	return (
 		<Layout>
 			{!categories ? null : (
@@ -239,16 +266,17 @@ export default function VirtualGarageSale({ rows }) {
 					<Blurb>{blurb}</Blurb>
 					<ProgressWrap>
 						<Line
-							percent={totalPercent}
-							strokeWidth='6'
-							strokeColor={[
-								{
-									'100%': `${darkBlue}`,
-									'50%': `${darkPurple}`,
-									'0%': `${darkPink}`,
-								},
-								veryLight,
-							]}
+							percent={totalPercent ? `${totalPercent}` : '0'}
+							strokeWidth='1'
+							strokeColor={['#006600', veryLight]}
+							// strokeColor={[
+							// 	{
+							// 		'100%': `${darkBlue}`,
+							// 		'50%': `${darkPurple}`,
+							// 		'0%': `${darkPink}`,
+							// 	},
+							// 	veryLight,
+							// ]}
 						/>
 						{/* green? */}
 					</ProgressWrap>

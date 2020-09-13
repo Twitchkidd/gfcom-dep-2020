@@ -13,4 +13,4 @@ Good morning! Today's first challenge is refactoring the socials icons, because 
 
 Hoof, okay, well, we'll see if it works in production, it's much simpler now though. Time to test out the new update flow, too.
 
-YES!
+YES! Okay, we're flying here, I fixed the socials thing, the upload went well, I fixed the carousel, the progress bar, the pricetag, the price string logic, the category buttons, category headers, ... that might have been it ... oh, color for sold items ... there's a bunch more to do but if I don't move my body, my spine is going to entirely rebel! To the future!
