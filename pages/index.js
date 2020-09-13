@@ -112,8 +112,6 @@ const Title = styled.h1`
 const TabsWrap = styled.div`
 	display: flex;
 	flex-direction: column;
-	margin-top: 3rem;
-	margin-bottom: 3rem;
 `;
 
 const PagesWrap = styled.div`
@@ -139,33 +137,20 @@ const PageLink = styled.a`
 	}
 `;
 
-const SocialsOuterBox = styled.div`
-	width: 100%;
-	height: 142px;
+const SocialsWrap = styled.div`
+	min-height: 80px;
+	min-width: 80px;
 	display: grid;
-	place-items: center;
+	grid-template-rows: repeat(3, 24px);
+	grid-template-columns: repeat(3, 24px);
+	gap: 4px;
+	margin: 0 auto 4rem;
 `;
-
-const SocialsInnerBox = styled.div`
-	display: flex;
-	flex-wrap: wrap;
-	width: 88px;
-	justify-content: center;
-	align-items: center;
-`;
-
-const SocialsWrap = ({ children }) => (
-	<SocialsOuterBox>
-		<SocialsInnerBox>{children}</SocialsInnerBox>
-	</SocialsOuterBox>
-);
 
 const SocialsLink = styled.a`
 	display: inline-block;
 	width: 24px;
 	height: 24px;
-	padding-right: 8px;
-	padding-bottom: 8px;
 	background-image: none;
 `;
 
@@ -207,8 +192,8 @@ const SocialsButtonIcon = styled.img`
 `;
 
 const SocialsIcon = styled.img`
-	width: 2rem;
-	height: 2rem;
+	width: 24px;
+	height: 24px;
 `;
 
 const SocialsLinkName = styled.span`
@@ -221,16 +206,6 @@ const BioImage = styled.img`
 	border-radius: 9999px;
 	margin: 0.67em 0;
 	margin-right: 0.5rem;
-`;
-
-const SideBar = styled.div`
-	grid-column: 1 / 2;
-	grid-row: 2 / 3;
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	align-items: center;
 `;
 
 const Header1 = styled.header`
@@ -309,11 +284,14 @@ const MainWrap = styled.div`
 `;
 
 const Nav = styled.nav`
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
 	height: 100%;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
-	width: 10rem;
-	z-index: 3;
+	justify-content: space-around;
+	align-items: center;
 `;
 
 const NavToggleButton = styled.button`
@@ -933,89 +911,87 @@ export default function Index({ allPosts }) {
 									/>
 									<Title>{siteTitle}</Title>
 								</Header1>
-								<SideBar>
-									<Nav>
-										<TabsWrap>
-											<Tab type='running'>
-												<IconSVG
-													src={require('../public/running.svg')}
-													alt=''
-													id='running'
-												/>
-												<ButtonText style={{ ...scale(3 / 4) }}>
-													Running
-												</ButtonText>
-											</Tab>
-											<Tab type='coding' ref={codingRef}>
-												<IconSVG
-													src={require('../public/coding.svg')}
-													alt=''
-													id='coding'
-												/>
-												<ButtonText style={{ ...scale(3 / 4) }}>
-													Coding
-												</ButtonText>
-											</Tab>
-											<Tab type='coffee'>
-												<IconSVG
-													src={require('../public/coffee.svg')}
-													alt=''
-													id='coffee'
-												/>
-												<ButtonText style={{ ...scale(3 / 4) }}>
-													Coffee
-												</ButtonText>
-											</Tab>
-											<Tab type='dog'>
-												<IconSVG
-													src={require('../public/dog.svg')}
-													alt=''
-													id='dog'
-												/>
-												<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
-											</Tab>
-										</TabsWrap>
-										<PagesWrap>
-											{pages.map(page => (
-												<Link href={page.url} key={page.name}>
-													<PageLink>{page.name}</PageLink>
-												</Link>
-											))}
-										</PagesWrap>
-										<SocialsWrap>
-											{socials.map(social => {
-												if (social.name === 'App Store') {
-													return (
-														<SocialsLink href='/run-club' key={social.name}>
-															<SocialsIcon
-																src={require(`../public/${social.fileName}.svg`)}
-															/>
-															{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
-														</SocialsLink>
-													);
-												}
-												if (social.name === 'RSS Feed') {
-													return (
-														<SocialsLink href='/rss' key={social.name}>
-															<SocialsIcon
-																src={require(`../public/${social.fileName}.svg`)}
-															/>
-															{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
-														</SocialsLink>
-													);
-												}
+								<Nav>
+									<TabsWrap>
+										<Tab type='running'>
+											<IconSVG
+												src={require('../public/running.svg')}
+												alt=''
+												id='running'
+											/>
+											<ButtonText style={{ ...scale(3 / 4) }}>
+												Running
+											</ButtonText>
+										</Tab>
+										<Tab type='coding' ref={codingRef}>
+											<IconSVG
+												src={require('../public/coding.svg')}
+												alt=''
+												id='coding'
+											/>
+											<ButtonText style={{ ...scale(3 / 4) }}>
+												Coding
+											</ButtonText>
+										</Tab>
+										<Tab type='coffee'>
+											<IconSVG
+												src={require('../public/coffee.svg')}
+												alt=''
+												id='coffee'
+											/>
+											<ButtonText style={{ ...scale(3 / 4) }}>
+												Coffee
+											</ButtonText>
+										</Tab>
+										<Tab type='dog'>
+											<IconSVG
+												src={require('../public/dog.svg')}
+												alt=''
+												id='dog'
+											/>
+											<ButtonText style={{ ...scale(3 / 4) }}>Dog</ButtonText>
+										</Tab>
+									</TabsWrap>
+									<PagesWrap>
+										{pages.map(page => (
+											<Link href={page.url} key={page.name}>
+												<PageLink>{page.name}</PageLink>
+											</Link>
+										))}
+									</PagesWrap>
+									<SocialsWrap>
+										{socials.map((social, i) => {
+											if (social.name === 'App Store') {
 												return (
-													<SocialsLink href={social.url} key={social.name}>
+													<SocialsLink href='/run-club' key={social.name}>
 														<SocialsIcon
 															src={require(`../public/${social.fileName}.svg`)}
 														/>
 														{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
 													</SocialsLink>
 												);
-											})}
-										</SocialsWrap>
-									</Nav>
-								</SideBar>
+											}
+											if (social.name === 'RSS Feed') {
+												return (
+													<SocialsLink href='/rss' key={social.name}>
+														<SocialsIcon
+															src={require(`../public/${social.fileName}.svg`)}
+														/>
+														{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
+													</SocialsLink>
+												);
+											}
+											return (
+												<SocialsLink href={social.url} key={social.name}>
+													<SocialsIcon
+														src={require(`../public/${social.fileName}.svg`)}
+													/>
+													{/* <SocialsLinkName>{social.name}</SocialsLinkName> */}
+												</SocialsLink>
+											);
+										})}
+									</SocialsWrap>
+								</Nav>
 								<Header2>
 									<Blurb>{blurb} Enjoy the blog and everything!</Blurb>
 									{/* <MoreLessShadowElement /> */}
