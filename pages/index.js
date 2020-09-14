@@ -227,13 +227,13 @@ const Header2 = styled.header`
 	justify-content: center;
 	align-items: center;
 	z-index: 8;
+	color: ${light};
 	${above.small`
 		grid-column: 2 / 3;
 		grid-row: 1 / 2;
 		padding-left: 2rem;
 		padding-right: 2rem;
 	`}
-	color: ${light};
 	/* ${elevation[1]} */
 	&::after {
 		content: '';
@@ -276,7 +276,7 @@ const MainWrap = styled.div`
 	grid-column: 1 / 2;
 	grid-row: 2 / 3;
 	overflow: scroll;
-	padding: 1rem 2.5rem 1rem 2.5rem;
+	padding: 1rem 2.5rem;
 	z-index: 2;
 	${above.small`
 		grid-column: 2 / 3;
@@ -317,7 +317,7 @@ const NavIndicator = styled.div`
 
 const NavIndicatorText = styled.p`
 	margin-bottom: 1rem;
-	font-size: 1.125rem;
+	font-size: 1rem;
 	color: ${props =>
 		props.tab === 'Running'
 			? `${darkPurple}`
@@ -337,24 +337,29 @@ const Blurb = styled.p`
 
 const QotDWrap = styled.blockquote`
 	max-width: 40rem;
-	text-align: left;
+	text-align: right;
+	border-left: none;
 `;
 
 const QuoteText = styled.p`
 	color: ${darkerBlue};
-	font-size: 1.125rem;
+	font-size: 0.85rem;
+	margin-bottom: 0;
 `;
 
 const QuoteAttribution = styled.footer`
 	color: ${light};
-	font-size: 1rem;
+`;
+
+const QuoteCitation = styled.cite`
+	font-size: 0.85rem;
 `;
 
 const QotD = ({ quote, attribution }) => (
 	<QotDWrap>
 		<QuoteText>{quote}</QuoteText>
 		<QuoteAttribution>
-			<cite>{attribution}</cite>
+			<QuoteCitation>{attribution}</QuoteCitation>
 		</QuoteAttribution>
 	</QotDWrap>
 );
@@ -994,6 +999,10 @@ export default function Index({ allPosts }) {
 								</Nav>
 								<Header2>
 									<Blurb>{blurb} Enjoy the blog and everything!</Blurb>
+									<QotD
+										quote={initialState.quote.quote}
+										attribution={initialState.quote.attribution}
+									/>
 									{/* <MoreLessShadowElement /> */}
 								</Header2>
 								<MainOverlay>

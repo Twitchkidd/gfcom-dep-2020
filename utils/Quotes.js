@@ -7,11 +7,11 @@ export const quotes = [
 		quote: 'You alone are enough. You have nothing to prove to anybody.',
 		attribution: 'Maya Angelou',
 	},
-	{
-		quote:
-			'Both fuel and aircraft must be gathered and saved for the day of maximum effort.',
-		attribution: 'Frank Herbert, in Dune',
-	},
+	// {
+	// 	quote:
+	// 		'Both fuel and aircraft must be gathered and saved for the day of maximum effort.',
+	// 	attribution: 'Frank Herbert, in Dune',
+	// },
 	{
 		quote:
 			'I understand that fear is my friend, but not always. Never turn your back on fear. It should always be in front of you, like a thing that might have to be killed.',

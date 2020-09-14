@@ -2,7 +2,7 @@
 title: Trepedatious Fistful Of Spinach
 date: '2020-09-14T06:34:12.617Z'
 description: 'In which Gareth feels like he might still be dreaming.'
-coverImage: ''
+coverImage: 'cshParkAutumn.jpg'
 ---
 
 Good morning! I wonder what other people do to get their computers into work mode? I'm probably slacking, it's definitely, like, _part of the routine_ though.
