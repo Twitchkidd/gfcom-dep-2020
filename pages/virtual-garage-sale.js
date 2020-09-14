@@ -40,7 +40,7 @@ const CategoryButton = styled.button`
 	margin: 0.25rem;
 	border-radius: 0.25rem;
 	&:hover {
-		${elevation[2]}
+		${elevation[2]};
 	}
 `;
 
@@ -71,12 +71,13 @@ const CardsWrap = styled.div`
 
 // card in tablet, plz stretch content vertically
 const CardWrap = styled.a`
-	display: block;
+	display: flex;
 	color: ${eigengrau};
 	border: 2px solid ${props => (props.sold ? '#006600' : 'gray')};
 	border-radius: 0.5rem;
-	${elevation[1]}
+	${elevation[1]};
 	padding: 1rem;
+	margin: 1rem;
 	flex: 1;
 	${above.small`
 		margin: 0.25rem;

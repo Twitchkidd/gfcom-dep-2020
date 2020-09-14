@@ -10,3 +10,5 @@ Good morning! I wonder what other people do to get their computers into work mod
 I want to fix two things before anything else today, one being the layout of the cards, because they're a jumbled mess, first the quote of the day though, for a (hopefully) quick win. Two elements vs. five.
 
 Oh, turns out "trepedatious" is a word because people use it and know what it means, not because it's in a dictionary. "Trepidation" is a word in the dictionary, "trepedatious" can be searched for on Twitter and get hundreds of thousands of hits.
+
+// Well that's different. I've got to polish that off in a bit, time for Dawa to get another walk/run in before the workday can begin in earnest!
