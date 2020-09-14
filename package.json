@@ -13,8 +13,8 @@
 		"build": "next build",
 		"next-start": "next start",
 		"format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-		"dev-new-post": "nodemon ./utils/new-post/index.js",
-		"new-post": "node ./utils/new-post/index.js"
+		"dev-new-post": "nodemon ./lib/new-post.js",
+		"new-post": "node ./lib/new-post.js"
 	},
 	"dependencies": {
 		"@bumaga/tabs": "^0.2.0",
