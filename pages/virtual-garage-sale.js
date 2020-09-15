@@ -248,7 +248,7 @@ export default function VirtualGarageSale({ rows }) {
 			);
 		}
 	}, [categories]);
-	let flights = ['1', '2', '3', '4'];
+	let flights = ['5', '1', '2', '3', '4'];
 	return (
 		<Layout>
 			{!categories ? null : (
