@@ -9,7 +9,7 @@ const CoverImageWrap = styled.div`
     margin-right: 0;
     margin-left: 0;
   `}
-	max-width: 100%;
+	width: 100%;
 `;
 
 const ImageLink = styled.a`
@@ -32,7 +32,7 @@ const Image = styled.img`
     transition-duration: 200ms;
   `
 			: null}
-	max-width: 100%;
+	width: 100%;
 `;
 
 const CoverImage = ({ title, src, slug, loading }) => {
