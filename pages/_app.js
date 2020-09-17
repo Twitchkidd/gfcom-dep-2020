@@ -4,6 +4,7 @@ import { Global } from '../components';
 import 'typeface-arvo';
 import 'typeface-cabin';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+// import '../node_modules/highlight.js/styles/dark.css';
 
 const theme = {
 	colors: {

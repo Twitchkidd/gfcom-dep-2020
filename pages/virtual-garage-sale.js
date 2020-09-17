@@ -19,6 +19,9 @@ import {
 } from '../utils';
 import { getAllItems } from '../lib';
 
+const blurb =
+	'Super great deals! Wide variety of never-before-posted art, antiques, and so much more!';
+
 const Header = styled.h1``;
 
 const Slide = styled.img`
@@ -144,7 +147,23 @@ const Card = ({ item, cat }) => {
 		price,
 		previousPrice,
 	} = item;
-	return (
+	return soldOn ? (
+		<CardWrap key={title} sold={soldOn !== ''} as='div' platform={platform}>
+			<DetailsWrap>
+				<h3>{title}</h3>
+				<p>{description}</p>
+			</DetailsWrap>
+			<ImageWrap>
+				<Image
+					src={require(`../public${image}`)}
+					loading={cat === 0 ? 'eager' : 'lazy'}
+				/>
+				<PriceTag>
+					<Price>Found a home!</Price>
+				</PriceTag>
+			</ImageWrap>
+		</CardWrap>
+	) : (
 		<CardWrap
 			key={title}
 			sold={soldOn !== ''}
@@ -176,22 +195,19 @@ const Card = ({ item, cat }) => {
 							${auctionPrice}/${price} Auction/Buy Now
 						</Price>
 					) : (
-						<>
+						<PriceTag>
 							<PreviousPrice>${previousPrice}</PreviousPrice>
 							<Price>
 								{' '}
 								${auctionPrice}/${price} Auction/Buy Now
 							</Price>
-						</>
+						</PriceTag>
 					)}
 				</PriceTag>
 			</ImageWrap>
-			{/* TODO {platform === 'Craigslist' ? null : <p>{startDate}</p>} */}
 		</CardWrap>
 	);
 };
-
-const blurb = "Let's find homes for everything Gareth needs to sell!";
 
 export default function VirtualGarageSale({ rows }) {
 	const [categories, setCategories] = useState(null);
@@ -200,6 +216,11 @@ export default function VirtualGarageSale({ rows }) {
 		const categoriesArray = Array.from(new Set(rows.map(row => row[2]).sort()));
 		const handledItems = rows.map(row => {
 			const attemptNumber = row[19] !== '*' ? 3 : row[12] !== '*' ? 2 : 1;
+			console.log(
+				[row[8], row[15], row[21]][attemptNumber - 1].includes(',')
+					? [row[8], row[15], row[21]][attemptNumber - 1].split(',')[0].trim()
+					: [row[8], row[15], row[21]][attemptNumber - 1]
+			);
 			return {
 				category: row[2],
 				soldOn: row[3],
@@ -263,9 +284,10 @@ export default function VirtualGarageSale({ rows }) {
 							/>
 						))}
 					</Carousel>
-					<Header>Virtual Garage Sale</Header>
+					<Header>Gareth's Virtual Garage Sale!</Header>
 					<Blurb>{blurb}</Blurb>
 					<ProgressWrap>
+						{`${totalPercent}% of items have found a home!`}
 						<Line
 							percent={totalPercent ? `${totalPercent}` : '0'}
 							strokeWidth='1'

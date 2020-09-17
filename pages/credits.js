@@ -34,6 +34,7 @@ export default function Credits() {
 				" icon used on the homepage is by Sumana Chamrunworakiat from{' '}
 				<a href='https://thenounproject.com'>The Noun Project</a>
 			</p>
+			<p>Thank you!</p>
 		</Layout>
 	);
 }
