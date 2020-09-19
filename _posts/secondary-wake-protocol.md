@@ -2,7 +2,7 @@
 title: Secondary Wake Protocol
 date: '2020-09-18T04:15:54.906Z'
 description: 'In which Gareth gets the picture!'
-coverImage: ''
+coverImage: 'dawaMobile.jpg'
 ---
 
 Good morning! Up early today! 3:35! I was thinking I could maybe get some more rest in or I could get up, when Dawa walks up to me, shakes himself out, and sits and looks at me. There is no mistaking that signal, it was time for _secondary wake protocol,_ where it goes, "Dog," then everything else. Hence the name. You want creativity, follow a designer, lol. I've got more of a 'boop bop beep' aesthetic at the moment.
