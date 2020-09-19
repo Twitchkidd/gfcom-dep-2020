@@ -20,3 +20,9 @@ CV!
 Oh, you know what I almost didn't even mention? That I've run linux servers on various platforms, and set up Nginx and all that. I think maybe my brain was just trying to protect itself and forget.
 
 Oooo I did it, did it did iiit YEA! I'm going to pick a cover image for this and post it up to the interwebs ... `goodVibes++`
+
+/// Much later! Good afternoon! 12:50! Ran 10 miles today, walked Dawa again and got myself to Washington Street Coffee House to force myself to work. Got a good email from the job people! I have a reading list and practice tests! Woohoo!!!
+
+First Craigslist posts, for the love of God, write the des riptions for the things that you can write the descriptions for, and the things that you end up needing to look at again to complete the description, do those when you get back home, and the pressure will be on to finish up the last few things on the list, rather than having a big-ole list in front of you.
+
+Mmm, okay, process, new entries need descriptions, photos, and then to be tested against the site, and _then_ I'll consider adding the link at the bottom of the posts. Unfortunately I've forgotten the yellow legal pad I took notes on. Zut. Okay, I can do all but one, fine, fine. Just have to complete this before my back pain entirely overwhelms me, because sitting at a laptop right now is like _no bueno._
