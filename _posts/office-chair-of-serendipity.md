@@ -18,3 +18,8 @@ Oh, no post from yesterday, right! I took the (first?) coding challenge for the 
 Yesterday was also a big cooking day! I figured out SNAP benefits, and I've got rice, beans, a soup that'll cure what ails you, and Dawa's dinner for tonight all ready, and the kitchen is mostly clean! It's a beautiful thing, and honestly being stuck in this apartment with Dawa, having the place clean and tidy is the only way work gets done.
 
 Much excitement! To the future!
+
+// Alrighty, from the future! I got Dawa out on a bike ride, we cut it short and just went behind the woods across the way and walked back, my Achilles is really feelin' it today. Then I went back out to get the trailer, then we went for another walk when I got the trailer and bike upstairs ... **should be good for a bit,** lol
+
+Ohhh, that's nice, I thought just maybe if I tried https://garethfield.com/virtual-garage-sale.html rather than just https://garethfield.com/virtual-garage-sale if might work ... it did! Yay!
+Now I'm going to post the link to it at the bottom of my posts, and it'll be good motivation to fix it :)
