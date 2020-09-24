@@ -2,7 +2,7 @@
 title: Scan It Send It Fax Rename It
 date: '2020-09-21T09:37:07.308Z'
 description: '--technologic--.'
-coverImage: ''
+coverImage: 'dawaWalking.jpg'
 ---
 
 Good morning! Woof, what a day so far ... we're going to pretend that it starts now though, 9:30am is a perfect time to forget everything that happened between 6:30 and 9, lol. Good things, good things ... someone else messaged me about the mirror, that's exciting, waiting to hear from the job folk, oh boy, and I just had the thought that maybe I could make my own app for the scanner since the default ... is fine, but I might be doing a LOT of scanning, it'd be cool to have my own thing, where it'd scan the document, prompt for info, and then save it to the right place based on that and upload it to Google Drive. There's a ... oh, commercial license?

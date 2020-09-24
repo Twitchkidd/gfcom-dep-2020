@@ -3,6 +3,7 @@ import PostPreview from './PostPreview';
 import { above, light } from '../utils';
 
 const MorePostsHeader = styled.h2`
+	width: 100%;
 	margin-bottom: 2rem;
 	font-size: 2.75rem;
 	font-weight: 700;
@@ -30,26 +31,47 @@ const PostsWrap = styled.div`
 `;
 
 export const MorePosts = ({ posts }) => (
-	<section>
+	<>
 		<MorePostsHeader>More Posts</MorePostsHeader>
-		<PostsWrap>
-			{posts.map(post => {
-				const { title, coverImage, date, description, slug } = post;
-				return (
-					<PostPreview
-						key={title}
-						title={title}
-						coverImage={
-							coverImage
-								? require(`../public/postCovers/${coverImage}`)
-								: require('../public/sweetGradient.png')
-						}
-						date={date}
-						description={description}
-						slug={slug}
-					/>
-				);
-			})}
-		</PostsWrap>
-	</section>
+		{posts.map(post => {
+			const { title, coverImage, date, description, slug } = post;
+			return (
+				<PostPreview
+					key={title}
+					title={title}
+					coverImage={
+						coverImage
+							? require(`../public/postCovers/${coverImage}`)
+							: require('../public/sweetGradient.png')
+					}
+					date={date}
+					description={description}
+					slug={slug}
+				/>
+			);
+		})}
+	</>
 );
+
+{
+	/* <MorePostsHeader>More Posts</MorePostsHeader>
+<PostsWrap>
+	{posts.map(post => {
+		const { title, coverImage, date, description, slug } = post;
+		return (
+			<PostPreview
+				key={title}
+				title={title}
+				coverImage={
+					coverImage
+						? require(`../public/postCovers/${coverImage}`)
+						: require('../public/sweetGradient.png')
+				}
+				date={date}
+				description={description}
+				slug={slug}
+			/>
+		);
+	})}
+</PostsWrap> */
+}

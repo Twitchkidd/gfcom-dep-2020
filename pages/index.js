@@ -333,6 +333,7 @@ const NavIndicatorText = styled.p`
 const Blurb = styled.p`
 	font-size: 1.125rem;
 	margin-bottom: 0;
+	margin-right: 40px;
 `;
 
 const QotDWrap = styled.blockquote`
@@ -881,11 +882,11 @@ export default function Index({ allPosts }) {
 										</DelightButton>
 										{/* <MoreLessShadowElement /> */}
 									</Header3>
-									<NavIndicator>
+									{/* <NavIndicator>
 										<NavIndicatorText tab={tabs[index]}>
 											{tabs[index]}
 										</NavIndicatorText>
-									</NavIndicator>
+									</NavIndicator> */}
 									<NavToggleButton>
 										<NavToggleButtonIcon />
 										<NavToggleButtonText>+</NavToggleButtonText>
@@ -1021,11 +1022,11 @@ export default function Index({ allPosts }) {
 									</Header3>
 								</MainOverlay>
 								<MainWrap>
-									<NavIndicator>
+									{/* <NavIndicator>
 										<NavIndicatorText tab={tabs[index]}>
 											{tabs[index]}
 										</NavIndicatorText>
-									</NavIndicator>
+									</NavIndicator> */}
 									<Panel>
 										<Running />
 									</Panel>

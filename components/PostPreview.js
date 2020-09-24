@@ -32,7 +32,7 @@ const Description = styled.p`
 `;
 
 const PostPreview = ({ title, coverImage, date, description, slug }) => (
-	<div>
+	<div style={{ marginBottom: '2rem' }}>
 		<PostPreviewLinkWrapH3>
 			<Link as={`/posts/${slug}`} href='/posts/[slug]'>
 				<PostPreviewA>{title}</PostPreviewA>
