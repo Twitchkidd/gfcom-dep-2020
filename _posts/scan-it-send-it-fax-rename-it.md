@@ -11,3 +11,7 @@ Interesting. Okay, so TWAIN is the API for working with images in applications, 
 
 Well, maybe I'll read another 40 pages, and look into twain.js ... oh, you can format disks with this ... I need to not be using this on my main machine until I know what the heck I'm doing, lol.
 Git push!
+
+// Wow, goodness, hello from the 24th. Good things have happened since! To the future!
+Best wishes,
+~g
