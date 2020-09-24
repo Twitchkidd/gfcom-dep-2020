@@ -1,12 +1,11 @@
 import styled from 'styled-components';
-import { HeroPost, MorePosts, PanelWrap } from './';
-// import { FrequencyGraphic, HeroPost, MorePosts, PanelWrap } from './';
+import { FrequencyGraphic, HeroPost, MorePosts, PanelWrap } from './';
 import { lighter } from '../utils';
 
 const TitleWrap = styled.div`
-	/* width: 100%; */
 	display: flex;
 	justify-content: flex-end;
+	/* justify-content: space-between; */
 `;
 
 const CodingTitle = styled.h2`
@@ -18,6 +17,7 @@ const CodingTitle = styled.h2`
 export const Coding = ({ allPosts }) => (
 	<PanelWrap>
 		<TitleWrap>
+			{/* <FrequencyGraphic posts={allPosts} /> */}
 			<CodingTitle>
 				Welcome to my blog! Answer to the question, "Where's he at?" Mostly
 				coding-related, mostly for future reference!

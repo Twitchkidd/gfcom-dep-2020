@@ -5,6 +5,7 @@ export * from './Container';
 export * from './CoverImage';
 export * from './DateFormatter';
 export * from './Dog';
+export * from './FrequencyGraphic';
 export * from './Global';
 export * from './Header';
 export * from './HeroPost';
