@@ -21,6 +21,10 @@ export const Coding = ({ allPosts }) => (
 			<CodingTitle>
 				Welcome to my blog! Answer to the question, "Where's he at?" Mostly
 				coding-related, mostly for future reference!
+				<a href='https://bit.ly/garethfieldresume' alt="Gareth's resume!">
+					Also, new resume! Now available for all of your website and app
+					development needs!
+				</a>
 			</CodingTitle>
 		</TitleWrap>
 		<HeroPost heroPost={allPosts[0]} />
