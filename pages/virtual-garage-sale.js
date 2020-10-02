@@ -2,6 +2,9 @@ import { useState, useEffect } from 'react';
 import styled from 'styled-components';
 // import addDays from 'date-fns/addDays';
 import Link from 'next/link';
+import { Container } from '../components';
+import SiteHeader from '../components/Header';
+import Footer from '../components/Footer';
 import { Carousel } from 'react-responsive-carousel';
 import { Line } from 'rc-progress';
 import { Layout } from '../components';
@@ -14,6 +17,7 @@ import {
 	darkBlue,
 	eigengrau,
 	elevation,
+	handleItem,
 	slugify,
 	veryLight,
 } from '../utils';
@@ -137,7 +141,6 @@ const PreviousPrice = styled(Price)`
 const Card = ({ item, cat }) => {
 	const {
 		soldOn,
-		startDate,
 		title,
 		description,
 		image,
@@ -146,6 +149,7 @@ const Card = ({ item, cat }) => {
 		auctionPrice,
 		price,
 		previousPrice,
+		previousAuctionPrice,
 	} = item;
 	return soldOn ? (
 		<CardWrap key={title} sold={soldOn !== ''} as='div' platform={platform}>
@@ -173,6 +177,7 @@ const Card = ({ item, cat }) => {
 			<DetailsWrap>
 				<h3>{title}</h3>
 				<p>{description}</p>
+				{/* THIS NEEDS A CHANGE */}
 				<p>Click/tap to go to {platform}.com!</p>
 			</DetailsWrap>
 			<ImageWrap>
@@ -181,27 +186,34 @@ const Card = ({ item, cat }) => {
 					loading={cat === 0 ? 'eager' : 'lazy'}
 				/>
 				<PriceTag>
-					{auctionPrice === '' ? (
-						previousPrice === '' ? (
-							<Price>${price}</Price>
+					{previousPrice ? (
+						previousAuctionPrice ? (
+							auctionPrice ? (
+								<>
+									<PreviousPrice>${previousPrice}</PreviousPrice>
+									<Price>
+										{' '}
+										${auctionPrice}/${price} Auction/Buy Now!
+									</Price>
+								</>
+							) : (
+								<>
+									<PreviousPrice>${previousPrice}</PreviousPrice>
+									<Price> {price}</Price>
+								</>
+							)
 						) : (
 							<>
 								<PreviousPrice>${previousPrice}</PreviousPrice>
 								<Price> {price}</Price>
 							</>
 						)
-					) : previousPrice === '' ? (
+					) : auctionPrice ? (
 						<Price>
-							${auctionPrice}/${price} Auction/Buy Now
+							${auctionPrice}/${price} Auction/Buy Now!
 						</Price>
 					) : (
-						<PriceTag>
-							<PreviousPrice>${previousPrice}</PreviousPrice>
-							<Price>
-								{' '}
-								${auctionPrice}/${price} Auction/Buy Now
-							</Price>
-						</PriceTag>
+						<Price>${price}</Price>
 					)}
 				</PriceTag>
 			</ImageWrap>
@@ -215,30 +227,9 @@ export default function VirtualGarageSale({ rows }) {
 	useEffect(() => {
 		const categoriesArray = Array.from(new Set(rows.map(row => row[2]).sort()));
 		const handledItems = rows.map(row => {
-			const attemptNumber = row[19] !== '*' ? 3 : row[12] !== '*' ? 2 : 1;
-			console.log(
-				[row[8], row[15], row[21]][attemptNumber - 1].includes(',')
-					? [row[8], row[15], row[21]][attemptNumber - 1].split(',')[0].trim()
-					: [row[8], row[15], row[21]][attemptNumber - 1]
-			);
-			return {
-				category: row[2],
-				soldOn: row[3],
-				startDate: [row[5], row[12], row[18]][attemptNumber - 1],
-				title: [row[6], row[13], row[19]][attemptNumber - 1],
-				description: [row[7], row[14], row[20]][attemptNumber - 1],
-				image: [row[8], row[15], row[21]][attemptNumber - 1].includes(',')
-					? [row[8], row[15], row[21]][attemptNumber - 1].split(',')[0].trim()
-					: [row[8], row[15], row[21]][attemptNumber - 1],
-				link: [row[9], row[16], row[22]][attemptNumber - 1],
-				platform: [row[9], row[16], row[22]][attemptNumber - 1].includes('ebay')
-					? 'eBay'
-					: 'Craigslist',
-				auctionPrice: [row[10], row[17], row[23]][attemptNumber - 1],
-				price: [row[11], row[18], row[24]][attemptNumber - 1],
-				previousPrice:
-					attemptNumber > 2 ? row[18] : attemptNumber > 1 ? row[11] : '',
-			};
+			const handledItem = handleItem(row);
+			console.log(handledItem);
+			return handledItem;
 		});
 		setCategories(
 			categoriesArray.map(category => ({
@@ -271,59 +262,63 @@ export default function VirtualGarageSale({ rows }) {
 	}, [categories]);
 	let flights = ['5', '1', '2', '3', '4'];
 	return (
-		<Layout>
-			{!categories ? null : (
-				<>
-					<Carousel>
-						{flights.map(f => (
-							<Slide
-								key={`Flight number ${f}.`}
-								src={require(`../public/virtualGarageSale/flight${f}.jpg`)}
-								alt={`Flights of items, batch ${f}.`}
-								loading='eager'
+		<Layout vgs={true}>
+			<Container>
+				<SiteHeader />
+				{!categories ? null : (
+					<>
+						<Carousel>
+							{flights.map((f, i) => (
+								<Slide
+									key={`Flight number ${f}.`}
+									src={require(`../public/virtualGarageSale/flight${f}.jpg`)}
+									alt={`Flights of items, batch ${f}.`}
+									loading={i === 0 ? 'eager' : 'lazy'}
+								/>
+							))}
+						</Carousel>
+						<Header>Gareth's Virtual Garage Sale!</Header>
+						<Blurb>{blurb}</Blurb>
+						<ProgressWrap>
+							{`${totalPercent}% of items have found a home!`}
+							<Line
+								percent={totalPercent ? `${totalPercent}` : '0'}
+								strokeWidth='1'
+								strokeColor={['#006600', veryLight]}
+								// strokeColor={[
+								// 	{
+								// 		'100%': `${darkBlue}`,
+								// 		'50%': `${darkPurple}`,
+								// 		'0%': `${darkPink}`,
+								// 	},
+								// 	veryLight,
+								// ]}
 							/>
+							{/* green? */}
+						</ProgressWrap>
+						<TableOfCategoriesWrap>
+							{categories.map(category => (
+								<CategoryButton key={category.name}>
+									<Link href={`/virtual-garage-sale#${slugify(category.name)}`}>
+										<CategoryButtonA>{category.name}</CategoryButtonA>
+									</Link>
+								</CategoryButton>
+							))}
+						</TableOfCategoriesWrap>
+						{categories.map((category, c) => (
+							<CategoryWrap key={category.name} id={slugify(category.name)}>
+								<CategoryHeader>{category.name}</CategoryHeader>
+								<CardsWrap>
+									{category.items.map(item => (
+										<Card key={item.title} item={item} cat={c} />
+									))}
+								</CardsWrap>
+							</CategoryWrap>
 						))}
-					</Carousel>
-					<Header>Gareth's Virtual Garage Sale!</Header>
-					<Blurb>{blurb}</Blurb>
-					<ProgressWrap>
-						{`${totalPercent}% of items have found a home!`}
-						<Line
-							percent={totalPercent ? `${totalPercent}` : '0'}
-							strokeWidth='1'
-							strokeColor={['#006600', veryLight]}
-							// strokeColor={[
-							// 	{
-							// 		'100%': `${darkBlue}`,
-							// 		'50%': `${darkPurple}`,
-							// 		'0%': `${darkPink}`,
-							// 	},
-							// 	veryLight,
-							// ]}
-						/>
-						{/* green? */}
-					</ProgressWrap>
-					<TableOfCategoriesWrap>
-						{categories.map(category => (
-							<CategoryButton key={category.name}>
-								<Link href={`/virtual-garage-sale#${slugify(category.name)}`}>
-									<CategoryButtonA>{category.name}</CategoryButtonA>
-								</Link>
-							</CategoryButton>
-						))}
-					</TableOfCategoriesWrap>
-					{categories.map((category, c) => (
-						<CategoryWrap key={category.name} id={slugify(category.name)}>
-							<CategoryHeader>{category.name}</CategoryHeader>
-							<CardsWrap>
-								{category.items.map(item => (
-									<Card key={item.title} item={item} cat={c} />
-								))}
-							</CardsWrap>
-						</CategoryWrap>
-					))}
-				</>
-			)}
+					</>
+				)}
+				<Footer />
+			</Container>
 		</Layout>
 	);
 }

@@ -6,7 +6,7 @@ import { metadata } from '../siteMetadata';
 
 const { siteDescription, siteTitle } = metadata;
 
-export const Layout = ({ children, home }) => {
+export const Layout = ({ children, home, vgs }) => {
 	return (
 		<>
 			<Head>
@@ -22,6 +22,8 @@ export const Layout = ({ children, home }) => {
 				<meta name='twitter:card' content='summary_large_image' />
 			</Head>
 			{home ? (
+				<>{children}</>
+			) : vgs ? (
 				<>{children}</>
 			) : (
 				<Container>
