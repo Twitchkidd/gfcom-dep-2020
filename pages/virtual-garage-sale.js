@@ -260,7 +260,7 @@ export default function VirtualGarageSale({ rows }) {
 			);
 		}
 	}, [categories]);
-	let flights = ['5', '1', '2', '3', '4'];
+	let flights = ['6', '5', '1', '2', '3', '4'];
 	return (
 		<Layout vgs={true}>
 			<Container>
