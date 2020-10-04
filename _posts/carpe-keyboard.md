@@ -16,3 +16,5 @@ Ahem. Anyway. Images. Drove myself approximately nutso by having my images in no
 // Much later, Dawa got ran, got some work done at the Arboretum, almost makes up for the pizza someone got for me last night, and just about done with the deets for the next set of posts for the VGS. Tomorrow morining should finish that saga up until it begins again ... good lord. It can only take less time after this, and super stoked about what I'm working on after that. Hang in, y'all, and best wishes! ~g
 
 P.S. Aww, the website doesn't build. Not super surprised. We can wait a day.
+
+// FUTURE ME JUST POSTED DOZENS OF LINKS TO A BROKEN SITE WHICH IS GREAT BECAUSE THE ITEMS ARE UP BUT NOT GREAT BECAUSE THE SITE IS BROKEN HERE WE GO!!!!!!!!!!!!
