@@ -10,3 +10,5 @@ Good morning! Must keep going! Up early, enjoying the weirdly warm weather (yike
 Oh, I lost so many green boxes to not checking my MOOC code into git! Oh well, I've got an alias for it now.
 
 Hoof, okay, we've MOOC'd, it's time to get Dawa some more fresh air before it starts raining here.
+
+// Future me: apparently we MOOC'd? Best wishes, ~g :)
