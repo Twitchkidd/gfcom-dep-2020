@@ -20,3 +20,10 @@ Fortunately the company he was interviewing with gave him the next day to do the
 Let's try pushing this update, test that that whole thing works, and I just used Docker for the first time ... going through the TerminusDB tutorials ... okgo ...
 
 Haha, yea, that was it, uploading one wrong chunk file brought down my site for a week. Nice.
+
+AHH so cool, the TerminusDB team responded when I DM'ed them on Twitter with a bug and it works now and this is so cooooool!!!
+
+/// Oh, NO. They actually did a code review of `master-blaster` ... oh my god ... this has to be a tomorrow thing, Dawa got a lot of attention late in the day because it was raining in the morning ... it's EIGHTEEN MINUTES. Jesus ...
+
+Best wishes.
+~g
