@@ -1,4 +1,5 @@
 import App from 'next/app';
+import { Flipper, Flipped } from 'react-flip-toolkit';
 import { ThemeProvider } from 'styled-components';
 import { Global } from '../components';
 import 'typeface-arvo';
@@ -14,10 +15,16 @@ const theme = {
 
 export default class MyApp extends App {
 	render() {
-		const { Component, pageProps } = this.props;
+		const { Component, pageProps, router } = this.props;
 		return (
 			<ThemeProvider theme={theme}>
-				<Component {...pageProps} />
+				<Flipper flipKey={router.asPath}>
+					<div>
+						<Flipped flipId='page'>
+							<Component {...pageProps} />
+						</Flipped>
+					</div>
+				</Flipper>
 				<Global />
 			</ThemeProvider>
 		);

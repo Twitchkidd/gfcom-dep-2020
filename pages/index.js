@@ -854,7 +854,7 @@ export default function Index({ allPosts }) {
 										</TabsWrap>
 										<PagesWrap>
 											{pages.map(page => (
-												<Link href={page.url} key={page.name}>
+												<Link href={page.url} key={page.name} as={page.url}>
 													<a>{page.name}</a>
 												</Link>
 											))}
